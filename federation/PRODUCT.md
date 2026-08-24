@@ -21,7 +21,7 @@ Principal needs design conventions and skills to read and apply on demand during
 Holds design-craft skills (RTL, Figma build/roundtrip/borrow, FigJam, preview-server, transcript-ingestion, UX critique, skill-creator), governance meta-skills (deploy, adopt, assess, promote, prune, migrate, gather, wrapup, new-component, render-html), and format specs (layered-deck, product-design) migrated from Harness.
 
 **Content requirements**
-Each skill/format file in its proven internal shape (frontmatter + body + `references/`/`scripts/`/`assets/` as needed) — Anthropic's standard skill format, reused not reinvented. A `README.md` indexing them. A `.principal/` cartridge like every other governed repo.
+Each skill/format file in its proven internal shape (frontmatter + body + `references/`/`scripts/`/`assets/` as needed) — Anthropic's standard skill format, reused not reinvented. A `README.md` indexing them. A `federation/` cartridge like every other governed repo.
 
 **Exclusions**
 Deloitte-branded assets (the `deloitte-pptx`/`deloitte-pptx-node` skills). Deloitte-internal data (the `figma-borrow` library index). Any client-identifying content (Poalim/Isracard references, hardcoded operator paths) — standing rule, not a one-time cleanup. Harness's own `initiatives/` tracking format (this repo uses Principal's own WORK.md convention instead). Harness's `HARNESS.md` master-index pattern (redundant with `README.md`, already this ecosystem's convention). Personal Designer preferences (the Roey repo's domain). Universal collaboration principles (CULTURE.md's domain). Per-project design application (stays in each project's own `DESIGN.md`).
@@ -34,7 +34,7 @@ Deloitte-branded assets (the `deloitte-pptx`/`deloitte-pptx-node` skills). Deloi
 A reader — human or Principal — opens `README.md` for orientation, then goes to `formats/` or `skills/` for the specific thing needed. Skills are read on-demand, matching Principal's own `skills/` convention ("read only when the current session requires a specific procedure") — not loaded at every session's Initiation, unlike the Roey repo's cartridge, which is universal context about the Designer rather than situational tooling.
 
 **Information architecture**
-`README.md` + `.principal/{PRODUCT.md, WORK.md}` + `formats/` + `skills/` + `references/`. Each governed project's own `DESIGN.md` cites into this repo rather than duplicating its content.
+`README.md` + `federation/{RESOURCE.md, PRODUCT.md, WORK.md}` + `formats/` + `skills/` + `references/`. Each governed project's own `DESIGN.md` cites into this repo rather than duplicating its content.
 
 ---
 

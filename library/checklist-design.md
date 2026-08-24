@@ -38,8 +38,7 @@ npx skills add checklist-design/skills
 Found while diagnosing a real Sharon interaction bug (2026-08-24) — an
 adjacent Save/Cancel icon pair with no visual or spatial distinction between
 a confirm and a discard action. Kept as a library pointer rather than
-installed, pending `design-studio`'s own conformance work (admission
-procedure, artifact-level stewardship — see the federation registry's
-`design-studio` entry). Install it locally in a project now if the need is
-immediate; this entry exists so the option isn't re-researched from scratch
-next time.
+installed: Design Studio's declared delivery path is citation and on-demand
+reading. A shared skill-installation mechanism would be a separate adoption
+decision. Install it locally in a project now if the need is immediate; this
+entry exists so the option isn't re-researched from scratch next time.
