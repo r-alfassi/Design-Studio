@@ -10,7 +10,8 @@ This repo never accumulates client-identifying content. That was the specific dr
 |---|---|
 | `formats/` | Deliverable/artifact specs — what a correctly-formed design output looks like |
 | `skills/` | Procedures — governance meta-skills (deploy, adopt, assess, promote, prune, migrate, gather, wrapup, new-component, render-html) and design-craft workflows (RTL, Figma build/roundtrip/borrow, FigJam, preview-server, transcript-ingestion, UX critique, skill-creator) |
-| `references/` | Supporting reference material |
+| `references/` | This repo's own operational how-tos (tool setup, connection config) |
+| `library/` | External, non-binding design/UX resources worth returning to — frameworks, pattern catalogs, methodologies this repo didn't author. Governs nothing; a shelf, not a procedure. |
 
 ## How a project links in
 
