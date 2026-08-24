@@ -32,10 +32,11 @@ Summary tree (mirrors document order — most urgent first):
   action may warrant an additional prevention step. The resulting bounded
   application is a design consideration — add deliberate separation or friction
   in proportion to consequence — not an instruction to alter Sharon.
-- **Disposition:** Principal's current compact-2026-08-24 review records this
-  resource as Candidate / Verified / Available. Candidate standing remains: a
-  Designer registration decision is separate. Shared skill loading is
-  explicitly out of scope until a separate adoption decision.
+- **Disposition:** The Designer registered this resource on 2026-08-24 after
+  Principal's current compact-2026-08-24 review and path test. It is
+  Registered / Verified / Available through its declared non-speaking resource
+  route. Shared skill loading is explicitly out of scope until a separate
+  adoption decision.
 
 ---
 
