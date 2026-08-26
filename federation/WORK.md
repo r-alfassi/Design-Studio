@@ -7,13 +7,47 @@ Only living initiatives appear here; completed work is recorded in git commit hi
 
 ## Overview
 
-**Active:** [Q-53] Figma-to-production loop pilot.
+**Active:** [Q-54] Global Design Studio skill availability; [Q-53] Figma-to-production loop pilot.
 
 Summary tree (mirrors document order — most urgent first):
+- **[Q-54] Global Design Studio skill availability** — make the Studio a
+  directly discoverable, user-scoped workshop for every product project while
+  retaining its repository as the canonical source.
 - **[Q-53] Figma-to-production loop pilot** — establish a Figma-first,
   evidence-backed iteration path before Sharon production changes.
 - **[Q-52] Design Studio conformance** — declare resource authority and test
   its on-demand access-and-interpretation path on the Sharon design case.
+
+---
+
+## [Q-54] Global Design Studio skill availability
+
+Initiated 2026-08-26
+
+- **Decision:** Design Studio is the Suit's readily available workshop for any
+  product project. Its reusable procedures must therefore be globally
+  discoverable to Codex for this user, rather than available only through
+  Principal citation from the Design Studio repository.
+- **Target posture:** `C:\Roey\Studio\design-studio` remains the canonical,
+  version-controlled source. Each current Design Studio skill is exposed at
+  Codex's user discovery scope through a link, rather than copied into a
+  divergent local installation. Formats, library material, and references
+  remain repository material reached through the selected skill.
+- **Guardrails:** Global discovery is not global authority or automatic use.
+  A skill remains bounded by its own description and is loaded only when
+  selected. Project-specific decisions remain in the project. No plugin,
+  marketplace publication, connector, or client-content change is part of
+  this pilot.
+- **Exit evidence:** From a non-Design-Studio product repository, Codex lists
+  the linked skills; an explicit invocation and a matching implicit task load
+  a selected skill correctly; an upstream Design Studio edit is reflected
+  without a duplicate copy; link removal or disablement has a documented,
+  reversible path. The access path is verified on this workstation before any
+  wider distribution decision.
+- **Non-goals:** Do not turn every Design Studio resident into a project
+  dependency, preload full skill instructions into sessions, or claim
+  availability on another person's machine. A plugin is deferred until the
+  workshop needs distribution beyond this locally governed environment.
 
 ---
 
