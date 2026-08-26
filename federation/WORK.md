@@ -44,6 +44,15 @@ Initiated 2026-08-26
   without a duplicate copy; link removal or disablement has a documented,
   reversible path. The access path is verified on this workstation before any
   wider distribution decision.
+- **Current evidence:** Ten user-scope Windows directory junctions point
+  directly to the canonical packages, with no copied installation. A fresh
+  Desktop-host session lists all ten from `C:\Users\User\.agents\skills`,
+  including `figma-production-loop`; the availability path is therefore
+  accepted for this workstation. An earlier CLI-only negative was isolated to
+  the separate `CodexSandboxOffline` home and is not host evidence. Explicit
+  and implicit selection will be exercised by the next real Design Studio
+  task; no artificial Design Studio edit is needed merely to prove that a
+  junction reflects its target.
 - **Non-goals:** Do not turn every Design Studio resident into a project
   dependency, preload full skill instructions into sessions, or claim
   availability on another person's machine. A plugin is deferred until the
