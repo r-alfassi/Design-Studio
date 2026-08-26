@@ -44,15 +44,16 @@ Initiated 2026-08-26
   without a duplicate copy; link removal or disablement has a documented,
   reversible path. The access path is verified on this workstation before any
   wider distribution decision.
-- **Current evidence:** Ten user-scope Windows directory junctions point
+- **Current evidence:** Eleven user-scope Windows directory junctions point
   directly to the canonical packages, with no copied installation. A fresh
-  Desktop-host session lists all ten from `C:\Users\User\.agents\skills`,
-  including `figma-production-loop`; the availability path is therefore
-  accepted for this workstation. An earlier CLI-only negative was isolated to
-  the separate `CodexSandboxOffline` home and is not host evidence. Explicit
-  and implicit selection will be exercised by the next real Design Studio
-  task; no artificial Design Studio edit is needed merely to prove that a
-  junction reflects its target.
+  Desktop-host session lists the linked skills from
+  `C:\Users\User\.agents\skills`, including `figma-production-loop` and the
+  newly admitted `checklist-design`; the availability path is accepted for
+  this workstation. An earlier CLI-only negative was isolated to the separate
+  `CodexSandboxOffline` home and is not host evidence. Explicit and implicit
+  selection will be exercised by the next real Design Studio task; no
+  artificial Design Studio edit is needed merely to prove that a junction
+  reflects its target.
 - **Non-goals:** Do not turn every Design Studio resident into a project
   dependency, preload full skill instructions into sessions, or claim
   availability on another person's machine. A plugin is deferred until the
@@ -116,6 +117,8 @@ Initiated 2026-08-26
   adoption decision.
 
 ---
+
+Closed 2026-08-26, recorded in git: Q-55 (Checklist Design skill admission). The Designer approved admission of `Checklist-Design/skills` v3.2.1 (`d5c2e833c9a2a17792751a67f86f2ca4aca0c14b`) as an MIT-licensed third-party procedure. The canonical Design Studio snapshot preserves the source package unchanged plus its upstream `LICENSE`; a scoped client-content scan and independent Care Circle discovery test passed. Sharon's matching untracked local package and its one-entry stale lock were removed only after that global proof.
 
 Closed 2026-07-26, recorded in git (`dabd51b`): C-01/Q-01 (bootstrap from Harness). `formats/`, `skills/`, `references/` populated per the reuse manifest, verified independently (not just self-reported): a scoped grep across all three directories for "Deloitte"/"Poalim"/"Isracard"/the source operator's username returns zero matches; `figma-borrow/` carries no library index; `figma-roundtrip/scripts/` carries no client-sourced scripts; `figma-build`'s and `figjam`'s worked examples are genuinely replaced with neutral placeholders, not just flagged, confirmed by direct inspection. `render-html.js` was read in full and confirmed to resolve all paths from its own arguments — no hardcoded paths of any kind. One honest residual: a repo-wide grep still matches inside this file's own history and `PRODUCT.md`/`README.md`, because those governance docs necessarily name what was excluded when describing the scrub — not a leak, correctly left alone rather than scrubbed into vagueness.
 
