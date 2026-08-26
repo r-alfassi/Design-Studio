@@ -7,9 +7,43 @@ Only living initiatives appear here; completed work is recorded in git commit hi
 
 ## Overview
 
+**Active:** [Q-53] Figma-to-production loop pilot.
+
 Summary tree (mirrors document order — most urgent first):
+- **[Q-53] Figma-to-production loop pilot** — establish a Figma-first,
+  evidence-backed iteration path before Sharon production changes.
 - **[Q-52] Design Studio conformance** — declare resource authority and test
   its on-demand access-and-interpretation path on the Sharon design case.
+
+---
+
+## [Q-53] Figma-to-production loop pilot
+
+Initiated 2026-08-26
+
+- **Purpose:** Let a project iterate visual construction cheaply in Figma while
+  retaining a bounded, checkable path to production. Figma deltas must not
+  silently become product or platform commitments, and production changes must
+  not require pushing every exploratory adjustment into the application.
+- **Surfaces:** `formats/figma-change-log.md` specifies the project change
+  record; `formats/figma-implementation-contract.md` specifies the bounded
+  Figma-to-production mapping; `skills/figma-production-loop/SKILL.md`
+  orchestrates the loop and refers to existing procedures rather than copying
+  them. `adapters/android-views.md` is explicitly Android Views-only.
+- **Pilot:** Sharon is the first project instance. Its records will be root
+  files (`FIGMA-CHANGELOG.md` and `FIGMA-TRANSLATION.md`) beside `DESIGN.md`;
+  no directory is created for two files. The component/screen is intentionally
+  not selected yet: the next real Sharon design change supplies the candidate.
+- **Exit evidence:** One explicitly contracted Figma component or screen has a
+  linked decision, change-log delta, mapping with named intentional platform
+  differences, separately authorized implementation, and production/device
+  verification. The pass must show whether the loop reduces avoidable
+  production churn without creating a second product history.
+- **Non-goals:** Do not claim Figma parity for an uncontracted node; do not
+  treat Figma as authority for data, accessibility, interaction, permissions,
+  or Android lifecycle; do not broaden the Android Views adapter to Compose;
+  do not create or change Sharon production code merely to demonstrate the
+  process.
 
 ---
 
