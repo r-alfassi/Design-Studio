@@ -34,9 +34,15 @@ silently copied back into Figma.
 - **Governing decision:** Exact DESIGN.md/product/work link.
 - **Visual construction:** Tokens, variants, hierarchy, sizing, and layout
   invariants that production must preserve.
-- **Production mapping:** Target screen/component and its containers. State
-  one-to-many or many-to-one mappings where true; never invent one-to-one
-  correspondence for convenience.
+- **Container topology:** Named Figma parent/child containers and their roles.
+  For each material visible container, record flow direction, padding, gap,
+  alignment, sizing behavior, and any scroll, clip, or semantic overlay rule.
+  Normal flow must be nested Auto Layout in Figma, not absolute placement
+  arranged to look correct at one size.
+- **Production mapping:** Target screen/component and its containers. Map the
+  Figma topology to production owners and state one-to-many or many-to-one
+  mappings where true; never invent one-to-one correspondence or wrapper Views
+  merely for superficial parity.
 - **Intentional differences:** Named Android/platform/runtime difference, why
   it exists, and its reconciliation route if one is expected.
 - **Status and evidence:** Exploring, accepted for translation, implemented,
@@ -48,6 +54,6 @@ governing documents instead of duplicating their history or rationale.
 
 ## Quality check
 
-Can a cold reader tell exactly what Figma governs, what production implements,
-where they intentionally differ, and what evidence supports their current
-relationship?
+Can a cold reader trace every material visible container from Figma through
+the production mapping, identify its layout rule and intentional differences,
+and tell what evidence supports the current relationship?

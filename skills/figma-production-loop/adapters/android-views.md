@@ -10,10 +10,15 @@ does not cover Jetpack Compose.
   semantic container, and a purely editorial Figma frame may have no runtime
   counterpart.
 - Record every material container mapping in the project contract. The mapping
-  must name the production owner and any deliberate difference.
+  must name the production owner, its parent/child role, and any deliberate
+  difference.
 - Use Android density-independent units for dimensions. Preserve token meaning,
-  padding, gap, sizing behavior, and state boundaries before chasing visual
-  pixel parity.
+  padding, gap, alignment, sizing behavior, overflow, and state boundaries
+  before chasing visual pixel parity.
+- In Figma, use nested Auto Layout frames to represent normal container flow.
+  Absolute positioning is reserved for a named semantic overlay; it must map
+  to an intentional Android layering mechanism, not conceal a missing
+  container relationship.
 - Prefer the smallest Android layout mechanism that preserves the invariant;
   do not introduce a wrapper only to mimic Figma's layer count.
 
@@ -39,5 +44,6 @@ misrepresent the contract.
 
 ## Quality check
 
-Can the contract explain each material container, sizing rule, state boundary,
-and deliberate difference without implying false one-frame/one-view parity?
+Can the contract trace each material container's parent/child role, layout
+rule, state boundary, and deliberate difference without implying false
+one-frame/one-view parity?

@@ -36,8 +36,13 @@ observation as a design instruction.
    not log exploratory pixel nudges that have no decision or translation
    consequence.
 4. **Update the implementation contract.** State the visual invariants,
-   production-container mapping, and intentional platform differences. Read
-   [Android Views guidance](adapters/android-views.md) when that is the target.
+   precise container topology, production-container mapping, and intentional
+   platform differences. For every material visual container, name its
+   parent/child role and layout rule (direction, padding, gap, alignment,
+   sizing, scrolling or semantic overlay). In Figma, represent normal flow
+   with nested Auto Layout frames; do not use absolute placement to fake a
+   container. Read [Android Views guidance](adapters/android-views.md) when
+   that is the target.
 5. **Pass the promotion gate.** A production change requires a named Figma
    scope, governing decision, accepted contract entry, and separately granted
    implementation authority. Iterating in Figma does not authorize a code
@@ -53,6 +58,11 @@ contracted nodes: tokens, anatomy, variants, and layout. `DESIGN.md` owns
 product and design decisions; production code owns runtime/platform behavior.
 Figma does not decide data, accessibility, interaction, permissions, or Android
 lifecycle merely because it is iterated first.
+
+Container fidelity is a required part of visual construction. It means the
+Figma hierarchy must truthfully express the containers that create the visible
+result, while the contract explicitly records valid one-to-many or many-to-one
+Android mappings. It does not require a decorative one-frame/one-View copy.
 
 Referenced skills remain their own authorities. Do not copy or silently broaden
 them. Review this loop if a referenced skill changes its scope or interface.
