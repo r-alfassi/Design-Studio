@@ -11,8 +11,9 @@ Only living initiatives appear here; completed work is recorded in git commit hi
 
 Summary tree (mirrors document order — most urgent first):
 - **[Q-54] Global Design Studio skill availability** — make the Studio a
-  directly discoverable, user-scoped workshop for every product project while
-  retaining its repository as the canonical source.
+  directly discoverable workshop in every session, across Codex and Claude
+  Code, by per-skill directory junction into each tool's skill-discovery
+  scope; the repository stays the canonical source and nothing is copied.
 - **[Q-53] Figma-to-production loop pilot** — establish a Figma-first,
   evidence-backed iteration path before Sharon production changes.
 - **[Q-52] Design Studio conformance** — declare resource authority and test
@@ -22,42 +23,67 @@ Summary tree (mirrors document order — most urgent first):
 
 ## [Q-54] Global Design Studio skill availability
 
-Initiated 2026-08-26
+Initiated 2026-08-26 · Mechanism decided 2026-08-30
 
-- **Decision:** Design Studio is the Suit's readily available workshop for any
-  product project. Its reusable procedures must therefore be globally
-  discoverable to Codex for this user, rather than available only through
-  Principal citation from the Design Studio repository.
-- **Target posture:** `C:\Roey\Studio\design-studio` remains the canonical,
-  version-controlled source. Each current Design Studio skill is exposed at
-  Codex's user discovery scope through a link, rather than copied into a
-  divergent local installation. Formats, library material, and references
-  remain repository material reached through the selected skill.
-- **Guardrails:** Global discovery is not global authority or automatic use.
-  A skill remains bounded by its own description and is loaded only when
-  selected. Project-specific decisions remain in the project. No plugin,
-  marketplace publication, connector, or client-content change is part of
-  this pilot.
-- **Exit evidence:** From a non-Design-Studio product repository, Codex lists
-  the linked skills; an explicit invocation and a matching implicit task load
-  a selected skill correctly; an upstream Design Studio edit is reflected
-  without a duplicate copy; link removal or disablement has a documented,
-  reversible path. The access path is verified on this workstation before any
-  wider distribution decision.
-- **Current evidence:** Eleven user-scope Windows directory junctions point
-  directly to the canonical packages, with no copied installation. A fresh
-  Desktop-host session lists the linked skills from
-  `C:\Users\User\.agents\skills`, including `figma-production-loop` and the
-  newly admitted `checklist-design`; the availability path is accepted for
-  this workstation. An earlier CLI-only negative was isolated to the separate
-  `CodexSandboxOffline` home and is not host evidence. Explicit and implicit
-  selection will be exercised by the next real Design Studio task; no
-  artificial Design Studio edit is needed merely to prove that a junction
-  reflects its target.
+- **Decision:** Design Studio is the Suite's readily available workshop for any
+  product project, across **both** agent tools this user runs it under — Codex
+  and Claude Code — not reached only through Principal citation from the
+  repository.
+- **Target posture:** `C:\Roey\Studio\design-studio` stays the canonical,
+  version-controlled source. Every exposure path reads the repository files
+  **in place** — no copied or cached installation, ever. Formats, library
+  material, and references remain repository material reached through the
+  selected skill.
+- **Mechanism (per tool, per-skill directory junction into that tool's own
+  skill-discovery scope):**
+  - *Codex* — `~/.agents/skills/<name>` → `<repo>/skills/<name>`.
+  - *Claude Code* — `~/.claude/skills/<name>` → `<repo>/skills/<name>`. Verified
+    in the CLI source (v2.1.78) that the user-skill loader accepts junction and
+    symlink entries; it scans one level, so links are per-skill, not one
+    repo-level link. `skill-creator` is excluded here — the
+    `claude-plugins-official` plugin already owns that name.
+  - `bin/link-skills.ps1` creates, repoints, and prunes the junctions for both
+    scopes; it is the deploy-and-repair tool, run on a new machine and whenever
+    a package is added or renamed. It links, never copies.
+- **Rejected mechanisms:** `claude plugin install` (from a local marketplace)
+  copies each plugin into a versioned cache under `~/.claude/plugins/cache/` —
+  a snapshot that goes stale until `/plugin update` re-copies; this is the
+  synced copy the target posture forbids. `--plugin-dir` loads a plugin in
+  place with no copy, but is consumed only as a `claude` CLI flag at process
+  start; the VSCode extension spawns `claude` with no shell, so its
+  `claudeProcessWrapper` must be a native `.exe` — a script wrapper cannot
+  carry the flag, and the Designer's entry path is `/principal` in that
+  extension. A local plugin package (`.claude-plugin/plugin.json`) is not
+  precluded for a future distribution need, but is not the load mechanism now.
+- **Scope:** Loaded for every session on this workstation, federation or not
+  (Designer decision, 2026-08-30). Acceptable because skills are
+  description-gated — nothing loads until selected — so this neither preloads
+  instructions nor creates project dependencies.
+- **Governance:** The `/principal` entry procedure verifies the Design Studio
+  craft skills resolve and, if a needed one is absent, names it unavailable
+  material context and directs the Designer to run `bin/link-skills.ps1`
+  (effective on the next session start). The link script is the mechanism;
+  the entry adapter is the check.
+- **Exit evidence:** (1) From a non-Design-Studio repository, both tools list
+  the skills. (2) An explicit invocation and a matching implicit task each load
+  a selected skill. (3) An upstream edit to a skill is reflected in the next
+  session with no resync step, in both tools. (4) A wrapper/link-absent launch
+  is caught by the `/principal` check. (5) Link removal or disablement has a
+  documented, reversible path (`link-skills.ps1` prune, or manual `rmdir` of
+  the junction).
+- **Current evidence:** Codex scope — eleven junctions in `~/.agents/skills`,
+  in place since 2026-08-26, verified under Codex. Claude Code scope — ten
+  junctions created in `~/.claude/skills` on 2026-08-30 by `link-skills.ps1`;
+  the running Claude Code session picked them up live (all ten offered in the
+  skill list) without a restart, and `rtl/SKILL.md` was confirmed to resolve
+  through the junction. The earlier "accepted for this workstation" claim was
+  withdrawn as Codex-only (JOURNAL 2026-08-30); it is now met for both tools on
+  this workstation. Exit items 2 and 4 await the next real Design Studio task
+  and the `/principal` check landing.
 - **Non-goals:** Do not turn every Design Studio resident into a project
-  dependency, preload full skill instructions into sessions, or claim
-  availability on another person's machine. A plugin is deferred until the
-  workshop needs distribution beyond this locally governed environment.
+  dependency, preload full skill instructions into sessions, publish a
+  marketplace, or claim availability on another person's machine. Distribution
+  beyond this locally governed workstation stays out of scope.
 
 ---
 
