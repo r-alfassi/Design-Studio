@@ -1,6 +1,8 @@
-# RTL in HTML
+# RTL ↔ LTR in HTML
 
-> Read [`SKILL.md`](../SKILL.md) for the core RTL principles before this file.
+> Read [`SKILL.md`](../SKILL.md) first — this file assumes the Horizontal Mirror Principle and workflow phases defined there.
+
+HTML is the one medium where the platform gives you the mirror for free: the `dir` attribute flips reading direction, and logical CSS properties + flexbox/grid follow it automatically. Most of the manual work described for Figma (reversing child order by hand) is unnecessary here — get `dir` and logical properties right, and the browser does the element-order mirror itself.
 
 ---
 
@@ -8,9 +10,11 @@
 
 ```html
 <html dir="rtl" lang="he">
+<!-- or, converting back: -->
+<html dir="ltr" lang="en">
 ```
 
-This single attribute flips the default reading direction for the entire document. Most CSS properties with a directional meaning (`text-align`, `float`, `margin-inline-start`, etc.) respect `dir` automatically. Set it once on the root — do not re-declare it on every child element.
+This single attribute flips the default reading direction for the entire document, in either direction. Most CSS properties with a directional meaning (`text-align`, `float`, `margin-inline-start`, etc.) respect `dir` automatically. Set it once on the root — do not re-declare it on every child element.
 
 ---
 
@@ -48,9 +52,11 @@ With `dir="rtl"`, the browser defaults text to right-aligned. Setting `text-alig
 
 ## Flexbox and Grid
 
-With `dir="rtl"`, flexbox `row` direction reverses automatically — `flex-start` becomes the right edge, `flex-end` becomes the left edge. Grid column placement follows the same logic.
+With `dir="rtl"`, flexbox `row` direction reverses automatically — `flex-start` becomes the right edge, `flex-end` becomes the left edge. Grid column placement follows the same logic. Switching back to `dir="ltr"` restores the default left-to-right mapping — no code change needed, since `flex-start`/`flex-end` are logical, not physical.
 
-**Do not use `flex-direction: row-reverse` as an RTL workaround.** It double-flips when `dir="rtl"` is also set. Remove it.
+This is the HTML equivalent of the Horizontal Mirror Principle's "element order" layer — the browser performs the reversal for you as long as you used `flex-start`/`flex-end` (not hardcoded `left`/`right`) and didn't hardcode a direction on the flex container itself.
+
+**Do not use `flex-direction: row-reverse` as an RTL workaround.** It double-flips when `dir="rtl"` is also set, and un-flips incorrectly if the page is ever converted back to LTR. Remove it — let `dir` do the work.
 
 ---
 
@@ -119,10 +125,10 @@ With `dir="rtl"`, the browser moves the scrollbar to the left. This is correct b
 
 ## Checklist
 
-- [ ] `<html dir="rtl" lang="he">` set on the root element
+- [ ] `<html dir="...">` set on the root element to the target direction (`rtl`/`lang="he"` or `ltr`/`lang="en"`, as applicable)
 - [ ] Logical CSS properties used (`margin-inline-*`, `padding-inline-*`) — or `[dir="rtl"]` overrides for LTR-based stylesheets
 - [ ] No `flex-direction: row-reverse` used as an RTL workaround
-- [ ] LTR islands (`numbers`, `code`, `email`, `phone`) marked with `dir="ltr"` or `direction: ltr; unicode-bidi: embed`
-- [ ] Directional icons mirrored via `scaleX(-1)`
-- [ ] Text `<input>` and `<textarea>` fields for Hebrew content have `dir="rtl"` set explicitly
-- [ ] Action buttons sit at the **left edge** of their container
+- [ ] LTR islands (`numbers`, `code`, `email`, `phone`) marked with `dir="ltr"` or `direction: ltr; unicode-bidi: embed`, regardless of the document's own direction
+- [ ] Directional icons mirrored via `scaleX(-1)` for the target direction
+- [ ] Text `<input>` and `<textarea>` fields for Hebrew/Arabic content have `dir="rtl"` set explicitly
+- [ ] Action buttons sit at the trailing edge for the target direction (left for LTR, right for RTL)
