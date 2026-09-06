@@ -20,8 +20,10 @@ design, or implementation decisions.
 | Artifact set | Status | What it governs or supports |
 | --- | --- | --- |
 | `README.md`, this declaration, and `federation/PRODUCT.md` | Normative governance | Resource scope, boundaries, and durable product definition. |
+| `CONVENTIONS.md` | Normative | Rules about how the skills are named and consumed — not design-craft doctrine. |
 | `formats/` | Normative format specifications | The required shape of a named design deliverable when that format is selected. |
-| `skills/` | Normative procedures | Reusable design and design-governance workflows. A skill's own references, scripts, mappings, and assets are part of that procedure only when the skill names their role. |
+| `skills/` | Normative procedures | Reusable design and design-governance workflows. A skill's own references, scripts, mappings, and assets are part of that procedure only when the skill names their role. A vendored third-party skill keeps its upstream `LICENSE` alongside its `SKILL.md`. |
+| `skills-lock.json` | Evidence — provenance record | Source, pinned upstream ref, license, and content hash for each third-party skill vendored into `skills/`. Not doctrine; the integrity trail for the admission path. |
 | `references/` | Evidence | Operational guidance that may support a bounded inference; it is not normative merely because of location. |
 | Unclaimed skill-local scripts, mappings, and assets | Tool or implementation support | Non-source material; it has no normative force unless an enclosing normative procedure declares its role. |
 | `library/` | External evidence | Attributed, non-binding resources owned by their original authors. Design Studio stewards only its pointer and short application notes. |

@@ -7,7 +7,7 @@ Only living initiatives appear here; completed work is recorded in git commit hi
 
 ## Overview
 
-**Active:** [Q-54] Global Design Studio skill availability; [Q-53] Figma-to-production loop pilot.
+**Active:** [Q-54] Global Design Studio skill availability; [Q-53] Figma-to-production loop pilot; [Q-60] cartridge-reference conformance; [Q-61] image-gen adoption.
 
 Summary tree (mirrors document order — most urgent first):
 - **[Q-54] Global Design Studio skill availability** — make the Studio a
@@ -16,6 +16,13 @@ Summary tree (mirrors document order — most urgent first):
   scope; the repository stays the canonical source and nothing is copied.
 - **[Q-53] Figma-to-production loop pilot** — establish a Figma-first,
   evidence-backed iteration path before Sharon production changes.
+- **[Q-60] Cartridge-reference conformance** — the meta-skills still say
+  `.harness/01_PROJECT.md` etc.; align them with the federation cartridge
+  (`federation/PRODUCT.md` / `WORK.md`). Surfaced by Q-59's line-diff pass.
+- **[Q-61] image-gen adoption** — bring in the `image-gen` skill from the
+  Workspace_0 branch; it assumes the old `visuals/base.json` + `frames.json`
+  split and needs reconciling with the `video` format's current `FRAMES.md`
+  model. Deferred from Q-59's batch.
 - **[Q-52] Design Studio conformance** — declare resource authority and test
   its on-demand access-and-interpretation path on the Sharon design case.
 
@@ -120,6 +127,44 @@ Initiated 2026-08-26
 
 ---
 
+## [Q-60] Cartridge-reference conformance
+
+🌱 Seed — surfaced 2026-09-06 by Q-59's line-diff pass
+
+- **Problem:** the governance meta-skills (`adopt`, `deploy`, `promote`,
+  `prune`, `wrapup`, `figma-borrow`, `transcript-ingestion`) still instruct
+  writing to `.harness/01_PROJECT.md`, `.harness/02_PRD.md`, `.harness/03_BUILD.md`
+  etc. — the pre-federation cartridge. The federation cartridge is
+  `federation/PRODUCT.md` / `WORK.md` / `SYSTEM.md` plus the standards. Both the
+  Workspace_0 branch and design-studio carried this drift; it predates Q-59.
+- **Also:** `deploy.md`/`adopt.md` still name `product-mockup` where the current
+  format is `product-design`.
+- **Outcome:** the meta-skills reference the current cartridge model. Whether
+  the skills keep a `.harness/`-style local cartridge for *non-federated*
+  projects, or move wholesale to the `federation/` shape, is the open design
+  question — not assumed.
+- **Done when:** TBD — concrete before the first Task.
+
+---
+
+## [Q-61] image-gen adoption
+
+🌱 Seed — deferred from Q-59's batch 2026-09-06
+
+- **Problem:** the `image-gen` skill (Workspace_0 branch, `skills/image-gen/`)
+  is a two-part JSON prompting workflow for cinematic image generation, coupled
+  to the `video` format. It assumes `visuals/base.json` + `visuals/frames.json`;
+  the `video` format has since merged those into `FRAMES.md` (confirmed during
+  the Adama work, 2026-09-06). Adopting it as-is would ship a skill that points
+  at a structure the format no longer uses.
+- **Outcome:** `image-gen` adopted into `skills/`, its base/shot-prompt loading
+  reconciled with whatever the `video` format's current per-shot spec model is
+  (`FRAMES.md`, or `base.json` if the format keeps both paths — that needs
+  settling too).
+- **Done when:** TBD.
+
+---
+
 ## [Q-52] Design Studio conformance
 
 ✅ Complete 2026-08-24
@@ -146,6 +191,8 @@ Initiated 2026-08-26
   adoption decision.
 
 ---
+
+Closed 2026-09-06, recorded in git: Q-59 adoption batch (Workspace_0 → federation synthesis, Principal-owned in `../principal/federation/WORK.md`). Adopted 3 formats (`strategic-deck` — the renamed+restructured `layered-deck`, kept as a deprecation stub; `video`; `ux-benchmark`), 8 design skills (`figma-audit-structure`, `figma-conversion-skill-builder`, `figma-design-system`, `figma-ds-recreate` — given the library-agnostic `figma-borrow` treatment; `translate`, `screenshot-verify`, `md-renderer`, `pptx-to-md-skill`), 3 fold-deltas (`figma-build` §6 Plugin-API-vs-MCP boundary; `wrapup` no-silent-deferral; `adopt`/`deploy` `strategic-deck` rename), `skills-lock.json` (new — provenance for the 3 vendored skills), `CONVENTIONS.md` (new — `figma-` naming + trust-the-skill-file, routed from the WS0 `.memory/` store), and the vendored `brandkit` + `design-taste-frontend` (MIT, `Leonxlnx/taste-skill` @ `ccbc156`). Client-content scrubs applied to the copied formats/skills; scan clean. Commits `11620a9`, `42c697a`, `0d3f279`, and the governance-doc pass. Two items deferred to Q-60/Q-61. Registry reconciliation: artifact set changed → revalidation due.
 
 Closed 2026-08-26, recorded in git: Q-55 (Checklist Design skill admission). The Designer approved admission of `Checklist-Design/skills` v3.2.1 (`d5c2e833c9a2a17792751a67f86f2ca4aca0c14b`) as an MIT-licensed third-party procedure. The canonical Design Studio snapshot preserves the source package unchanged plus its upstream `LICENSE`; a scoped client-content scan and independent Care Circle discovery test passed. Sharon's matching untracked local package and its one-entry stale lock were removed only after that global proof.
 

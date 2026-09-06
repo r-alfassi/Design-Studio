@@ -59,6 +59,8 @@ Run two parallel calls:
 
 Do not modify anything yet.
 
+**Demonstration-extract caution:** a node sitting as a direct child of a section, structurally disconnected from the tracked frames (not nested inside any of them, at a position that doesn't align with known rows/layout), may be a deliberate demonstration extract — an isolated copy the operator pulled out to link to and point at a pattern for this conversation. Do not default to treating it as stray debris to clean up, and do not offer to delete it. Use its content as a reference example unless there's a specific reason to think otherwise (the operator asks "what is this?", or it looks like an accidental partial edit rather than a clean extract).
+
 ### Phase 2 — Classify
 
 Match findings against the issue taxonomy. Assign each finding as **Mechanical**, **Judgment**, or **Component-owned** (see taxonomy and Component Guardrail below).

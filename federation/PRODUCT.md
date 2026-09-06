@@ -18,7 +18,7 @@ Principal needs design conventions and skills to read and apply on demand during
 ## Scope
 
 **Functional specifications**
-Holds design-craft skills (RTL, Figma build/roundtrip/borrow, FigJam, preview-server, transcript-ingestion, UX critique, skill-creator), governance meta-skills (deploy, adopt, assess, promote, prune, migrate, gather, wrapup, new-component, render-html), and format specs (layered-deck, product-design) migrated from Harness.
+Holds design-craft skills (RTL, Figma build/roundtrip/borrow/audit-structure/ds-recreate/design-system/conversion-skill-builder, FigJam, preview-server, transcript-ingestion, translate, screenshot-verify, md-renderer, pptx-to-md, UX critique, checklist-design, skill-creator, and the vendored taste skills brandkit + design-taste-frontend), governance meta-skills (deploy, adopt, assess, promote, prune, migrate, gather, wrapup, new-component, render-html), and format specs (strategic-deck, product-design, ux-benchmark, video). Originally migrated from Harness; the Workspace_0 parallel branch was folded in 2026-09-06 (Q-59).
 
 **Content requirements**
 Each skill/format file in its proven internal shape (frontmatter + body + `references/`/`scripts/`/`assets/` as needed) — Anthropic's standard skill format, reused not reinvented. A `README.md` indexing them. A `federation/` cartridge like every other governed repo.
