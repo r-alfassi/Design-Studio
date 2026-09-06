@@ -68,7 +68,7 @@ The interview surfaces what is not written anywhere. Work through the topics bel
 
 ### Phase 3 — Initialize
 
-1. Identify the deliverable format — ask the operator which format applies (e.g., `product-mockup`, `layered-deck`) and load the relevant file from `formats/`. If the scan already makes the format obvious, name it and confirm rather than asking. Record the chosen format in `01_PROJECT.md`.
+1. Identify the deliverable format — ask the operator which format applies (e.g., `product-mockup`, `strategic-deck`) and load the relevant file from `formats/`. If the scan already makes the format obvious, name it and confirm rather than asking. Record the chosen format in `01_PROJECT.md`.
 2. Populate `.harness/01_PROJECT.md` with:
    - current phase and active work, based on what was confirmed
    - active format name

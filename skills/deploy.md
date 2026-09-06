@@ -21,7 +21,7 @@ For projects already underway, use `skills/adopt.md` instead — adoption requir
 ## Procedure
 
 1. Confirm the host project root directory
-2. Identify the deliverable format — ask the operator which format applies (e.g., `product-mockup`, `layered-deck`) and load the relevant file from `formats/`. If the operator is unsure, describe the options briefly: *product-mockup* for apps, tools, or systems that run or behave; *layered-deck* for structured knowledge artifacts (decks, reports, proposals). Default to `product-mockup` if still unclear, and record the assumption in `01_PROJECT.md`.
+2. Identify the deliverable format — ask the operator which format applies (e.g., `product-mockup`, `strategic-deck`) and load the relevant file from `formats/`. If the operator is unsure, describe the options briefly: *product-mockup* for apps, tools, or systems that run or behave; *strategic-deck* for structured knowledge artifacts (decks, reports, proposals). Default to `product-mockup` if still unclear, and record the assumption in `01_PROJECT.md`.
 3. Create a `.harness/` directory at the project root
 4. Create the following files inside `.harness/`:
    - `01_PROJECT.md` — populate with the project name, active format, initial snapshot, current status as "draft", and a clear next action
