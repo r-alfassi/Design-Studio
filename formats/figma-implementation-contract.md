@@ -1,3 +1,8 @@
+---
+name: figma-implementation-contract
+description: "The required shape of a bounded mapping from named Figma nodes to a production surface — preserves structural intent and declared platform differences. Not Figma parity for uncontracted nodes. Used with the figma-production-loop skill and the figma-change-log format."
+---
+
 # Format: Figma Implementation Contract
 
 ## Purpose

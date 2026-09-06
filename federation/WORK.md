@@ -242,12 +242,22 @@ blade-B (pruning/absorption) instance of Principal's C-08.
   - `STRUCTURE.md` category definitions are design-studio-local — no Hayley
     gate, but she gets the finished doc as a courtesy review.
 - **Units (each its own commit/review):**
-  1. The model — `STRUCTURE.md`, `CONVENTIONS.md` checklist, `skills/README.md`.
-  2. Mechanical — reclassify, archive, repackage `new-component`/`render-html`,
-     tag meta skills, clear cruft (empty `.principal/`, `layered-deck` removal
-     trigger, format frontmatter, `pptx-to-md-skill/` → `pptx-to-context-md/`,
-     flag the redundant `library/checklist-design.md` pointer).
-  3. Figma cluster restructure — commissioned.
+  1. 🏁 The model — `STRUCTURE.md`, `CONVENTIONS.md` admission checklist,
+     `skills/README.md` index, `frameworks/README.md` index. Commit `5fde40e`.
+  2. 🏁 Mechanical — `ux-expert` → `frameworks/ux-expert.md` (reframed as a
+     framework); `new-component` split into `formats/product-component.md`
+     (the 4-file standard) + `skills/new-component/SKILL.md` (the procedure);
+     `render-html` packaged to `skills/render-html/`; 8 cartridge-lifecycle
+     skills → `principal/archive/harness-cartridge-skills/` with a mining note;
+     `figma-conversion-skill-builder` / `figma-production-loop` / `skill-creator`
+     tagged `meta` in the index; cruft cleared — deleted `formats/layered-deck.md`
+     (no live refs) and empty `.principal/`, added frontmatter to the two Figma
+     formats, `skills/pptx-to-md-skill/` → `skills/pptx-to-context-md/`.
+     **Open judgment call:** `library/checklist-design.md` is now a pointer to
+     the same source vendored as the `skills/checklist-design/` package —
+     redundant, but `library/README.md` argues for keeping both. Left for the
+     Designer.
+  3. Figma cluster restructure — commissioned. Handoff spec next.
 - **Done when:** the model exists and every resident is filed against it; the
   Figma cluster has no procedure duplicated across skills; the admission
   checklist is in `CONVENTIONS.md`; a new resident cannot be added without it.

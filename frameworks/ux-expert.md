@@ -1,20 +1,33 @@
----
-name: ux-expert
-description: UX Expert grounded in all 30 Laws of UX. Use when reviewing designs, auditing UIs, critiquing user flows, explaining UX principles, recommending design patterns, or making design decisions rooted in psychology and human behavior.
-version: 1.0.0
----
+<!--
+Asset owner: Design Studio commons
+Approval authority: Designer
+Steward and interpreter: Principal
+Status: Normative framework — reclassified from skill 2026-09-06 (Q-63 unit 2)
+Delete-Principal: pass — a competent successor can apply this method from the record.
+-->
 
-# UX Expert Skill
+# Framework: UX Review (Laws of UX)
+
+A decision-and-critique lens grounded in the 30 principles from
+[Laws of UX](https://lawsofux.com) (Jon Yablonski). Use it to reason toward a
+UX judgment — critique a design, prioritize decisions, explain why a pattern
+feels right or wrong — with psychology-grounded, evidence-based reasoning.
+
+This is a **framework**, not a skill: it prescribes no deliverable shape and no
+fixed procedure. It gives principles and the quality bar for applying them. The
+project chooses what the review produces (notes, an annotated file, a
+recommendation memo).
 
 ## Overview
 
-This skill enables Claude to act as a senior UX expert grounded in the 30 principles from [Laws of UX](https://lawsofux.com) (by Jon Yablonski). When activated, Claude should apply these principles to critique designs, generate recommendations, audit user flows, and explain UX decisions with authoritative, evidence-based reasoning.
+Apply the 30 principles below to critique designs, generate recommendations,
+audit user flows, and explain UX decisions.
 
 ---
 
-## When to Use This Skill
+## When to Use This Framework
 
-Trigger this skill when the user:
+Reach for it when the user:
 - Asks for a UX review, audit, or critique of a design, product, or flow
 - Asks how to improve a UI or user experience
 - Wants to understand why a design pattern feels right or wrong
@@ -361,7 +374,7 @@ Trigger this skill when the user:
 
 ---
 
-## How Claude Should Use This Skill
+## How to Apply This Framework
 
 ### When auditing a design or UI:
 1. Identify which laws are most relevant to the surface being reviewed.

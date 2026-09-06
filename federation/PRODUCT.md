@@ -18,13 +18,18 @@ Principal needs design conventions and skills to read and apply on demand during
 ## Scope
 
 **Functional specifications**
-Holds design-craft skills (RTL, Figma build/roundtrip/borrow/audit-structure/ds-recreate/design-system/conversion-skill-builder, FigJam, preview-server, transcript-ingestion, translate, screenshot-verify, md-renderer, pptx-to-md, UX critique, checklist-design, skill-creator, and the vendored taste skills brandkit + design-taste-frontend), governance meta-skills (deploy, adopt, assess, promote, prune, migrate, gather, wrapup, new-component, render-html), format specs (strategic-deck, product-design, ux-benchmark, video), and reusable thinking frameworks (Brand Strategy Foundations). Originally migrated from Harness; the Workspace_0 parallel branch was folded in 2026-09-06 (Q-59).
+Holds three kinds of normative resident (see `STRUCTURE.md`):
+- **skills** — design-craft procedures (RTL, the Figma set, FigJam, preview-server, transcript-ingestion, translate, screenshot-verify, md-renderer, pptx-to-context-md, checklist-design, new-component, render-html, brandkit, design-taste-frontend) and meta skills (skill-creator, figma-conversion-skill-builder, figma-production-loop);
+- **formats** — deliverable shapes (`product-design`, `product-component`, `strategic-deck`, `ux-benchmark`, `video`, `figma-change-log`, `figma-implementation-contract`);
+- **frameworks** — thinking methods (`brand-strategy-foundations`, `ux-expert`).
+
+Plus `STRUCTURE.md`, `CONVENTIONS.md` (admission checklist), `skills/README.md` (index), `skills-lock.json`, `references/`, and `library/`. Originally migrated from Harness; the Workspace_0 parallel branch folded in 2026-09-06 (Q-59); reorganized 2026-09-06 (Q-63) — the cartridge-lifecycle governance skills were archived out (cartridge deployment is Principal/federation method, not design craft).
 
 **Content requirements**
 Skills retain their proven package shape (frontmatter + body + `references/`/`scripts/`/`assets/` as needed). Formats and frameworks are self-contained, named Markdown specifications. A `README.md` indexes the categories. A `federation/` cartridge governs the resource.
 
 **Exclusions**
-Deloitte-branded assets (the `deloitte-pptx`/`deloitte-pptx-node` skills). Deloitte-internal data (the `figma-borrow` library index). Any client-identifying content (Poalim/Isracard references, hardcoded operator paths) — standing rule, not a one-time cleanup. Harness's own `initiatives/` tracking format (this repo uses Principal's own WORK.md convention instead). Harness's `HARNESS.md` master-index pattern (redundant with `README.md`, already this ecosystem's convention). Personal Designer preferences (the Roey repo's domain). Universal collaboration principles (CULTURE.md's domain). Per-project design application (stays in each project's own `DESIGN.md`).
+Deloitte-branded assets (the `deloitte-pptx`/`deloitte-pptx-node` skills). Deloitte-internal data (private library indexes, component-key tables, token dumps). Any client-identifying content (Poalim/Isracard references, hardcoded operator paths) — standing rule, not a one-time cleanup. Cartridge-deployment and project-governance method (`adopt`/`deploy`/`promote`/`prune`/`migrate`/`wrapup`/`assess`/`gather` — archived to `principal/archive/` 2026-09-06; that is Principal/federation method, not design craft). Harness's own `initiatives/` tracking format (this repo uses Principal's own WORK.md convention instead). Harness's `HARNESS.md` master-index pattern (redundant with `README.md`). Personal Designer preferences (the Roey repo's domain). Universal collaboration principles (CULTURE.md's domain). Per-project design application (stays in each project's own `DESIGN.md`).
 
 ---
 

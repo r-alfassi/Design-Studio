@@ -1,7 +1,9 @@
-# Skill: render-html
-## Produce a Fully Self-Contained HTML File
-
 ---
+name: render-html
+description: "Produce a dependency-free single HTML file from a source — all external CSS, fonts, scripts, and images inlined so it renders identically offline, in a sandboxed iframe, or as a copy-pasted string. Use before pasting a mockup into a tool that can't resolve external paths, or when sharing a single-file HTML artifact. The rendered file is regenerated from source, never edited."
+---
+
+# render-html
 
 ## Purpose
 
@@ -25,7 +27,7 @@ Do not maintain the rendered file manually. It is always regenerated from the so
 2. Determine the output path: `<source-dir>/rendered/<filename>.html`
 3. Run the implementation script:
    ```
-   node "<harness-root>/skills/render-html.js" "<source.html>" ["<output-base-dir>"]
+   node "<design-studio>/skills/render-html/render-html.js" "<source.html>" ["<output-base-dir>"]
    ```
    `output-base-dir` is optional. If provided, `rendered/` is created there instead of next to the source file. Use this to centralise all rendered files under the project root rather than scattering them across initiative folders.
 4. Report: what was inlined, output path, any items skipped or failed

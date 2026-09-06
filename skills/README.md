@@ -8,9 +8,10 @@ checklist.
 on how design work is done, not on an artifact.
 
 > Living index — updated on every admission (`CONVENTIONS.md` step 5). Q-63
-> units 2–3 will move `ux-expert` to `frameworks/`, split `new-component`,
-> restructure the Figma cluster, and archive the cartridge-lifecycle skills;
-> this index tracks each change.
+> unit 2 (done): `ux-expert` → `frameworks/`, `new-component` split into the
+> `product-component` format + this build skill, `render-html` packaged,
+> cartridge-lifecycle skills archived. Unit 3 (pending): the Figma-cluster
+> layered restructure — the rows below still reflect the flat set.
 
 ---
 
@@ -33,7 +34,7 @@ A layered set — for a Figma task, start here and pick the leaf.
 | Skill | Reach for it when… |
 |---|---|
 | `rtl` | mirroring a screen's layout direction (RTL↔LTR) for Hebrew/Arabic, or reviewing RTL compliance |
-| `new-component` | building a reusable UI component as a four-file package (CSS/JS/preview/spec) in a vanilla HTML/CSS/JS mockup |
+| `new-component` | building a reusable UI component to the `product-component` format (see `../formats/product-component.md` for the shape) and wiring it into its host mockup |
 | `render-html` | producing a fully self-contained single HTML file |
 | `md-renderer` | building a markdown-driven HTML renderer (`.md` content layer + `.html` renderer) |
 | `preview-server` | serving a project's HTML mockups with an auto-generated index |
@@ -52,7 +53,10 @@ A layered set — for a Figma task, start here and pick the leaf.
 | Skill | Reach for it when… |
 |---|---|
 | `checklist-design` | reviewing a UI against published design checklists — audit (item-by-item) or critique (quick peer feedback) |
-| `ux-expert` | reviewing a design against the 30 Laws of UX — psychology-grounded critique and pattern recommendations *(→ moving to `frameworks/`, Q-63)* |
+
+For a psychology-grounded UX critique (the 30 Laws of UX), see the
+**`../frameworks/ux-expert.md`** framework — it's a decision lens, not a
+procedure, so it lives with the frameworks.
 
 ## Image generation (craft)
 
@@ -69,9 +73,9 @@ A layered set — for a Figma task, start here and pick the leaf.
 | `figma-conversion-skill-builder` | building a repeatable screen-conversion skill (desktop→mobile, DS→DS, LTR→RTL) by calibration |
 | `figma-production-loop` | running a contracted Figma→production iteration with a change log and promotion gates |
 
-## Being archived (Q-63 unit 2)
+---
 
-`adopt`, `deploy`, `promote`, `prune`, `migrate`, `wrapup`, `assess`, `gather` —
-the Harness cartridge-lifecycle skills. Not design craft; moving to a
-Principal-side archive to be mined as Principal's cartridge/lifecycle
-methodology evolves.
+*The Harness cartridge-lifecycle skills (`adopt`, `deploy`, `promote`, `prune`,
+`migrate`, `wrapup`, `assess`, `gather`) were archived 2026-09-06 to
+`principal/archive/harness-cartridge-skills/` — cartridge deployment is
+Principal / federation method, not design craft.*

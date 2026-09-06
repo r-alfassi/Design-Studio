@@ -1,3 +1,8 @@
+---
+name: figma-change-log
+description: "The required shape of a project's Figma change record — accepted Figma deltas that may later need translation to production. A referential bridge, not a second product history or a release changelog. Used with the figma-production-loop skill and the figma-implementation-contract format."
+---
+
 # Format: Figma Change Log
 
 ## Purpose
