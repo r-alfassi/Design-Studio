@@ -20,7 +20,9 @@ design, or implementation decisions.
 | Artifact set | Status | What it governs or supports |
 | --- | --- | --- |
 | `README.md`, this declaration, and `federation/PRODUCT.md` | Normative governance | Resource scope, boundaries, and durable product definition. |
-| `CONVENTIONS.md` | Normative | Rules about how the skills are named and consumed — not design-craft doctrine. |
+| `STRUCTURE.md` | Normative | How the resource is organized: the format / framework / skill distinction, the `meta` tag, and how a reader chooses a resident. |
+| `CONVENTIONS.md` | Normative | Admission checklist, naming rules, and how residents are consumed — not design-craft doctrine. |
+| `skills/README.md` | Navigation | The resident index — every skill with its tag and a one-line "reach for it when". Not doctrine; a wayfinding aid, kept current on every admission. |
 | `formats/` | Normative format specifications | The required shape of a named design deliverable when that format is selected. |
 | `frameworks/` | Normative thinking frameworks | Reusable methods for examining a design question and making explicit, evidence-aware choices; they do not prescribe a deliverable shape or execution procedure. |
 | `skills/` | Normative procedures | Reusable design and design-governance workflows. A skill's own references, scripts, mappings, and assets are part of that procedure only when the skill names their role. A vendored third-party skill keeps its upstream `LICENSE` alongside its `SKILL.md`. |

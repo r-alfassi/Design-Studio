@@ -1,13 +1,38 @@
 # Design Studio — Conventions
 
-Normative conventions for working with this resource's skills and formats. Not
-design-craft doctrine (that lives in the individual skills) — these are rules
-about how the skills themselves are named and consumed.
+Normative conventions for working with this resource. Not design-craft doctrine
+(that lives in the individual residents) — these are rules about how residents
+are admitted, named, and consumed. For how the resource is organized, see
+`STRUCTURE.md`.
 
 Governed by `federation/RESOURCE.md`. Principal is the steward; the Designer
 approves material changes.
 
 ---
+
+## Admission checklist — run before adding any resident
+
+Before a skill, format, or framework is added — new-authored or vendored —
+answer these four in the resident's `federation/WORK.md` entry. An unanswered
+checklist is not an admission.
+
+1. **Kind.** Which is it — format, framework, or skill (see `STRUCTURE.md`)?
+   Does it actually fit that kind's definition, or is it being forced? A skill
+   that mostly guides a choice is a framework; a document with a required
+   structure is a format.
+2. **Overlap.** Does an existing resident already do this, or most of it? If
+   so, the default is **extend or reference the existing one**, not add a
+   second. Only add a separate resident when it does something the existing one
+   genuinely does not, and say what that is.
+3. **Shape.** A skill is `skills/<name>/SKILL.md` with frontmatter (`name`,
+   `description`) — not a loose `.md`. A format is a named spec (single file or
+   a directory with `FORMAT.md`). A framework is a single self-contained file.
+4. **Client-content scan.** `grep` for client names, engagement names, operator
+   paths/usernames, and — for design material — hardcoded private libraries,
+   component-key indexes, and token dumps. Clean, or scrubbed to neutral
+   placeholders. This is the standing rule, not a one-time check.
+
+Then update `skills/README.md` (for a skill) so the resident is discoverable.
 
 ## Skill naming — `figma-` prefix
 
