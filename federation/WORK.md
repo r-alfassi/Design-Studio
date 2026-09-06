@@ -7,7 +7,7 @@ Only living initiatives appear here; completed work is recorded in git commit hi
 
 ## Overview
 
-**Active:** [Q-54] Global Design Studio skill availability; [Q-53] Figma-to-production loop pilot; [Q-60] cartridge-reference conformance; [Q-61] image-gen adoption.
+**Active:** [Q-54] Global Design Studio skill availability; [Q-53] Figma-to-production loop pilot; [Q-60] cartridge-reference conformance; [Q-61] image-gen adoption; [Q-62] Brand Strategy Foundations framework pilot.
 
 Summary tree (mirrors document order — most urgent first):
 - **[Q-54] Global Design Studio skill availability** — make the Studio a
@@ -23,6 +23,9 @@ Summary tree (mirrors document order — most urgent first):
   Workspace_0 branch; it assumes the old `visuals/base.json` + `frames.json`
   split and needs reconciling with the `video` format's current `FRAMES.md`
   model. Deferred from Q-59's batch.
+- **[Q-62] Brand Strategy Foundations framework pilot** — establish and
+  exercise a reusable evidence-to-positioning method, then revise only what
+  real project use shows is transferable.
 - **[Q-52] Design Studio conformance** — declare resource authority and test
   its on-demand access-and-interpretation path on the Sharon design case.
 
@@ -162,6 +165,31 @@ Initiated 2026-08-26
   (`FRAMES.md`, or `base.json` if the format keeps both paths — that needs
   settling too).
 - **Done when:** TBD.
+
+---
+
+## [Q-62] Brand Strategy Foundations framework pilot
+
+Initiated 2026-09-06
+
+- **Purpose:** Give recurring brand-strategy work a reusable method without
+  confusing a thinking framework with a deliverable format or an operational
+  skill.
+- **Initial resident:** `frameworks/brand-strategy-foundations.md` guides an
+  evidence bank, separate audience canvases, purpose and positioning, pillars
+  with proof, values as behaviour, and expression implications. Its source
+  shelf is `library/brand-strategy-foundations.md`.
+- **Boundary:** The framework is Design Studio craft. Every project's brand
+  choices, source research, workshop material, and production expression stay
+  in that project. The framework authorizes no brand or implementation change
+  on its own.
+- **Learning loop:** Record transferable ambiguity, omissions, or friction
+  after a real use. Make a project-local correction first; propose a framework
+  revision only where the lesson generalizes. Material changes remain subject
+  to Designer approval.
+- **Done when:** The initial framework has been exercised on a real project
+  and its first evidence-based revision decision is recorded (retain, revise,
+  or narrow scope).
 
 ---
 

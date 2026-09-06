@@ -18,10 +18,10 @@ Principal needs design conventions and skills to read and apply on demand during
 ## Scope
 
 **Functional specifications**
-Holds design-craft skills (RTL, Figma build/roundtrip/borrow/audit-structure/ds-recreate/design-system/conversion-skill-builder, FigJam, preview-server, transcript-ingestion, translate, screenshot-verify, md-renderer, pptx-to-md, UX critique, checklist-design, skill-creator, and the vendored taste skills brandkit + design-taste-frontend), governance meta-skills (deploy, adopt, assess, promote, prune, migrate, gather, wrapup, new-component, render-html), and format specs (strategic-deck, product-design, ux-benchmark, video). Originally migrated from Harness; the Workspace_0 parallel branch was folded in 2026-09-06 (Q-59).
+Holds design-craft skills (RTL, Figma build/roundtrip/borrow/audit-structure/ds-recreate/design-system/conversion-skill-builder, FigJam, preview-server, transcript-ingestion, translate, screenshot-verify, md-renderer, pptx-to-md, UX critique, checklist-design, skill-creator, and the vendored taste skills brandkit + design-taste-frontend), governance meta-skills (deploy, adopt, assess, promote, prune, migrate, gather, wrapup, new-component, render-html), format specs (strategic-deck, product-design, ux-benchmark, video), and reusable thinking frameworks (Brand Strategy Foundations). Originally migrated from Harness; the Workspace_0 parallel branch was folded in 2026-09-06 (Q-59).
 
 **Content requirements**
-Each skill/format file in its proven internal shape (frontmatter + body + `references/`/`scripts/`/`assets/` as needed) — Anthropic's standard skill format, reused not reinvented. A `README.md` indexing them. A `federation/` cartridge like every other governed repo.
+Skills retain their proven package shape (frontmatter + body + `references/`/`scripts/`/`assets/` as needed). Formats and frameworks are self-contained, named Markdown specifications. A `README.md` indexes the categories. A `federation/` cartridge governs the resource.
 
 **Exclusions**
 Deloitte-branded assets (the `deloitte-pptx`/`deloitte-pptx-node` skills). Deloitte-internal data (the `figma-borrow` library index). Any client-identifying content (Poalim/Isracard references, hardcoded operator paths) — standing rule, not a one-time cleanup. Harness's own `initiatives/` tracking format (this repo uses Principal's own WORK.md convention instead). Harness's `HARNESS.md` master-index pattern (redundant with `README.md`, already this ecosystem's convention). Personal Designer preferences (the Roey repo's domain). Universal collaboration principles (CULTURE.md's domain). Per-project design application (stays in each project's own `DESIGN.md`).
@@ -31,17 +31,17 @@ Deloitte-branded assets (the `deloitte-pptx`/`deloitte-pptx-node` skills). Deloi
 ## Structure
 
 **Interaction design**
-A reader — human or Principal — opens `README.md` for orientation, then goes to `formats/` or `skills/` for the specific thing needed. Skills are read on-demand, matching Principal's own `skills/` convention ("read only when the current session requires a specific procedure") — not loaded at every session's Initiation, unlike the Roey repo's cartridge, which is universal context about the Designer rather than situational tooling.
+A reader — human or Principal — opens `README.md` for orientation, then goes to `formats/`, `frameworks/`, or `skills/` for the specific thing needed. Materials are read on-demand, matching Principal's own `skills/` convention ("read only when the current session requires a specific procedure") — not loaded at every session's Initiation, unlike the Roey repo's cartridge, which is universal context about the Designer rather than situational tooling.
 
 **Information architecture**
-`README.md` + `federation/{RESOURCE.md, PRODUCT.md, WORK.md}` + `formats/` + `skills/` + `references/`. Each governed project's own `DESIGN.md` cites into this repo rather than duplicating its content.
+`README.md` + `federation/{RESOURCE.md, PRODUCT.md, WORK.md}` + `formats/` + `frameworks/` + `skills/` + `references/` + `library/`. Each governed project's own `DESIGN.md` cites into this repo rather than duplicating its content.
 
 ---
 
 ## Skeleton
 
 **Interface design**
-Flat top-level categories (`formats/`, `skills/`, `references/`); skill subdirectories follow the standard SKILL.md + `references/`/`scripts/`/`assets/` shape unchanged from how they arrived.
+Flat top-level categories (`formats/`, `frameworks/`, `skills/`, `references/`, `library/`); skill subdirectories follow the standard SKILL.md + `references/`/`scripts/`/`assets/` shape unchanged from how they arrived.
 
 **Navigation design**
 `README.md`'s table is the wayfinding mechanism; filenames are self-descriptive.
@@ -70,6 +70,7 @@ Procedural/reference material, not prose meant to be sat with. Migrated skill/fo
 | No per-file provenance/migration notes in the migrated artifacts | Git commit history carries that story — matches a Lean-by-default correction made earlier the same session it was designed |
 | Governed via Principal's own WORK.md convention, not Harness's separate `initiatives/` format | Consistency across the federation |
 | Skills/formats read on-demand, not at session Initiation | Situational tooling, not universal context — the one deliberate asymmetry with the Roey repo |
+| Frameworks are distinct from formats and skills | A framework preserves the questions, evidence discipline, and choice sequence for a recurring strategic problem; it does not prescribe a deliverable shape or operational steps |
 | Standing exclusion: never accumulate client-identifying content | The specific drift that entangled Harness, named explicitly as a durable rule rather than a one-time cleanup |
 
 **Open questions**
