@@ -26,7 +26,7 @@ npx skills add checklist-design/skills
 
 ## When to reach for it
 
-- Before shipping a new interactive control, when `skills/ux-expert`'s 30
+- Before shipping a new interactive control, when `frameworks/ux-expert.md`'s 30
   Laws of UX would benefit from a more systematic, checklist-table pass
   across a broader pattern catalog (forms, destructive actions, mobile
   interaction specifically) rather than a principles-based critique.

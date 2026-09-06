@@ -7,7 +7,7 @@
 
 The methodology most checklist- and audit-style UX tools (including
 `checklist-design.md` in this same library, and the underlying logic of
-`skills/ux-expert`'s Laws of UX) ultimately derive from: Jakob Nielsen's 10
+`frameworks/ux-expert.md`'s Laws of UX) ultimately derive from: Jakob Nielsen's 10
 usability heuristics (visibility of system status, match between system and
 the real world, user control and freedom, consistency and standards, error
 prevention, recognition over recall, flexibility and efficiency, aesthetic

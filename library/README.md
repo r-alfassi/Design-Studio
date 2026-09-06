@@ -31,7 +31,7 @@ a home inside one that already means something narrower.
 | `pajamas-destructive-actions.md` | GitLab's Pajamas Design System pattern for confirm-vs-destroy action severity and friction |
 | `heuristic-evaluation.md` | Nielsen Norman Group's heuristic evaluation methodology — the academic grounding most of the above checklists derive from |
 
-`skills/ux-expert` (the 30 Laws of UX) is not duplicated here — it already
+`frameworks/ux-expert.md` (the 30 Laws of UX) is not duplicated here — it already
 lives as a full, executable skill, not a pointer.
 
 ## Provenance
