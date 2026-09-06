@@ -7,9 +7,15 @@ Only living initiatives appear here; completed work is recorded in git commit hi
 
 ## Overview
 
-**Active:** [Q-54] Global Design Studio skill availability; [Q-53] Figma-to-production loop pilot; [Q-60] cartridge-reference conformance; [Q-61] image-gen adoption; [Q-62] Brand Strategy Foundations framework pilot.
+**Active:** [Q-63] Architecture pass (organizing model + cleanup); [Q-54] Global Design Studio skill availability; [Q-53] Figma-to-production loop pilot; [Q-60] cartridge-reference conformance; [Q-61] image-gen adoption; [Q-62] Brand Strategy Foundations framework pilot.
 
 Summary tree (mirrors document order — most urgent first):
+- **[Q-63] Architecture pass** — the collection accumulated unevenly across the
+  Q-59 batch: two skill shapes (half not discoverable), Figma-cluster overlap,
+  category mis-fits, no growth discipline. Establish an organizing model
+  (`STRUCTURE.md` + a `CONVENTIONS.md` admission checklist + a resident index),
+  then apply it: reclassify, archive the cartridge-lifecycle skills, restructure
+  the Figma cluster, clear cruft.
 - **[Q-54] Global Design Studio skill availability** — make the Studio a
   directly discoverable workshop in every session, across Codex and Claude
   Code, by per-skill directory junction into each tool's skill-discovery
@@ -190,6 +196,61 @@ Initiated 2026-09-06
 - **Done when:** The initial framework has been exercised on a real project
   and its first evidence-based revision decision is recorded (retain, revise,
   or narrow scope).
+
+---
+
+## [Q-63] Architecture pass — organizing model + cleanup
+
+🔄 In Flight — framed 2026-09-06 (Principal audit + Designer grill). The live
+blade-B (pruning/absorption) instance of Principal's C-08.
+
+- **Problem:** After the Q-59 batch the collection is 31 skills / 6 formats /
+  1 framework, accumulated unevenly. Concrete: (1) two skill shapes — 10 loose
+  `skills/*.md` that `link-skills.ps1` and both agent tools cannot discover, vs
+  21 packaged; (2) Figma cluster (8) with real overlap — `figma-borrow`'s whole
+  procedure sits inside `figma-ds-recreate`; `figma-audit-structure` and
+  `figma-ds-recreate` Phase 0 duplicate the audit→gate→fix shape; `figma-design-system`
+  vs `figma-ds-recreate` naming; (3) category mis-fits — `ux-expert` is a
+  framework filed as a skill; `new-component` is a deliverable shape; (4) no
+  growth discipline — nothing checks a new resident for category fit or overlap.
+  Full audit: `principal/temp/design-studio-architecture-audit.md`.
+- **Frame (grill Q1):** organization, not just cleanup — the categories are
+  defined but their relationship and the admission discipline aren't captured.
+  Scope (what belongs here) is an input to that model.
+- **Settled (grill Q2–Q11):**
+  - Scope: design-craft skills stay; the 8 cartridge-lifecycle skills leave.
+  - Model form: one `STRUCTURE.md` + `CONVENTIONS.md` admission checklist +
+    `skills/README.md` resident index. No heavier framework.
+  - Admission gate: category fit / overlap with an existing resident / package
+    shape / client-content scan — recorded in the addition's WORK.md entry.
+  - Meta/process skills: a tag in the index, not a fourth category.
+  - Figma cluster: full layered restructure — a `figma` router + extracted
+    shared `instancing` / `auditing` references the leaf skills draw from.
+  - Reclassify: `ux-expert` → `frameworks/`; `new-component` → a
+    `product-component` format + a thin build skill; `checklist-design` stays a
+    skill (it implements review; the framework under it is
+    `library/heuristic-evaluation.md`).
+  - Cartridge-lifecycle skills (`adopt`, `deploy`, `promote`, `prune`,
+    `migrate`, `wrapup`, `assess`, `gather`): **archived** to a Principal-side
+    location with a note — mine for lessons as Principal's own cartridge /
+    lifecycle methodology evolves (C-07 link). Not relocated to a live home
+    now; that needs a Marcus consultation on federation structure.
+  - Execution: Principal writes the model + does the mechanical pass as
+    steward; the Figma restructure is **commissioned** (authoring reusable
+    procedures, not stewarding) with a handoff spec against `STRUCTURE.md`;
+    Principal assesses the return (EC-1).
+  - `STRUCTURE.md` category definitions are design-studio-local — no Hayley
+    gate, but she gets the finished doc as a courtesy review.
+- **Units (each its own commit/review):**
+  1. The model — `STRUCTURE.md`, `CONVENTIONS.md` checklist, `skills/README.md`.
+  2. Mechanical — reclassify, archive, repackage `new-component`/`render-html`,
+     tag meta skills, clear cruft (empty `.principal/`, `layered-deck` removal
+     trigger, format frontmatter, `pptx-to-md-skill/` → `pptx-to-context-md/`,
+     flag the redundant `library/checklist-design.md` pointer).
+  3. Figma cluster restructure — commissioned.
+- **Done when:** the model exists and every resident is filed against it; the
+  Figma cluster has no procedure duplicated across skills; the admission
+  checklist is in `CONVENTIONS.md`; a new resident cannot be added without it.
 
 ---
 
