@@ -1,0 +1,43 @@
+{
+  "$schema": "internal — design-studio vendored external skills",
+  "version": 1,
+  "note": "Provenance + integrity for third-party skills admitted into skills/. Each entry is admitted at a pinned upstream ref after a license check and a client-content scan (RESOURCE.md admission path). sha256 is over the named file as vendored.",
+  "skills": {
+    "checklist-design": {
+      "source": "https://github.com/Checklist-Design/skills",
+      "sourceType": "github",
+      "sourceRef": "d5c2e833c9a2a17792751a67f86f2ca4aca0c14b",
+      "upstreamVersion": "3.2.1",
+      "vendoredPath": "skills/checklist-design/",
+      "license": "MIT",
+      "licenseFile": "skills/checklist-design/LICENSE",
+      "sha256_SKILL_md": "f4e826ba2ac70f56a221db4673099462a478aa83043960b72013dc14d95f081b",
+      "admitted": "2026-08-26",
+      "admissionRecord": "federation/WORK.md — Q-55"
+    },
+    "brandkit": {
+      "source": "https://github.com/Leonxlnx/taste-skill",
+      "sourceType": "github",
+      "sourceRef": "ccbc15639c97057cbfcf32ecebc38ef716e4bb37",
+      "upstreamPath": "skills/brandkit/SKILL.md",
+      "vendoredPath": "skills/brandkit/",
+      "license": "MIT",
+      "licenseFile": "skills/brandkit/LICENSE",
+      "sha256_SKILL_md": "b0c4837e1bd140ca816ae54948754ddd2ac1e2a4d3619363777a80caf00b2ede",
+      "admitted": "2026-09-06",
+      "admissionRecord": "federation/WORK.md — Q-59 adoption"
+    },
+    "design-taste-frontend": {
+      "source": "https://github.com/Leonxlnx/taste-skill",
+      "sourceType": "github",
+      "sourceRef": "ccbc15639c97057cbfcf32ecebc38ef716e4bb37",
+      "upstreamPath": "skills/taste-skill/SKILL.md",
+      "vendoredPath": "skills/design-taste-frontend/",
+      "license": "MIT",
+      "licenseFile": "skills/design-taste-frontend/LICENSE",
+      "sha256_SKILL_md": "aa194351b246b8b4799099d4ed7b033d29eab6e6e3d58d8d2172978be7b3ec89",
+      "admitted": "2026-09-06",
+      "admissionRecord": "federation/WORK.md — Q-59 adoption"
+    }
+  }
+}

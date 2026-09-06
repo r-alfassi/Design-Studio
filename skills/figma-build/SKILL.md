@@ -1,9 +1,11 @@
 ---
 name: figma-build
-description: Workflow skill for building Figma screens from code using the Plugin API. This skill should be used when translating a visual design spec into a Figma file by writing use_figma calls — bridging from "what to build" to "how to build it in code." Covers pre-flight setup, incremental build workflow, and links to reusable plugin code patterns.
+description: Workflow skill for building new Figma screens from scratch using the Plugin API. This skill should be used when translating a visual design spec into a Figma file by writing use_figma calls — greenfield screen building where no existing component is being matched. For rebuilding an existing component with design system library instances and tokens, use figma-ds-recreate instead. Covers pre-flight setup, incremental build workflow, and links to reusable plugin code patterns.
 ---
 
 # figma-build
+
+**This skill is for greenfield screen building** — translating a visual spec into new Figma screens from scratch. For reconstructing an existing component with proper library linkage, use `figma-ds-recreate`.
 
 Workflow for translating a design spec into working Figma screens via the Plugin API.
 
@@ -97,3 +99,18 @@ Covers:
 - Repurpose workflow: `createInstance() → detachInstance() → strip → modify`
 - Operator-placed-node rule: a user-placed component is read-only — always derive the working copy from `sourceComp.createInstance()`
 - Content structure principles: narrative ordering, unified pockets, section label patterns, badge placement
+
+---
+
+## 6. Plugin API vs MCP Boundary
+
+These are two distinct execution layers. Confusing them produces silent failures or TypeErrors.
+
+| Layer | Where it runs | What belongs here |
+|---|---|---|
+| **Plugin API** | Inside the Figma sandbox (`use_figma` script) | Anything on the `figma` global: `figma.createFrame()`, `figma.loadFontAsync()`, `figma.currentPage`, `node.appendChild()`, etc. |
+| **MCP tools** | At the orchestration layer (outside the script) | `get_screenshot`, `get_design_context`, `get_metadata`, `get_figma_skill` — called as separate tool calls, never from inside a `use_figma` script |
+
+**The rule:** if it's on the `figma` global, it's Plugin API — write it inside the script. If it's a tool call, it's MCP — call it after the script completes.
+
+Common mistake: calling `figma.getScreenshot()` at the end of a `use_figma` script. There is no such method. The correct sequence is: script ends → call `get_screenshot` as a separate MCP tool call.

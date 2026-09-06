@@ -48,7 +48,7 @@ Capture what happened during a session, ensure artifacts reflect the current sta
 8. Check the promotion queue in `.harness/01_PROJECT.md` — if anything became stable enough during this session, promote it now rather than carrying it forward as an unresolved note
 9. After promoting, prune the source note per `skills/promote.md`
 10. If the host project has its own governance layer, identify any session observations that are host-project-specific — studio standards, domain conventions, team rules — and flag them for that layer rather than depositing them in Harness artifacts
-11. **Check the improvement backlog** in `.harness/05_IMPROVE.md` — review any `captured` entries. For each: promote it (make the revision, mark `promoted`, move to Archive) or dismiss it (mark `dismissed`, move to Archive). If a full review would derail wrap-up, defer by flagging it as the first action of the next session.
+11. **Check the improvement backlog** in `.harness/05_IMPROVE.md` — review any `captured` entries. For each: promote it (make the revision, mark `promoted`, move to Archive) or dismiss it (mark `dismissed`, move to Archive). If a full review would derail wrap-up, defer it — but explicitly: write one line in the trail entry (*"Backlog review deferred — [reason]"*) and flag it as the first action of the next session. Silent deferral is not acceptable.
 12. **Meta-check — scan the pipeline itself:** did anything about the improvement process feel awkward or off during this session — the capture flow, the entry format, the wrapup steps, the command behavior? If yes, log a `meta` entry in the backlog before closing. This is the AI's responsibility to surface; do not wait for the operator to notice it.
 
 ---
