@@ -7,11 +7,10 @@ checklist.
 **Tags:** `craft` — produces or modifies a design artifact · `meta` — operates
 on how design work is done, not on an artifact.
 
-> Living index — updated on every admission (`CONVENTIONS.md` step 5). Q-63
-> unit 2 (done): `ux-expert` → `frameworks/`, `new-component` split into the
-> `product-component` format + this build skill, `render-html` packaged,
-> cartridge-lifecycle skills archived. Unit 3 (pending): the Figma-cluster
-> layered restructure — the rows below still reflect the flat set.
+> Living index — updated on every admission (`CONVENTIONS.md` step 5). The
+> Figma skills are listed as a flat set below; the target is a `figma` router
+> plus shared references the leaves draw from (design-studio Q-63 unit 3,
+> commissioned).
 
 ---
 
