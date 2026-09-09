@@ -257,7 +257,13 @@ blade-B (pruning/absorption) instance of Principal's C-08.
      the same source vendored as the `skills/checklist-design/` package —
      redundant, but `library/README.md` argues for keeping both. Left for the
      Designer.
-  3. Figma cluster restructure — commissioned. Handoff spec next.
+  3. 🔄 Figma cluster restructure — commissioned. Handoff spec written
+     (`principal/temp/q63-unit3-figma-cluster-handoff.md`): a `skills/figma/`
+     router + three shared references (`instancing`, `auditing`, `plugin-api`)
+     the leaves cite; `figma-borrow` retires into `instancing.md`;
+     `figma-design-system` → `figma-organize-ds`; leaves keep discoverable
+     `skills/<name>/SKILL.md`. Awaiting executor dispatch; Principal assesses
+     the return (EC-1).
 - **Done when:** the model exists and every resident is filed against it; the
   Figma cluster has no procedure duplicated across skills; the admission
   checklist is in `CONVENTIONS.md`; a new resident cannot be added without it.
