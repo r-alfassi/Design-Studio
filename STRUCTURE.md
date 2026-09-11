@@ -8,15 +8,16 @@ approves material changes. The admission discipline is in `CONVENTIONS.md`.
 
 ---
 
-## The three kinds
+## The four kinds
 
-Every normative resident is one of three kinds. They answer different questions
+Every normative resident is one of four kinds. They answer different questions
 and are not interchangeable.
 
 | Kind | Answers | Prescribes | Does **not** prescribe | Lives in |
 |---|---|---|---|---|
 | **Format** | "What shape must this deliverable take?" | the structure, layers, and gates of a named deliverable | how you think through the content, or the tool you use | `formats/` |
 | **Framework** | "How do I reason through this design question and make an evidence-aware choice?" | a sequence of questions and quality bars | any deliverable shape, any procedure, any tool | `frameworks/` |
+| **Standard** | "What reusable design constraint must this selected project satisfy?" | a stable constraint, its scope, validation, and explicit exception route | a project’s product decisions or an execution workflow | `standards/` |
 | **Skill** | "How do I carry out this task?" | a workflow — steps, tool calls, checks | — | `skills/<name>/SKILL.md` |
 
 Rules of thumb:
@@ -24,6 +25,9 @@ Rules of thumb:
 - If it ends in a **document with a required structure**, it's a format.
 - If it's a **way of examining a question** — no fixed output, no fixed steps —
   it's a framework. A framework leaves the project free to choose its medium.
+- If it is a **non-negotiable reusable constraint** with a stated validation
+  and exception route, it is a standard. A project selects it explicitly; it
+  never silently decides a project-specific product tradeoff.
 - If it's **steps you execute**, often against a tool, it's a skill.
 
 Borderlines resolve by what the resident *is at its core*, not what it also
@@ -43,7 +47,7 @@ design artifact:
 
 These are still skills (steps you run). They are **tagged `meta`** in the
 resident index so a reader looking for a craft procedure isn't misdirected.
-`meta` is a tag, not a fourth directory.
+`meta` is a tag, not a fifth directory.
 
 ## Supporting material (not a kind)
 
@@ -64,7 +68,9 @@ when the `SKILL.md` names their role (per `RESOURCE.md`).
    (a deck, a benchmark, a video, a mockup, a component)? → a **format**.
 2. Does the project need to **reason to a choice** — positioning, audience,
    direction — before expression is settled? → a **framework**.
-3. Does the project need to **do a task** — build a screen, recreate a
+3. Does the project need to honor a named **cross-project design constraint**
+   — such as a legibility floor — in its selected scope? → a **standard**.
+4. Does the project need to **do a task** — build a screen, recreate a
    component, audit a frame, translate copy, run a preview server? → a
    **skill** (check `skills/README.md` for the right one; the Figma skills are
    a layered set — start at the `figma` router).

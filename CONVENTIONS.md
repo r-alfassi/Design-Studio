@@ -12,14 +12,15 @@ approves material changes.
 
 ## Admission checklist — run before adding any resident
 
-Before a skill, format, or framework is added — new-authored or vendored —
+Before a skill, format, framework, or standard is added — new-authored or vendored —
 answer these four in the resident's `federation/WORK.md` entry. An unanswered
 checklist is not an admission.
 
-1. **Kind.** Which is it — format, framework, or skill (see `STRUCTURE.md`)?
+1. **Kind.** Which is it — format, framework, standard, or skill (see `STRUCTURE.md`)?
    Does it actually fit that kind's definition, or is it being forced? A skill
    that mostly guides a choice is a framework; a document with a required
-   structure is a format.
+   structure is a format. A reusable non-negotiable constraint with validation
+   and an exception route is a standard.
 2. **Overlap.** Does an existing resident already do this, or most of it? If
    so, the default is **extend or reference the existing one**, not add a
    second. Only add a separate resident when it does something the existing one
@@ -27,6 +28,8 @@ checklist is not an admission.
 3. **Shape.** A skill is `skills/<name>/SKILL.md` with frontmatter (`name`,
    `description`) — not a loose `.md`. A format is a named spec (single file or
    a directory with `FORMAT.md`). A framework is a single self-contained file.
+   A standard is a self-contained `standards/<name>.md` that names its scope,
+   binding statement, validation, and exception route.
 4. **Client-content scan.** `grep` for client names, engagement names, operator
    paths/usernames, and — for design material — hardcoded private libraries,
    component-key indexes, and token dumps. Clean, or scrubbed to neutral

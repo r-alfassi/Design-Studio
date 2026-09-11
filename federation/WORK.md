@@ -7,7 +7,7 @@ Only living initiatives appear here; completed work is recorded in git commit hi
 
 ## Overview
 
-**Active:** [Q-63] Architecture pass (organizing model + cleanup); [Q-54] Global Design Studio skill availability; [Q-53] Figma-to-production loop pilot; [Q-60] cartridge-reference conformance; [Q-61] image-gen adoption; [Q-62] Brand Strategy Foundations framework pilot.
+**Active:** [Q-64] Mobile design standard + sprint containment; [Q-63] Architecture pass (organizing model + cleanup); [Q-54] Global Design Studio skill availability; [Q-53] Figma-to-production loop pilot; [Q-60] cartridge-reference conformance; [Q-61] image-gen adoption; [Q-62] Brand Strategy Foundations framework pilot.
 
 Summary tree (mirrors document order — most urgent first):
 - **[Q-63] Architecture pass** — the collection accumulated unevenly across the
@@ -34,6 +34,36 @@ Summary tree (mirrors document order — most urgent first):
   real project use shows is transferable.
 - **[Q-52] Design Studio conformance** — declare resource authority and test
   its on-demand access-and-interpretation path on the Sharon design case.
+
+---
+
+## [Q-64] Mobile design standard + sprint containment
+
+Initiated 2026-09-11 · Designer approved
+
+- **Purpose:** Establish a selected, binding cross-project floor for readable
+  mobile Figma text and prevent a demonstrated Figma `Production sync` failure:
+  a visually aligned current-authority frame placed at page level rather than
+  inside its sprint section.
+- **Admission:** **Kind:** standard — a stable design constraint with a scope,
+  validation, and explicit exception route, not a deliverable, reasoning
+  framework, or procedure. **Overlap:** no existing resident establishes a
+  binding mobile legibility floor or its exception rule; `figma-production-loop`
+  remains the execution procedure and receives the structural gate rather than
+  duplicating the standard. **Shape:** `standards/mobile-design.md`, with scope,
+  binding statement, validation, and exception route. **Client-content scan:**
+  authored from a generalized mobile-screen case; contains no project names,
+  node IDs, library keys, private token dumps, or operator paths.
+- **Change:** Introduce `standards/` as the fourth normative resident kind;
+  `mobile-design.md` sets a 14 px minimum for visible user-facing mobile Figma
+  text, requires structural responses to density, and makes exceptions explicit.
+  Add a post-write sprint-containment gate to `figma-production-loop`: resolve
+  the section ID, append/reparent clones before placement, then verify parentage,
+  bounds, and absence of page-level orphans before review or promotion.
+- **Evidence still required:** Apply the containment repair to the affected
+  Karma Warrior sprint, inspect the hierarchy after repair, and cite
+  `standards/mobile-design.md` from its project `DESIGN.md` when that project
+  record is writable.
 
 ---
 

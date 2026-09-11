@@ -64,6 +64,29 @@ an intentional canvas arrangement: preserve a consistent left-to-right gap and
 resize the sprint section to contain its frames. A later sprint is a new
 section, not a continuation tacked onto an earlier sprint.
 
+### Sprint containment gate
+
+Treat containment as a structural invariant, not a visual impression. Before a
+create, clone, or move, resolve the actual target section ID and record the
+named sprint frames that must belong to it. A clone is page-level by default
+until proven otherwise: append or reparent it to the target section before
+setting its final canvas position. Do not infer its parent from matching x/y
+coordinates or visual overlap.
+
+After every write, independently inspect the page hierarchy and verify all of
+the following:
+
+- every named current-authority frame for the sprint is a direct child of the
+  target section;
+- each such frame's bounds sit within that section's bounds; and
+- no named current-authority frame for that sprint remains a page-level child
+  or other orphan outside the section.
+
+If any check fails, stop, repair or reparent the affected node, resize the
+section when needed, and re-run the inspection. Do not mark the screen
+reviewable, log an accepted delta, promote it, or translate it to production
+until the containment gate passes.
+
 ### Sprint-close promotion review
 
 Before closing a sprint, explicitly review the accepted result against the
