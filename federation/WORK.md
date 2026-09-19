@@ -9,6 +9,8 @@ Only living initiatives appear here; completed work is recorded in git commit hi
 
 **Active:** [Q-64] Mobile design standard + sprint containment; [Q-63] Architecture pass (organizing model + cleanup); [Q-54] Global Design Studio skill availability; [Q-53] Figma-to-production loop pilot; [Q-60] cartridge-reference conformance; [Q-61] image-gen adoption; [Q-62] Brand Strategy Foundations framework pilot.
 
+**Awaiting Designer review (not yet admitted):** [Q-65] Mockup comparison-control placement (candidate standard); [Q-66] Research-the-convention-first (candidate framework).
+
 Summary tree (mirrors document order — most urgent first):
 - **[Q-63] Architecture pass** — the collection accumulated unevenly across the
   Q-59 batch: two skill shapes (half not discoverable), Figma-cluster overlap,
@@ -34,17 +36,21 @@ Summary tree (mirrors document order — most urgent first):
   real project use shows is transferable.
 - **[Q-52] Design Studio conformance** — declare resource authority and test
   its on-demand access-and-interpretation path on the Sharon design case.
+- **[Q-65] Mockup comparison-control placement** — candidate standard,
+  awaiting Designer review before admission.
+- **[Q-66] Research-the-convention-first** — candidate framework, awaiting
+  Designer review before admission.
 
 ---
 
-## [Q-64] Mobile design standard + sprint containment
+## [Q-64] Mobile design standard + sprint topology
 
 Initiated 2026-09-11 · Designer approved
 
 - **Purpose:** Establish a selected, binding cross-project floor for readable
-  mobile Figma text and prevent a demonstrated Figma `Production sync` failure:
-  a visually aligned current-authority frame placed at page level rather than
-  inside its sprint section.
+  mobile Figma text and prevent demonstrated Figma organization failures:
+  page-level sprint or lab orphans, and independent initiatives being merged
+  into one visual row.
 - **Admission:** **Kind:** standard — a stable design constraint with a scope,
   validation, and explicit exception route, not a deliverable, reasoning
   framework, or procedure. **Overlap:** no existing resident establishes a
@@ -57,9 +63,13 @@ Initiated 2026-09-11 · Designer approved
 - **Change:** Introduce `standards/` as the fourth normative resident kind;
   `mobile-design.md` sets a 14 px minimum for visible user-facing mobile Figma
   text, requires structural responses to density, and makes exceptions explicit.
-  Add a post-write sprint-containment gate to `figma-production-loop`: resolve
-  the section ID, append/reparent clones before placement, then verify parentage,
-  bounds, and absence of page-level orphans before review or promotion.
+  Generalize the Figma sprint-page model in `figma-production-loop`: one named
+  horizontal section per initiative, a vertical chronological stack of those
+  rows, and supporting labs contained in their originating initiative rather
+  than promoted to their own page-level row. The post-write containment gate
+  resolves the section ID, appends/reparents clones before placement, then
+  verifies parentage, bounds, and absence of page-level orphans before review
+  or promotion.
 - **Evidence still required:** Apply the containment repair to the affected
   Karma Warrior sprint, inspect the hierarchy after repair, and cite
   `standards/mobile-design.md` from its project `DESIGN.md` when that project
@@ -324,6 +334,60 @@ blade-B (pruning/absorption) instance of Principal's C-08.
   Registered / Verified / Available through its declared non-speaking resource
   route. Shared skill loading is explicitly out of scope until a separate
   adoption decision.
+
+---
+
+## [Q-65] Mockup comparison-control placement — candidate standard
+
+🌱 Proposed, not yet admitted
+
+- **Origin:** Surfaced in a Sharon project session (2026-07-14), initially
+  captured as personal working-memory outside any governed record — corrected
+  2026-09-19 when raised as Design Studio backlog material instead.
+- **Purpose:** A comparison/testing control in an interactive mockup (e.g.
+  toggling between two container styles, two layouts, two copy options)
+  should live in the mockup's outer testing harness — alongside any existing
+  tab/state switcher outside the simulated device frame — never inside the
+  simulated interface itself. Placing a comparison toggle inside the phone's
+  own screen content, mixed with real in-app controls, blurs what a real user
+  would actually see in the shipped product versus tooling added only to help
+  compare options during the design session.
+- **Admission (proposed):** **Kind:** standard — a stable constraint on
+  mockup construction, not a deliverable shape or reasoning framework.
+  **Overlap:** not yet checked against existing mockup-related residents
+  (`preview-server`, any Figma-roundtrip conventions). **Shape:** likely
+  `standards/mockup-comparison-controls.md` — scope, the binding rule, and
+  guidance on avoiding CSS/selector collisions when reusing a class name
+  between the outer harness and in-app elements. **Client-content scan:** not
+  yet performed — the source incident is tied to the Sharon project and would
+  need generalizing to a neutral case before admission, per Q-59's precedent
+  for other adopted material.
+- **Awaiting:** Designer review — worth a dedicated standard, or fold into an
+  existing mockup-building skill/reference instead?
+
+---
+
+## [Q-66] Research-the-convention-first — candidate framework
+
+🌱 Proposed, not yet admitted
+
+- **Origin:** Surfaced in a Sharon project session (2026-08-15), initially
+  captured as personal working-memory outside any governed record — corrected
+  2026-09-19.
+- **Purpose:** Before changing any interaction-design or UI behavior
+  (keyboard dismissal, gesture handling, navigation patterns, standard
+  component behavior), research what the platform convention actually is and
+  present that finding before proposing or implementing a change — not just
+  patch directly to the reported symptom.
+- **Admission (proposed):** **Kind:** framework — a reasoning discipline
+  ("how do I reach an evidence-aware choice here"), not a fixed deliverable
+  or procedure. **Overlap:** not yet checked against existing frameworks in
+  `frameworks/` or `library/heuristic-evaluation.md` — may fold into one of
+  those rather than standing alone. **Shape:** likely a short `frameworks/`
+  entry, or a clause added to an existing interaction-design framework if one
+  already covers this ground. **Client-content scan:** not yet performed.
+- **Awaiting:** Designer review — new framework, or a clause inside an
+  existing one?
 
 ---
 
