@@ -16,11 +16,9 @@ returning to, not by being the first hit on a search. Each resident is owned
 by its original author — this repo adds a pointer and short application
 notes, and does not rewrite or reproduce the source material at length.
 
-Same shape and reasoning as the federation hall's own `library/` compartment
-(non-binding learn-from resources, distinct from its binding `standards/`) —
-adopted here for the same reason it holds there: a resource genuinely
-different in kind from a procedure or a local how-to needs its own shelf, not
-a home inside one that already means something narrower.
+The library remains distinct from binding standards for the same reason: a
+resource that is genuinely different in kind from a procedure or local how-to
+needs its own shelf, not a home inside one that already means something narrower.
 
 ## Current residents
 

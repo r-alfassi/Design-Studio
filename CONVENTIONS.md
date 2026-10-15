@@ -5,15 +5,15 @@ Normative conventions for working with this resource. Not design-craft doctrine
 are admitted, named, and consumed. For how the resource is organized, see
 `STRUCTURE.md`.
 
-Governed by `federation/RESOURCE.md`. Principal is the steward; the Designer
-approves material changes.
+The Compass record holds the current intent and work. Principal is the steward;
+the Designer approves material changes.
 
 ---
 
 ## Admission checklist — run before adding any resident
 
 Before a skill, format, framework, or standard is added — new-authored or vendored —
-answer these four in the resident's `federation/WORK.md` entry. An unanswered
+answer these four in the resident's Compass campaign quest. An unanswered
 checklist is not an admission.
 
 1. **Kind.** Which is it — format, framework, standard, or skill (see `STRUCTURE.md`)?

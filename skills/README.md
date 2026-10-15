@@ -77,4 +77,4 @@ procedure, so it lives with the frameworks.
 *The Harness cartridge-lifecycle skills (`adopt`, `deploy`, `promote`, `prune`,
 `migrate`, `wrapup`, `assess`, `gather`) were archived 2026-09-06 to
 `principal/archive/harness-cartridge-skills/` — cartridge deployment is
-Principal / federation method, not design craft.*
+project-record and deployment method are not Design Studio craft.*

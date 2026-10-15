@@ -1,0 +1,8 @@
+{
+  "devDependencies": {
+    "@r-alfassi/compass": "github:r-alfassi/Compass"
+  },
+  "name": "design-studio",
+  "private": true,
+  "type": "module"
+}

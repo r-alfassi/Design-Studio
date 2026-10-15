@@ -47,22 +47,125 @@ current and historic work must make sense to a human opening the file cold.
 This is a bounded cleanup of the contracted area, not authorization to
 reorganize unrelated design work.
 
-### Production sync sprint layout
+### Reconciliation preflight
 
-On a page named `Production sync`, organize work by sprint rather than by a
-growing mixture of global phases. Each sprint owns one named horizontal Figma
-section. Within that section, place its frames left-to-right in the order the
-sync actually proceeds: evidence or baseline first, then the applicable
-comparison/decision and current Figma authority, then implementation or runtime
-evidence when it exists. Name each frame for its phase and state so the order is
-understandable without opening the contract.
+Before every Figma mutation, reconcile the exact contracted scope. Treat the
+current Figma canvas as the authority for visual construction and treat any
+local state ledger only as a record of previously created node IDs.
 
-Before adding work to `Production sync`, identify the target sprint and phase;
-place the frame in that sprint section rather than as a page-level orphan or a
-new global phase section. Figma Sections do not provide Auto Layout, so this is
-an intentional canvas arrangement: preserve a consistent left-to-right gap and
-resize the sprint section to contain its frames. A later sprint is a new
-section, not a continuation tacked onto an earlier sprint.
+1. Read the scoped source frames, component sets, foundations, and nearby
+   assembly area that the planned mutation depends on.
+2. Run [scripts/reconcile-figma-scope.js](scripts/reconcile-figma-scope.js)
+   in a read-only `use_figma` call, passing only the known node IDs relevant to
+   the request. Return hierarchy, Auto Layout, dimensions, text, component
+   properties, and variable/style bindings.
+3. Compare that snapshot with the previous ledger entry. Preserve every user
+   change found in Figma; never restore or overwrite an earlier agent state.
+   When the user has refined the latest agent proposal, treat that refined
+   proposal as the current authority. Do not substitute an earlier raw source,
+   reference, or parallel experiment merely because it is easier to inspect.
+4. Classify a detected difference before writing:
+   - **local visual adjustment**: retain it and continue from it;
+   - **reusable component or token rule**: retain it, update the component or
+     foundation deliberately, then update the ledger; or
+   - **cross-project operating rule**: retain it and promote the decision into
+     the appropriate Design Studio standard.
+5. Update the ledger with the accepted current IDs and any newly established
+   reusable rule before the next mutation.
+
+### Tokenization decision for reconciled edits
+
+When reconciliation finds a user-made change inside a reusable component,
+first check whether an existing scoped variable already represents that value
+and role. Never repurpose a broader token simply because its prior binding is
+convenient.
+
+- When a suitable token exists, retain the user change and propose rebinding
+  the affected component property to that token.
+- When no suitable token exists, retain the user change, record it as a
+  **pending reusable-token decision**, and propose the narrowest appropriate
+  primitive or semantic token before making a Figma mutation. State its value,
+  scope, implementation syntax, and every affected component property.
+- Create and bind the proposed token only after the decision is accepted.
+  Apply it consistently to the relevant variants, then update the foundation
+  documentation and ledger.
+
+For example, a Metric Cell label/value stack changed from `4` to `0` must not
+alter the shared `space/4` token. If no zero-gap token exists, propose
+`space/0` with `GAP` scope and a scoped implementation syntax; preserve the
+unbound user edit until that proposal is accepted.
+
+### Pixel-raster fidelity gate
+
+When a Figma component family presents pixel or other raster source artwork,
+its preview structure must never silently change the asset silhouette. Before
+promotion, run `scripts/audit-pixel-raster-fidelity.js` in a read-only
+`use_figma` call with the exact source component-set IDs.
+
+- The component set, every variant root, and every immediate raster host must
+  have a zero corner radius and no effects.
+- Treat zero radius as fixed asset geometry, not a radius token. The rule
+  prevents Figma's default preview treatment from rounding or softening a
+  pixel edge; it is not a ban on intentional pixel-art chamfers drawn in the
+  raster itself.
+- Do not use a decorative frame, mask, shadow, or rounded presentation wrapper
+  as a source primitive. If one is needed for documentation, keep it outside
+  the source family and name it as presentation-only.
+- The audit only reports violations. Apply a correction only to the exact
+  source nodes it returns, then re-run the audit and inspect one representative
+  preview at native size.
+
+Do not scan the entire file by default: reconciliation is intentionally scoped
+to avoid noise and to respect unrelated work. Run a deeper system audit before
+production promotion, a component-library handoff, or a material foundations
+change. The helper reports state only; it must never write, revert, detach, or
+promote Figma nodes.
+
+### Figma sprint-page row model
+
+On a page used for design sprints -- for example `Sprints` or `Production
+sync` -- organize work as a chronological vertical stack of **initiative rows**.
+Each initiative owns one named horizontal Figma section. Within that section,
+place its direction summary, evidence, experiments, comparisons, decision, and
+current authority left-to-right in the order the work was explored. Name each
+frame for its phase and state so the row is understandable without opening the
+contract.
+
+An asset lab, palette test, anatomy study, or other supporting experiment is
+part of the initiative that prompted it. Keep it inside that initiative's
+section and continue the same left-to-right reading order; do not create a
+page-level lab section or a separate row merely because the medium changes.
+Preserve prior candidates beside later ones when comparison matters.
+
+A genuinely new concept, subject, or product question starts a new dedicated
+section below the preceding initiative row. Do not wrap several independent
+sprints in a larger parent section, merge their histories, or arrange them as
+one horizontal mega-row.
+
+Before adding work, identify the target initiative and phase; place the frame
+in that sprint section rather than as a page-level orphan or a new global phase
+section. Figma Sections do not provide Auto Layout, so this is an intentional
+canvas arrangement: preserve a consistent left-to-right gap and resize the
+sprint section to contain its frames. A later sprint is a new section, not a
+continuation tacked onto an earlier sprint.
+
+### Sprint direction summary
+
+Begin every exploratory Figma sprint with a concise **Sprint direction
+summary** as the first frame in its section. It gives a reviewer the premise
+for the screens that follow without making a proposal look like production
+authority. Keep it short and decision-focused:
+
+- the experience change being tested, in one plain-language sentence;
+- the two or three design principles or constraints that govern the attempt;
+- the intended reading order or player question sequence; and
+- the specific scope of the comparison, including what it deliberately does
+  not decide.
+
+Retain the summary when later variants are added. It is the shared frame of
+reference for comparison, not a screen to be replaced by the latest proposal.
+Name it `Sprint direction summary` (with the sprint/topic where useful) and
+place it to the left of the historical baseline and proposed variants.
 
 ### Sprint containment gate
 
@@ -92,6 +195,13 @@ until the containment gate passes.
 Before closing a sprint, explicitly review the accepted result against the
 shared Components and Flows pages. Record both decisions in the sprint's
 project change record:
+
+First, place a clearly named **Final outcome** artifact at the far right of the
+sprint's progression. It must show the accepted result in the context of the
+work that led to it. Only then may that outcome be promoted into Components,
+Foundations, or Flows. The promoted artifact can be an instance, a deliberately
+linked copy, or a documented source reference, but it must not become the only
+place where the accepted result is visible.
 
 - **Components:** decide whether the result reveals a reusable component,
   variant, token, or a correction to an existing component. Update the

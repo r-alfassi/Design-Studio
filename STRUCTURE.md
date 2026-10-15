@@ -3,8 +3,9 @@
 How this resource is organized, so a reader can go from a project need to the
 right resident, and so it stays legible as it grows.
 
-Governed by `federation/RESOURCE.md`. Principal is the steward; the Designer
-approves material changes. The admission discipline is in `CONVENTIONS.md`.
+The Compass record holds the current intent and work. Principal is the steward;
+the Designer approves material changes. The admission discipline is in
+`CONVENTIONS.md`.
 
 ---
 
@@ -83,7 +84,6 @@ checklist exists to catch before it lands.
 
 Design Studio holds design **craft** — making and evaluating design artifacts,
 and reasoning through design questions. It does not hold: cartridge-deployment
-and project-governance method (that is Principal / federation territory —
-see the archived Harness cartridge-lifecycle skills), personal Designer
+and project-governance method, personal Designer
 preferences, universal collaboration culture, per-project design decisions, or
 any client-identifying content.

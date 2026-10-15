@@ -1,6 +1,6 @@
 # Design Studio
 
-Cross-project design craft — RTL, platform norms, Figma/HTML bridge conventions, design-process skills — decoupled from any client engagement and any one project. Extracted and scrubbed from Harness (a Deloitte-origin repo entangled with real client work) rather than adopted wholesale; see `federation/WORK.md` for the extraction record.
+Cross-project design craft — RTL, platform norms, Figma/HTML bridge conventions, and design-process skills — decoupled from any client engagement and any one project. The Compass record holds its current intent and work.
 
 This repo never accumulates client-identifying content. That was the specific drift that entangled Harness — a standing rule here, not a one-time cleanup.
 
@@ -28,6 +28,6 @@ A project's own `DESIGN.md` cites the relevant convention here rather than dupli
 
 ## Status
 
-Governed by Principal (`federation/RESOURCE.md`, `federation/PRODUCT.md`,
-`federation/WORK.md`), a passive knowledge repo — read and applied on demand,
-not consulted as an active agent. Design history: Principal's `federation/WORK.md`, C-06.
+The Compass record governs the current intent and work. Design Studio remains a
+passive knowledge repo, read and applied on demand rather than consulted as an
+active agent. Principal is the steward; the Designer approves material changes.
