@@ -42,3 +42,21 @@ Execution units:
 3. Figma cluster restructure: commissioned. The handoff defines a `skills/figma/` router and shared `instancing`, `auditing`, and `plugin-api` references; `figma-borrow` retires into `instancing.md`; `figma-design-system` becomes `figma-organize-ds`; leaf skills keep discoverable `skills/<name>/SKILL.md` homes. It awaits executor dispatch and Principal assessment.
 
 Done when: every resident is filed against the Design Studio model; the Figma cluster has no duplicated procedure across skills; the admission checklist is in `CONVENTIONS.md`; and a new resident cannot be added without it.
+
+## Quest Q-68 — make Figma a more prominent part of the Design Studio build
+
+State: Seed.
+
+Initiated: 2026-10-19.
+
+Origin: the Designer, 2026-10-19, at the end of a session: incorporating Figma in Design Studio has become a practice much more intricate than a skill, and it is worth considering what adjustments would make it a more prominent part of the build. Logged so it is not forgotten; no design has been discussed.
+
+Problem (as stated, not yet examined): the Figma work now spans the figma-production-loop skill, the sprint and layout practice, the Figma cluster of skills, two formats (the change log and the implementation contract), a reference, and a dedicated Design Studio Figma file with pages and components. The organizing model has four kinds (format, framework, standard, skill) and no home that shows this as one practice.
+
+Open questions for the Designer, none decided:
+
+- Is the Figma practice a new kind of resident, a grouping of existing ones, or a skill with a larger footprint?
+- What does "more prominent part of the build" mean: in `STRUCTURE.md`, in the discovery index, in how a project is set up, or in what Design Studio ships?
+- How does it relate to Q-63's commissioned `skills/figma/` router and to Q-67's Figma file?
+
+Relations: Q-63 (the Figma cluster restructure), Q-67 (the Design Studio Figma file and the sprint practice), `STRUCTURE.md`, `CONVENTIONS.md`.
