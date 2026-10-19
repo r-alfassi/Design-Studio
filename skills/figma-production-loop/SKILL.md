@@ -138,9 +138,10 @@ page-level lab section or a separate row merely because the medium changes.
 Preserve prior candidates beside later ones when comparison matters.
 
 A genuinely new concept, subject, or product question starts a new dedicated
-section below the preceding initiative row. Do not wrap several independent
-sprints in a larger parent section, merge their histories, or arrange them as
-one horizontal mega-row.
+section below the preceding initiative row. Do not merge the histories of
+independent sprints or arrange them as one horizontal mega-row. A set of
+related sprints may sit together in a sprint-group section (see
+"Alternating layout axes"); unrelated sprints never share one.
 
 Before adding work, identify the target initiative and phase; place the frame
 in that sprint section rather than as a page-level orphan or a new global phase
@@ -148,6 +149,47 @@ section. Figma Sections do not provide Auto Layout, so this is an intentional
 canvas arrangement: preserve a consistent left-to-right gap and resize the
 sprint section to contain its frames. A later sprint is a new section, not a
 continuation tacked onto an earlier sprint.
+
+### Alternating layout axes
+
+The layout direction flips at each level of grouping. Frames inside a sprint
+run horizontally, left to right, in the order explored. Sprints on a page, or
+inside a group, stack vertically. Sprint groups sit side by side horizontally,
+each group a vertical stack of sprints. A group of groups stacks vertically
+again. Give each sprint group its own container section, tinted differently
+from the sprint sections inside it, so the extra level is visible. A reader
+then finds any frame by going across, then down, then across.
+
+### Frame labels and states
+
+Put each frame's name and one state label on the canvas, not only in the layer
+panel. A reader on the canvas must be able to tell a baseline from current
+authority. The states are current, proposal, rejected, superseded, final
+outcome and placeholder; the State label component in the Design Studio Figma
+file defines their look.
+
+- Keep a rejected branch beside the work it was compared with, labelled
+  Rejected, with its reason in its name or beside it. Dimming alone is not a
+  label.
+- Mark any gap with a placeholder box that names what will fill it and who
+  provides it. Never fill a gap with invented content to make a frame look
+  finished.
+
+### Sprint operating board
+
+Keep one sprint operating board per project with four zones: Now (one active
+scope, or an explicit "none", and the decision it is making), Next, History
+(resolved, superseded or kept as evidence, with no current authority), and a
+Parking lot. A parked item needs a named decision that unlocks it. The
+Template page of the Design Studio Figma file holds the board.
+
+### Studio containers
+
+Build sprint containers (direction summaries, state labels, placeholder boxes,
+the operating board) from the Design Studio Figma file's components and tokens,
+so the project's own design is the only strong visual identity on the board.
+The same file's Practice page shows this practice and its Examples page shows
+it in use.
 
 ### Sprint direction summary
 
@@ -181,9 +223,10 @@ the following:
 
 - every named current-authority frame for the sprint is a direct child of the
   target section;
-- each such frame's bounds sit within that section's bounds; and
+- each such frame's bounds sit within that section's bounds;
 - no named current-authority frame for that sprint remains a page-level child
-  or other orphan outside the section.
+  or other orphan outside the section; and
+- no unnamed section remains on the sprint page.
 
 If any check fails, stop, repair or reparent the affected node, resize the
 section when needed, and re-run the inspection. Do not mark the screen
