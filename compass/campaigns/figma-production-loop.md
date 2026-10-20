@@ -42,7 +42,7 @@ Surfaces:
 
 - The Design Studio Figma file (https://www.figma.com/design/hxtrXjUnWvocZfjvDrRtcE/Design-Studio) with pages Practice, Template, Examples, Foundations, Components and Assets. Foundations holds neutral studio tokens, Components holds the state label, placeholder box, direction-summary card and operating-board card, Template holds a duplicable operating board and sprint section, Practice shows the practice and its layout principle, and Examples holds annotated captures of real sprint boards.
 - `skills/figma-production-loop/SKILL.md`, which now states the alternating layout axes, sprint-group containers, frame labels and states, the operating board and studio containers.
-- Open backlog entries F-005 and F-006 in `skills/figma-production-loop/backlog/`.
+- Open backlog entries F-005, F-006, F-007 and F-008 in `skills/figma-production-loop/backlog/`. F-007 is the separation of the game design from the sprint layout, and F-008 is the listed dry run before any bulk removal.
 
 Boundary: the rules and their reasons live in the skill; the Figma file shows them and carries the shapes. The studio containers stay neutral so a project's own design is the only strong identity on a board. The examples are captures from two of the Designer's personal projects, used with the Designer's clearance on 2026-10-19; no client material is in the file.
 
