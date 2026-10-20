@@ -49,8 +49,8 @@ Boundary: the rules and their reasons live in the skill; the Figma file shows th
 Tasks:
 
 1. Decide what belongs on the Assets page, because it is empty.
-2. Decide whether a small test may be one auto-layout sequence frame or must be one frame per step, because both were used.
-3. Build a sprint-group section on a real project page and close F-005 and F-006 on its evidence.
+2. Decided 2026-10-20: a small test is one frame per step, never one auto-layout sequence frame. Reason: only the per-step form lets a step carry its own state label and lets a rejected branch stay beside the work it was compared with, and a sequence frame also becomes the sprint's parent in place of the section. The evidence is a personal game project's sprint page of twenty sprints, where seven sprints used the sequence frame and were unpacked. The rule is in the skill, under design apart from layout.
+3. Built 2026-10-20: a sprint-group section on a real project page, with the sprints stacked inside it, a tinted container bound to the studio color token, direction summaries as the library component, frame cards with state labels, and placeholder boxes where a sprint had no summary. F-005 and F-006 stay open: the page still has about forty unnumbered frames with no state label, and its operating board is out of date.
 4. Run the admission checklist on any resident this adds, because the Figma file is new.
 
 Done when: F-005 and F-006 are closed on evidence, the Assets page is filled or removed, and the sequence-frame question is decided.
