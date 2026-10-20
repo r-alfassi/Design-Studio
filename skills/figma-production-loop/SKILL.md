@@ -148,7 +148,9 @@ in that sprint section rather than as a page-level orphan or a new global phase
 section. Figma Sections do not provide Auto Layout, so this is an intentional
 canvas arrangement: preserve a consistent left-to-right gap and resize the
 sprint section to contain its frames. A later sprint is a new section, not a
-continuation tacked onto an earlier sprint.
+continuation tacked onto an earlier sprint. A distinct stage of the same topic
+is a half-step sprint, numbered NN.5, in its own section directly below sprint
+NN; it never extends NN's section.
 
 ### Alternating layout axes
 
@@ -174,6 +176,45 @@ file defines their look.
 - Mark any gap with a placeholder box that names what will fill it and who
   provides it. Never fill a gap with invented content to make a frame look
   finished.
+
+### Design apart from layout
+
+A sprint section is the direct parent of the sprint's steps. A sequence frame
+that holds the steps, and also the sprint's title and question, is unpacked:
+each step becomes a direct child of the section, and the title and question
+become the direction summary.
+
+A step is a frame card from the Design Studio library: a header with the state
+label and the frame's name, then the design and nothing else. The design is the
+project's own frame, component instance or raster. Notes, titles and captions
+are text in the card. A presentation background, border or title inside the
+design frame is layout, and it is removed.
+
+Where an explanatory board shows something that has since become a component,
+replace the board with instances of the component. Keep a board that is the
+sprint's own construction evidence, or a rejected candidate, as labelled
+history.
+
+### Arranging a sprint page
+
+Arrange a page in this order, reading the page back after each step: section
+backgrounds and names; frame cards and state labels; direction summaries as the
+library component, with a placeholder box where a sprint has none; unpacking
+sequence frames; stripping chrome from image tests; separating notes from design
+in explanatory boards; then restacking the sections and checking that every
+frame sits inside its section with no overlap. Take a frame's state from its
+name where it says one. Otherwise a baseline, source, evidence or reference is
+Current and a numbered step is Proposal, and the Designer corrects any that are
+wrong.
+
+### Bulk changes
+
+Before any change that removes more than one node, return the exact list of what
+it would remove, with the evidence that each holds only what was already moved
+or copied, and show it to the Designer first. A node is annotation only when
+every child is a text node and nothing is nested, because text inside a frame
+can be interface text. After restoring a version, read back what came back and
+what was lost before relying on it.
 
 ### Sprint operating board
 

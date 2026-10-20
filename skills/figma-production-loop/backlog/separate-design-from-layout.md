@@ -1,6 +1,6 @@
 # F-007 - Keep the game design apart from the sprint layout
 
-- **Status:** open
+- **Status:** open; distilled into the skill on 2026-10-20, to close when the condition below is evidenced
 - **Observed:** 2026-10-20, applying the Design Studio components to a project's sprint page of twenty sprints. Three conflations showed:
   - A frame inside a sprint section acted as the sprint's own parent. One frame held the sprint's title, its question and every step, so the section was only a shell. The steps could not carry their own state label, the summary could not be the component, and a containment check saw one frame and not the steps. Seven sprints did this.
   - A step frame carried presentation chrome around the design: a dark background, a rounded border, and its own title and caption. The studio frame card then added a second header and border on top. Forty-three steps did this, and a reader could not tell the design from the layout.
