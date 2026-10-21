@@ -58,6 +58,13 @@ Tasks:
 3. Apply the scope line SC-13: the loop's promotion gate and its implement-and-verify step leave the package, and the contract's authority sentence, which makes Figma the fixed visual authority, changes to follow PN-02. Decide also the fate of the `product-design` format, whose intent and flow layers define intent, and of the `figma-change-log` format, which `DESIGN-DEBT.md` replaces.
 4. Decide what marks the end of work on the in-place path, and how the agent picks an entry point. Serves: R-02.
 
+Reuse decisions, 2026-10-21, for `figma-production-loop` (task 2):
+
+- It becomes four parts. A `sprint` branch takes the row model, the alternating axes, frame labels and states, design apart from layout, arranging a sprint page, the direction summary and the sprint-close review (R-22, R-28). A short standard, "keep the Designer's hand", takes file stewardship, the reconciliation preflight, the tokenization decision and the bulk-removal list (R-19, R-27, R-04). The scripts become tools: the reconcile script, a containment check turned from prose into a script, and a script that lists what a change would remove. A handoff part takes loop steps 1 to 4, with a `DESIGN-DEBT.md` row replacing the change-log entry (R-08 to R-11).
+- It loses the `FIGMA-CHANGELOG` record, the promotion gate, and the implement-and-verify step (scope line SC-13). Its `backlog/` folder goes: the open entries F-004 to F-008 become tasks under Q-67 in this registry.
+- Four parts have no failure record and no requirement: the sprint operating board, the studio containers, the pixel-raster fidelity gate, and the Android Views adapter. Each needs a fresh run to stay (R-16), and the last two stay out of the spine, as each fits one project type.
+- Open: whether a part that came from a recorded failure (F-001, F-003, F-007, F-008) counts as having passed the PN-03 test already. This is my suggested reading, and the Designer has not confirmed it.
+
 Origin of the quest: seed below, logged earlier the same session series.
 
 State (before): Seed.
