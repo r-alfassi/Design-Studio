@@ -39,3 +39,11 @@ Append-only. One line per ID, added when the ID is created; one line appended wh
 - R-18 · 2026-10-21 · In-place changes reach the main line only on approval
 - R-19 · 2026-10-21 · A hand edit in Figma is never overwritten
 - R-20 · 2026-10-21 · The agent audits before handoff and before formalizing
+- R-21 · 2026-10-21 · The current state is captured in Figma first
+- R-22 · 2026-10-21 · A sprint keeps its trail
+- R-23 · 2026-10-21 · In-place changes are shown running
+- R-24 · 2026-10-21 · The agent says which side is newer before formalizing
+- R-25 · 2026-10-21 · A formalized component is reusable and token-bound
+- R-26 · 2026-10-21 · A stale Figma component is updated from the code first
+- R-27 · 2026-10-21 · A hand change inside a component is kept and its token proposed
+- R-28 · 2026-10-21 · Closing a sprint records the component and flow review
