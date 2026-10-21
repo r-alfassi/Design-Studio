@@ -23,6 +23,7 @@ This file says what the product does and does not do, each with its reason, so a
 - **Make a project's design, product, or implementation decision, or define its intent.** The project record and its owner hold that authority. When a project states no direction, Design Studio asks where it is and stops. When visual work shows that the direction itself needs to change, Design Studio hands the question back to whoever owns intent. <!-- SC-05 -->
 - **Act as an active agent, a deployment method, or a project-governance system.** Design Studio is a resource that a project reads and applies. <!-- SC-06 -->
 - **Assume that a project keeps its record in any particular system, Compass included.** A project states its direction in whatever form it keeps one, and a reusable procedure that named one system would stop working on projects that use another. <!-- SC-08 -->
+- **Move work into production.** Implementing, releasing and verifying production behavior is the project's own work, and Design Studio hands over the agreed design and, when asked, reviews the built result against it. <!-- SC-13 -->
 - **Hold personal Designer preferences or universal collaboration culture.** Those subjects have their own homes and would make reusable craft falsely universal. <!-- SC-07 -->
 
 Open: the `product-design` format still has layers for intent and flow, with a PRD file and an HTML flow chart, and so has Design Studio holding a project's intent. That conflicts with the second line above and needs revising. It also still assumes the retired `.harness/` folder.

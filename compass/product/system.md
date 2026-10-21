@@ -66,6 +66,10 @@ Realized by: `skills/figma-production-loop/SKILL.md`
 
 Realized by: `formats/figma-implementation-contract.md`
 
+### Review the built result against the design
+
+Realized by: none yet
+
 ### Tune in place on a branch
 
 Realized by: none yet
@@ -89,6 +93,7 @@ Realized by: `bin/link-skills.ps1`
 - **A separate change log file.** The need was a status across design and production, which `DESIGN-DEBT.md` serves, and a per-change log duplicated its status line.
 - **Intent and flow layers inside Design Studio.** A PRD file and an HTML flow chart would have Design Studio defining intent, which the scope rules out.
 - **A sprint practice in code.** The sprint is a Figma practice whose trail is its section system, and a branch carries the equivalent in code.
+- **Moving work into production.** The implementation, the release and the promotion gate belong to the project, and the loop's last two steps leave the package. This follows from the scope line SC-13.
 - **Putting the translation record in `DESIGN.md` or in `impeccable`'s sidecar.** A tool that can regenerate those files could remove it.
 
 The repo's root `AGENTS.md` becomes the package spine, decided by the Designer on 2026-10-21. Today it describes Design Studio for the people working on it and imports Compass, and a project that imports the package would pull all of that in, including a Compass import it may not use. So the maintenance rules and the Compass import move to a separate file for work on this repo. Open: where that file lives, because Codex reads only `AGENTS.md` at a repo root.

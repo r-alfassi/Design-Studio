@@ -43,7 +43,8 @@ Source: the Designer's answers in the grilling session of 2026-10-21 on the sing
 
 - **R-08** An accepted change that production does not yet match gets a row in `DESIGN-DEBT.md` with its Figma reference, its governing decision, its status and its evidence. Serves: SC-11. <!-- R-08 -->
 - **R-09** A disagreement between Figma and production is raised with the Designer and is not resolved by the agent, and its row says which side is ahead. Serves: PN-02, SC-11. <!-- R-09 -->
-- **R-10** A row leaves `DESIGN-DEBT.md` when production matches, and the commit that closes it carries the evidence. Serves: SC-11. <!-- R-10 -->
+- **R-10** A row leaves `DESIGN-DEBT.md` only when production matches, in the commit by whoever made it match, with the evidence in that commit. Serves: SC-11. <!-- R-10 -->
+- **R-29** When the Designer asks, the agent compares the built result with the approved design and reports the differences without changing production. Serves: SC-09, SC-13. <!-- R-29 -->
 - **R-11** A component whose production form differs structurally from the design has an entry in `FIGMA-TRANSLATION.md`, and no other component does. Serves: SC-11. <!-- R-11 -->
 - **R-12** `DESIGN.md` is updated when an accepted visual change alters the system, in the format that `impeccable` reads. Serves: SC-11. <!-- R-12 -->
 

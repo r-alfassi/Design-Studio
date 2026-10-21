@@ -55,7 +55,7 @@ Tasks:
 
 1. Make the root `AGENTS.md` the package spine, and move the maintenance rules and the Compass import to a separate file for work on this repo. Decided 2026-10-21; open: where that file lives. The structure itself now stands in `product/system.md`, derived from the journeys and features. Serves: `product/requirements.md` R-17.
 2. Choose, for each existing resident, whether it is kept, folded in or retired, by a fresh-run test. The remaining Figma skills (`figma-production-loop`, `figma-audit-structure`, `figma-roundtrip`, `figma-ds-recreate`, `figma-design-system`) come first. Serves: R-16.
-3. Decide the fate of the `product-design` format, whose intent and flow layers define intent, and of the `figma-change-log` format, which `DESIGN-DEBT.md` replaces.
+3. Apply the scope line SC-13: the loop's promotion gate and its implement-and-verify step leave the package, and the contract's authority sentence, which makes Figma the fixed visual authority, changes to follow PN-02. Decide also the fate of the `product-design` format, whose intent and flow layers define intent, and of the `figma-change-log` format, which `DESIGN-DEBT.md` replaces.
 4. Decide what marks the end of work on the in-place path, and how the agent picks an entry point. Serves: R-02.
 
 Origin of the quest: seed below, logged earlier the same session series.

@@ -19,7 +19,7 @@ The Designer has a project whose direction is stated, and wants to do most of th
 4. Points at what needs attention and tweaks by hand. Expects each hand edit to be treated as the new truth and never overwritten.
 5. Says it is agreed. Expects the agent to audit the frames' structure first and to report, and not fix locally, anything a library component owns.
 6. Expects every agreed change that production does not yet match to be listed as a row in `DESIGN-DEBT.md`, with a translation record only for a component whose production form differs structurally, and nothing built before this point.
-7. Watches the agent implement the change as the project's normal work. Expects a row to close only when production matches the design, with the evidence in the closing commit, and a disagreement to be raised and not settled by the agent.
+7. Hands the work to production, which is the project's own work and not Design Studio's. Later, when asked, sees the built result compared with the approved design. Expects a report of the differences, nothing moved, and a row to close only when production matches, in the commit by whoever made it match, with the evidence there.
 
 ## Tuning a project in place
 

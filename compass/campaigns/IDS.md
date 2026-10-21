@@ -47,3 +47,5 @@ Append-only. One line per ID, added when the ID is created; one line appended wh
 - R-26 · 2026-10-21 · A stale Figma component is updated from the code first
 - R-27 · 2026-10-21 · A hand change inside a component is kept and its token proposed
 - R-28 · 2026-10-21 · Closing a sprint records the component and flow review
+- SC-13 · 2026-10-21 · Does not move work into production
+- R-29 · 2026-10-21 · On request, review the built result against the design

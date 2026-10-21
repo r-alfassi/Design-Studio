@@ -59,9 +59,15 @@ Lists exactly what a change would remove, with the evidence, and waits for the D
 
 ## Hand off agreed work as design debt
 
-Opens a `DESIGN-DEBT.md` row for each agreed change that production does not yet match, with a translation record only where production differs structurally, raises any disagreement with its direction, and closes a row with its evidence once production matches.
+Opens a `DESIGN-DEBT.md` row for each agreed change that production does not yet match, with a translation record only where production differs structurally, raises any disagreement with its direction, and states the rule for closing a row, which whoever implements follows.
 
 - Satisfies: R-08, R-09, R-10, R-11
+
+## Review the built result against the design
+
+When the Designer asks, compares the built screen with the approved design and reports the differences, and moves nothing.
+
+- Satisfies: R-29
 
 ## Tune in place on a branch
 
