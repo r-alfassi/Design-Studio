@@ -43,9 +43,24 @@ Execution units:
 
 Done when: every resident is filed against the Design Studio model; the Figma cluster has no duplicated procedure across skills; the admission checklist is in `CONVENTIONS.md`; and a new resident cannot be added without it.
 
-## Quest Q-68 — make Figma a more prominent part of the Design Studio build
+## Quest Q-68 — make the visual phase a package, with Figma as one of its tools
 
-State: Seed.
+State: Defined (2026-10-21, after a grilling session with the Designer; the requirements are in `product/requirements.md`, R-01 to R-17).
+
+Decided 2026-10-21: the whole of Design Studio becomes an installable package with an `AGENTS.md` spine that routes by kind of work, as Compass does. The visual phase is its main route, in any medium. It has three entry points: sprints, formalizing the design system, and tuning in place. It keeps `DESIGN.md` (the format `impeccable` reads), `DESIGN-DEBT.md` (open debt only, each row with a direction) and a `FIGMA-TRANSLATION.md` only for structurally different components. It never defines a project's intent and does not assume Compass.
+
+Done when: the package has a spine and routes, every resident is kept, folded in or retired against requirements R-15 and R-16, and the `product-design` and `figma-change-log` formats match the scope above.
+
+Tasks:
+
+1. Sketch the package structure: the spine, the standards, templates, contained procedures and tools. Serves: `product/requirements.md` R-17.
+2. Choose, for each existing resident, whether it is kept, folded in or retired, by a fresh-run test. The remaining Figma skills (`figma-production-loop`, `figma-audit-structure`, `figma-roundtrip`, `figma-ds-recreate`, `figma-design-system`) come first. Serves: R-16.
+3. Decide the fate of the `product-design` format, whose intent and flow layers define intent, and of the `figma-change-log` format, which `DESIGN-DEBT.md` replaces.
+4. Decide what marks the end of work on the in-place path, and how the agent picks an entry point. Serves: R-02.
+
+Origin of the quest: seed below, logged earlier the same session series.
+
+State (before): Seed.
 
 Initiated: 2026-10-19.
 

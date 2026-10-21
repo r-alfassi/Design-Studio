@@ -11,6 +11,8 @@ This file says why the project exists, the main problem it answers, how it answe
 
 Design Studio holds reusable design craft for the Designer, Principal, and their projects. It keeps cross-project design procedures, deliverable formats, reasoning frameworks, standards, references, and external library pointers separate from any one client engagement.
 
+Design Studio is also responsible for design and visual interfaces, in any medium. It carries the Designer's process for the visual phase, which starts once a project's direction is stated, and keeps the craft that process draws on. Figma is a tool it uses for collaboration and for formalizing the design system, and it is not required.
+
 ## The main problem
 
 Design craft scattered through client work or individual projects must be rediscovered or copied before another project can use it. Copying it also risks carrying client-specific material into a reusable resource, so projects lose both accumulated practice and a clear boundary around it.

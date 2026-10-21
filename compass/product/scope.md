@@ -1,5 +1,5 @@
 ---
-description: Design Studio maintains reusable design craft and lets projects cite it on demand; it does not hold client context, define a project's intent, assume any particular record system, hold project decisions or implementation authority, or take an active agent role.
+description: Design Studio maintains reusable design craft and guides visual design work in any medium from a stated direction to an approved design, as a package a project imports; it does not hold client context, define a project's intent, assume any particular record system, hold project decisions or implementation authority, or take an active agent role.
 follows: [audience.md]
 ---
 
@@ -12,6 +12,10 @@ This file says what the product does and does not do, each with its reason, so a
 - **Maintain reusable design procedures, formats, frameworks, standards, references, and external library pointers.** Projects need a stable place to return to for transferable craft. <!-- SC-01 -->
 - **Classify and index each resident by its purpose.** A project can select the smallest relevant material rather than treating the resource as universal context. <!-- SC-02 -->
 - **Let a project cite or apply selected material on demand.** Reusable craft helps a case without replacing that project's own product and implementation records. <!-- SC-03 -->
+- **Guide visual design work in any medium, from a stated direction to an approved design.** Design Studio is responsible for design and visual interfaces. Figma is one tool it uses, for collaboration and for formalizing the design system, and a project that never enters Figma can still have its visuals tuned in place. <!-- SC-09 -->
+- **Offer three ways into the work: sprints for collaborating, formalizing the design system, and tuning a project's visuals in place.** The same decision points and records serve all three, and a sprint can end in the Designer's decision to formalize a component. <!-- SC-10 -->
+- **Keep a project's visual documentation and its open design debt.** `DESIGN.md` is the project's style document, in the format that `impeccable` reads. `DESIGN-DEBT.md` lists only where production and the approved design disagree, and a translation record exists only for components whose production form differs structurally. None of them holds intent. <!-- SC-11 -->
+- **Install as a package that a project imports through its `AGENTS.md`, and that loads by kind of work.** Visual work is only part of a project's life, so only a small spine loads at first. <!-- SC-12 -->
 
 ## What it does not do
 
