@@ -17,7 +17,10 @@ Source: the Designer's answers in the grilling session of 2026-10-21 on the sing
 
 ## Where the agent stops
 
-- **R-04** In a marked sprint area the agent works without asking, and before it changes anything approved it stops and asks. Serves: PN-01, SC-09. <!-- R-04 -->
+- **R-04** In a marked sprint area in Figma the agent works without asking, and before it changes anything approved it stops and asks. Serves: PN-01, SC-09. <!-- R-04 -->
+- **R-18** When tuning in place, the agent makes its changes on a branch, and they reach the main line only when the Designer approves. Serves: PN-01, SC-10. <!-- R-18 -->
+- **R-19** A change the Designer makes by hand in Figma is never overwritten by the agent. Serves: PN-01. <!-- R-19 -->
+- **R-20** Before an agreed design is handed off, and before a component is formalized, the agent audits the frames' structure and reports what it may not fix. Serves: SC-10, PN-01. <!-- R-20 -->
 - **R-05** The agent never changes a library component's own layout locally, and its report names where the fix belongs. Serves: PN-01. <!-- R-05 -->
 - **R-06** Before a fix at section or page scale, the agent works on a clone and says which one is the original. Serves: PN-01. <!-- R-06 -->
 - **R-07** A proposal to formalize a component into the design system waits for the Designer's decision before any design-system change. Serves: SC-10, PN-01. <!-- R-07 -->

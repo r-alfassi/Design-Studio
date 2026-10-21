@@ -36,3 +36,6 @@ Append-only. One line per ID, added when the ID is created; one line appended wh
 - R-15 · 2026-10-21 · Figma mechanics are not restated
 - R-16 · 2026-10-21 · A resident stays only with a passing test
 - R-17 · 2026-10-21 · Only the spine loads at first
+- R-18 · 2026-10-21 · In-place changes reach the main line only on approval
+- R-19 · 2026-10-21 · A hand edit in Figma is never overwritten
+- R-20 · 2026-10-21 · The agent audits before handoff and before formalizing

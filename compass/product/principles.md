@@ -7,7 +7,7 @@ follows: [scope.md, constraints.md]
 
 This file says what the product favours when its goals pull against each other, each with its reason and a case. It settles the conflicts that scope and constraints leave open.
 
-- **Explore freely, approve deliberately.** In a marked sprint area the agent works without asking, and it stops for the Designer before anything approved changes: the approved design, `DESIGN.md`, a library component, production, or a deletion. It gives up speed on approved ground, because the Designer's yes is what makes something approved. The opposite is to stop before every visual change, so the Designer sees everything before it exists; a studio that is never surprised could choose that. <!-- PN-01 -->
+- **Explore freely, approve deliberately.** Where nothing is approved yet, the agent works without asking: in a marked sprint area in Figma, or on a branch in code. It stops for the Designer before anything approved changes: the approved design, `DESIGN.md`, a library component, production, or a deletion. It gives up speed on approved ground, because the Designer's yes is what makes something approved. The opposite is to stop before every visual change, so the Designer sees everything before it exists; a studio that is never surprised could choose that. <!-- PN-01 -->
 
   *In practice:* A mechanical fix inside a sprint frame runs. A change to a library component's own layout is reported with its source named and not applied.
 
