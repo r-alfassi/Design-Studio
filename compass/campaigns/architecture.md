@@ -53,7 +53,7 @@ Done when: the package has a spine and routes, every resident is kept, folded in
 
 Tasks:
 
-1. Derive the package structure from the journeys in `product/journeys.md`, through the features that deliver each step, and then the system. A first sketch built from the existing skills was set aside on 2026-10-21 as a guess to test against the journeys. Serves: `product/requirements.md` R-17.
+1. Make the root `AGENTS.md` the package spine, and move the maintenance rules and the Compass import to a separate file for work on this repo. Decided 2026-10-21; open: where that file lives. The structure itself now stands in `product/system.md`, derived from the journeys and features. Serves: `product/requirements.md` R-17.
 2. Choose, for each existing resident, whether it is kept, folded in or retired, by a fresh-run test. The remaining Figma skills (`figma-production-loop`, `figma-audit-structure`, `figma-roundtrip`, `figma-ds-recreate`, `figma-design-system`) come first. Serves: R-16.
 3. Decide the fate of the `product-design` format, whose intent and flow layers define intent, and of the `figma-change-log` format, which `DESIGN-DEBT.md` replaces.
 4. Decide what marks the end of work on the in-place path, and how the agent picks an entry point. Serves: R-02.

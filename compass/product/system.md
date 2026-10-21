@@ -91,4 +91,4 @@ Realized by: `bin/link-skills.ps1`
 - **A sprint practice in code.** The sprint is a Figma practice whose trail is its section system, and a branch carries the equivalent in code.
 - **Putting the translation record in `DESIGN.md` or in `impeccable`'s sidecar.** A tool that can regenerate those files could remove it.
 
-Open: the repo's root `AGENTS.md` describes Design Studio for the people working on it, and a project that imports the package would pull that whole file in. The spine needs that file, so the maintenance rules would move to another file. Not yet decided.
+The repo's root `AGENTS.md` becomes the package spine, decided by the Designer on 2026-10-21. Today it describes Design Studio for the people working on it and imports Compass, and a project that imports the package would pull all of that in, including a Compass import it may not use. So the maintenance rules and the Compass import move to a separate file for work on this repo. Open: where that file lives, because Codex reads only `AGENTS.md` at a repo root.
