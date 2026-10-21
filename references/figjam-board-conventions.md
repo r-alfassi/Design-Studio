@@ -1,9 +1,6 @@
----
-name: figma-standards
-description: "Durable conventions and decisions for FigJam board structure, naming, and grouping. Load before making any structural decision on a board."
----
+# FigJam board conventions
 
-# FigJam Collaboration Standards
+Kept from the retired `figjam` skill (2026-10-21). The official Figma plugin's `figma-use-figjam` covers the API; this file holds only this studio's board conventions.
 
 ## Board Role
 

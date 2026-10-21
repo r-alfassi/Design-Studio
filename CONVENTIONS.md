@@ -39,17 +39,16 @@ Then update `skills/README.md` (for a skill) so the resident is discoverable.
 
 ## Skill naming — `figma-` prefix
 
-New Figma-specific skills use a `figma-` prefix (`figma-build`, `figma-borrow`,
-`figma-roundtrip`, `figma-ds-recreate`, `figma-audit-structure`,
-`figma-design-system`, `figma-conversion-skill-builder`, `figma-production-loop`).
+New Figma-specific skills use a `figma-` prefix (`figma-roundtrip`,
+`figma-ds-recreate`, `figma-audit-structure`, `figma-design-system`,
+`figma-conversion-skill-builder`, `figma-production-loop`).
 
 A skill counts as Figma-specific if it operates on Figma design files via the
 Plugin API or Figma-native constructs. It does **not** apply to a skill that
 merely touches Figma among other tools (`rtl` also covers HTML; `translate`
-also handles plain text) or targets a different Figma surface (`figjam` is a
-whiteboard tool, not design files).
+also handles plain text).
 
-Existing non-conforming names (`rtl`, `figjam`) are grandfathered by operator
+The existing non-conforming name `rtl` is grandfathered by operator
 decision — do not rename them under this rule.
 
 ## Trust the skill file

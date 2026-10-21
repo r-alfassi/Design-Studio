@@ -20,13 +20,10 @@ A layered set — for a Figma task, start here and pick the leaf.
 
 | Skill | Reach for it when… |
 |---|---|
-| `figma-build` | building **new** screens from scratch via the Plugin API (greenfield; no existing component to match) |
 | `figma-ds-recreate` | **recreating** an existing component with real design-system library instances + bound tokens |
-| `figma-borrow` | you need **one library atom** located, subscribed, and instanced |
 | `figma-design-system` | organizing a whole Figma file **into** an atomic design system (scaffold, tokens, variables) |
 | `figma-audit-structure` | auditing a frame for **layout/structure** problems (overflow, wrappers, missing auto-layout, hard pins) and fixing authorized findings |
 | `figma-roundtrip` | moving a component **between HTML/CSS and Figma** in either direction |
-| `figjam` | working on a **FigJam board** (whiteboard) — pages, grouping, sections |
 
 ## Web / HTML (craft)
 

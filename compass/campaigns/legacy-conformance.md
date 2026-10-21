@@ -14,7 +14,7 @@ State: Seed.
 
 Surfaced: 2026-09-06 by Q-59's line-diff pass.
 
-Problem: the governance meta-skills `adopt`, `deploy`, `promote`, `prune`, `wrapup`, `figma-borrow`, and `transcript-ingestion` still instruct a project to write to the retired Harness cartridge, including `.harness/01_PROJECT.md`, `.harness/02_PRD.md`, and `.harness/03_BUILD.md`. The current record is Compass: product intent, campaign registry, journal, and research notes. This drift predates Q-59 and occurs in both the Workspace_0 branch and Design Studio.
+Problem: the governance meta-skills `adopt`, `deploy`, `promote`, `prune`, `wrapup`, and `transcript-ingestion` still instruct a project to write to the retired Harness cartridge, including `.harness/01_PROJECT.md`, `.harness/02_PRD.md`, and `.harness/03_BUILD.md`. The current record is Compass: product intent, campaign registry, journal, and research notes. This drift predates Q-59 and occurs in both the Workspace_0 branch and Design Studio.
 
 Also: `deploy.md` and `adopt.md` still name `product-mockup` where the current format is `product-design`.
 

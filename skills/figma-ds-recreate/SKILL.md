@@ -1,11 +1,11 @@
 ---
 name: figma-ds-recreate
-description: Recreate an existing UI component in Figma using real design system library instances and tokens — not loose frames. This skill should be used when asked to recreate, rebuild, or reproduce a UI component from an existing source, ensuring all elements are real library component instances bound to design system variables. For greenfield screen building from a visual spec (no existing component to match), use figma-build instead.
+description: Recreate an existing UI component in Figma using real design system library instances and tokens — not loose frames. This skill should be used when asked to recreate, rebuild, or reproduce a UI component from an existing source, ensuring all elements are real library component instances bound to design system variables.
 ---
 
 # Figma DS Recreate
 
-**This skill is for reconstruction** — rebuilding an existing component with proper library linkage and token binding. For greenfield screen building from a visual spec, use `figma-build`.
+**This skill is for reconstruction** — rebuilding an existing component with proper library linkage and token binding.
 
 Produce a design composed entirely of real library component instances and design system tokens. Never use loose frames with manual fonts, hardcoded colors, or raw numeric values.
 

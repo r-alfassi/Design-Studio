@@ -314,8 +314,9 @@ a changelog or a substitute for project design records.
 1. **Admit a bounded scope.** Name the Figma nodes, production surface, and
    governing decision. If a decision is absent, log a proposal; do not create a
    production commitment.
-2. **Construct or revise in Figma.** Use `figma-build` when a Figma frame must
-   be built or structurally changed. Use `figma-roundtrip` only for its
+2. **Construct or revise in Figma.** Use the Figma plugin's `figma-use` and
+   `figma-generate-design` when a Figma frame must be built or structurally
+   changed. Use `figma-roundtrip` only for its
    HTML/CSS bridge; it is not an Android translator. Use preview tooling only
    when an HTML mockup is actually the relevant comparison surface.
 3. **Log an accepted delta.** Add a concise, referential change-log entry. Do
