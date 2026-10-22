@@ -17,7 +17,7 @@ Load this skill when a frame has suspected structural issues: layout breakage, m
 
 ## Scripts
 
-Reusable Figma scripts live in `scripts/figma/`. Set the parameter block at the top of each script before running. The scripts return a structured result and no screenshot: take one with `get_screenshot`. `inspect.js` returns the issue list for the whole subtree and a tree trimmed to `MAX_TREE_DEPTH`, so a large frame stays readable.
+Reusable Figma scripts live in `scripts/figma/`. Set the parameter block at the top of each script before running. The scripts return a structured result and no screenshot: take one with `get_screenshot`. `inspect.js` returns the issue list for the whole subtree and a tree that shows only the paths to the issues, so a deep frame stays readable.
 
 | Script | Phase | Use for |
 |---|---|---|
@@ -96,7 +96,7 @@ In dev mode: gate before applying (single batch authorization).
 
 ### Phase 3b — Judgment fixes (select per finding)
 
-Present each Judgment finding as a select — not an open question. State the assumption, then offer three options:
+Present each Judgment finding as a select — not an open question. State the assumption, then offer three options. A `stray-node` finding is a question and not a fix: say what it looks like, and offer Delete, Keep, or Mark as intentional. Nothing is deleted without the operator's yes. The standard options are:
 
 ```
 [Fix]  [Skip]  [Mark as intentional]
@@ -122,6 +122,7 @@ Order: width mismatches first, then hard-pinned positions.
 | `width-mismatch` | Judgment | Container narrower than screen — may be intentional margin; state assumption before fixing | Medium | Widen to screen width with padding, or confirm narrow is intentional |
 | `hard-pinned-position` | Judgment | Ignore-auto-layout (`layoutPositioning: 'ABSOLUTE'`) child inside an auto-layout parent, still on Figma's default `MIN`/`MIN` constraints — no declared relationship to any edge. A node with the same ABSOLUTE positioning but *non-default* constraints is presumed deliberately anchored (Figma's own recommended pattern) and should NOT be flagged | Low | Single-edge relationship (e.g. pin to bottom): set the matching `constraints` — `fix-hard-pinned-position.js`. Needs to flex with leftover space among multiple siblings: bring into the flow via a FILL spacer — `fix-auto-layout.js` WRAP_RANGE. See `references/auto-layout-best-practices.md` |
 | `empty-frame` | Judgment | A frame with no children and no visible fill, stroke or effect. Likely capture debris, but it may be a placeholder; report it and never delete it without the operator's yes | Low | Propose deletion, or mark as intentional |
+| `stray-node` | Judgment | A childless ignore-auto-layout (ABSOLUTE) node sitting directly in the audited frame, often a tooltip, toast or popover left by a capture. Reported once, and never as a hard-pinned finding | Low | Ask the operator what it is: delete, keep, or mark as intentional |
 | `component-owned` | Component-owned | Node is a `COMPONENT`/`COMPONENT_SET`, or an `INSTANCE` (or descendant of one) backed by a remote/library `mainComponent` | — | No local fix. Report the needed change and point to the source component/library file |
 
 ---
@@ -273,8 +274,9 @@ Confidence markers are hidden in normal operation. Enable them only when activel
 
 ---
 
-## Notes from the 2026-10-22 fresh run
+## Reading a finding
 
-- **Precedence.** A node is reported under one class. An ABSOLUTE child that also overhangs appears under `hard-pinned-position` only, with its overhang listed, and the proposed fix keeps the overhang unless the operator says otherwise.
+- **Precedence.** A node is reported under one class. An ABSOLUTE child that also overhangs appears under `hard-pinned-position` only, with its overhang listed, and the proposed fix keeps the overhang unless the operator says otherwise. A childless ABSOLUTE node directly in the audited frame is a `stray-node` and nothing else.
+- **Rotation.** A rotated node's position is read from its absolute bounding box, since its x and y are not its visual bounds. A wrapper whose child is rotated may be what makes the child render, so the finding records the rotation and flattening keeps it.
 - **Right-to-left frames.** On an RTL frame, x offsets read from the right edge. State which edge is the start edge as an assumption before proposing a MIN or MAX constraint or a child order, and give it in the finding.
 - **Raw web captures.** Expect many wrappers and absolute nodes that come from the import and not from the design. Classify what is mechanical, and leave a deliberate overhang, such as a badge on the edge of a bar, as a judgment finding.

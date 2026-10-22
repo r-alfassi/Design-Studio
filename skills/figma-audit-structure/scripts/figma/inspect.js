@@ -5,7 +5,6 @@
 // separately with get_screenshot.
 
 const TARGET_FRAME_ID = ''; // Set to the target frame node ID before running
-const MAX_TREE_DEPTH = 2;   // Depth of the returned tree. Issues always come from the whole subtree.
 const TOL = 1;              // Pixel tolerance for every bounds and size comparison
 
 const frame = await figma.getNodeByIdAsync(TARGET_FRAME_ID);
@@ -37,12 +36,21 @@ function analyzeNode(node, parent, depth) {
   const isAbsoluteChild = parentIsAutoLayout && node.layoutPositioning === 'ABSOLUTE';
 
   // Which edges of the parent this node extends past, beyond the tolerance.
+  // A rotated node's x and y are not its visual bounds, so its position is
+  // taken from the absolute bounding box, relative to the parent's.
+  let bx = node.x, by = node.y, bw = node.width, bh = node.height;
+  if (node.rotation && node.absoluteBoundingBox && parent && parent.absoluteBoundingBox) {
+    bx = node.absoluteBoundingBox.x - parent.absoluteBoundingBox.x;
+    by = node.absoluteBoundingBox.y - parent.absoluteBoundingBox.y;
+    bw = node.absoluteBoundingBox.width;
+    bh = node.absoluteBoundingBox.height;
+  }
   const overhangs = [];
   if (parentWidth !== null) {
-    if (node.x < -TOL) overhangs.push(`starts ${-node.x}px before the parent's left edge`);
-    if (node.y < -TOL) overhangs.push(`starts ${-node.y}px above the parent's top edge`);
-    if (node.x + node.width > parentWidth + TOL) overhangs.push(`ends ${node.x + node.width - parentWidth}px past the parent's right edge`);
-    if (node.y + node.height > parentHeight + TOL) overhangs.push(`ends ${node.y + node.height - parentHeight}px past the parent's bottom edge`);
+    if (bx < -TOL) overhangs.push(`starts ${-bx}px before the parent's left edge`);
+    if (by < -TOL) overhangs.push(`starts ${-by}px above the parent's top edge`);
+    if (bx + bw > parentWidth + TOL) overhangs.push(`ends ${bx + bw - parentWidth}px past the parent's right edge`);
+    if (by + bh > parentHeight + TOL) overhangs.push(`ends ${by + bh - parentHeight}px past the parent's bottom edge`);
   }
 
   // Overflow: reported only for children that take part in the layout. An
@@ -52,6 +60,14 @@ function analyzeNode(node, parent, depth) {
     result.issues.push({ type: 'overflow-container', detail: overhangs.join('; ') });
   }
 
+  // Stray node: a childless ignore-auto-layout (ABSOLUTE) node sitting directly in
+  // the audited frame. In a raw capture this is often a tooltip, toast or popover
+  // remnant, so it is a question for the operator and never a fix.
+  const isStray = depth === 1 && isAbsoluteChild && (!('children' in node) || node.children.length === 0);
+  if (isStray) {
+    result.issues.push({ type: 'stray-node', detail: `childless ignore-auto-layout node ${node.width}x${node.height} at (${node.x}, ${node.y}) directly in the audited frame; ask the operator what it is` });
+  }
+
   // Hard-pinned position: an "ignore auto layout" (ABSOLUTE) child inside an
   // auto-layout parent, still on Figma's default MIN/MIN constraints. Figma's own
   // recommended pattern for pinning a child to an edge is ABSOLUTE + a matching
@@ -59,7 +75,7 @@ function analyzeNode(node, parent, depth) {
   // constraints has no declared relationship to any edge, so its position is a bare
   // coordinate that won't track anything if the parent resizes. A child that already
   // has non-default constraints is presumed deliberately anchored — do not flag it.
-  if (isAbsoluteChild && 'constraints' in node) {
+  if (isAbsoluteChild && !isStray && 'constraints' in node) {
     const c = node.constraints || {};
     const isDefaultConstraints = c.horizontal === 'MIN' && c.vertical === 'MIN';
     if (isDefaultConstraints) {
@@ -104,7 +120,12 @@ function analyzeNode(node, parent, depth) {
     !(node.paddingLeft || node.paddingRight || node.paddingTop || node.paddingBottom)
   ) {
     const issue = { type: 'redundant-wrappers', detail: `single child "${children[0].name}" (${children[0].width}x${children[0].height}) matches parent dims and the wrapper adds no fill, stroke, effect, padding or clipping` };
-    if (/:(transform|margin)$/.test(node.name)) issue.note = 'name suggests a web-capture leftover; check for a rotation or transform before flattening';
+    if (children[0].rotation) {
+      issue.childRotation = children[0].rotation;
+      issue.note = 'the child is rotated, so the wrapper may be what makes it render this way; flatten only if the rotation is kept';
+    } else if (/:(transform|margin)$/.test(node.name)) {
+      issue.note = 'name suggests a web-capture leftover; check for a rotation or transform before flattening';
+    }
     result.issues.push(issue);
   }
 
@@ -138,11 +159,17 @@ function collectIssues(node, acc = []) {
 // Issues come from the whole subtree, collected before the tree is trimmed.
 const allIssues = collectIssues(report);
 
-// Return a tree only to MAX_TREE_DEPTH, so a large frame stays readable.
+// Return the tree as the paths to the issues. A branch with no issue below it is
+// dropped and counted, so a deep capture stays readable.
+function countIssues(node) {
+  node.issueCount = node.issues.length + node.children.reduce((n, c) => n + countIssues(c), 0);
+  return node.issueCount;
+}
+countIssues(report);
 function trim(node) {
   const { children, ...rest } = node;
-  if (node.depth >= MAX_TREE_DEPTH) return { ...rest, childCount: children.length };
-  return { ...rest, children: children.map(trim) };
+  const kept = children.filter((c) => c.issueCount > 0);
+  return { ...rest, children: kept.map(trim), omittedChildren: children.length - kept.length };
 }
 
 // Component Guardrail: annotate each issue's node with component ownership, so
