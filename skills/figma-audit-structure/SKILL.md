@@ -17,7 +17,7 @@ Load this skill when a frame has suspected structural issues: layout breakage, m
 
 ## Scripts
 
-Reusable Figma scripts live in `scripts/figma/`. Set the parameter block at the top of each script before running. All scripts return a structured result plus an inline screenshot.
+Reusable Figma scripts live in `scripts/figma/`. Set the parameter block at the top of each script before running. The scripts return a structured result and no screenshot: take one with `get_screenshot`. `inspect.js` returns the issue list for the whole subtree and a tree trimmed to `MAX_TREE_DEPTH`, so a large frame stays readable.
 
 | Script | Phase | Use for |
 |---|---|---|
@@ -59,11 +59,11 @@ Run two parallel calls:
 
 Do not modify anything yet.
 
-**Demonstration-extract caution:** a node sitting as a direct child of a section, structurally disconnected from the tracked frames (not nested inside any of them, at a position that doesn't align with known rows/layout), may be a deliberate demonstration extract — an isolated copy the operator pulled out to link to and point at a pattern for this conversation. Do not default to treating it as stray debris to clean up, and do not offer to delete it. Use its content as a reference example unless there's a specific reason to think otherwise (the operator asks "what is this?", or it looks like an accidental partial edit rather than a clean extract).
+**Demonstration-extract caution:** a node sitting as a direct child of a section (or, in a raw capture, an empty or ABSOLUTE direct child of the audited frame itself), structurally disconnected from the tracked frames (not nested inside any of them, at a position that doesn't align with known rows/layout), may be a deliberate demonstration extract — an isolated copy the operator pulled out to link to and point at a pattern for this conversation. Do not default to treating it as stray debris to clean up, and do not offer to delete it. Use its content as a reference example unless there's a specific reason to think otherwise (the operator asks "what is this?", or it looks like an accidental partial edit rather than a clean extract).
 
 ### Phase 2 — Classify
 
-Match findings against the issue taxonomy. Assign each finding as **Mechanical**, **Judgment**, or **Component-owned** (see taxonomy and Component Guardrail below).
+**Choose the mode first.** Use dev mode when the task is audit-only, meaning the operator asked for a report, a classification, or to stop before fixes. Use normal mode when fixes are wanted. Then match findings against the issue taxonomy. Assign each finding as **Mechanical**, **Judgment**, or **Component-owned** (see taxonomy and Component Guardrail below).
 
 **Normal mode:** Do not produce a full report. Proceed directly to Phase 3a — mechanical fixes run without a gate. Surface only Judgment findings as selects (Phase 3b).
 
@@ -116,11 +116,12 @@ Order: width mismatches first, then hard-pinned positions.
 
 | Issue class | Layer | Detection signal | Severity | Default fix |
 |---|---|---|---|---|
-| `redundant-wrappers` | Mechanical | 2+ consecutively nested frames with identical (or near-identical) dimensions and no layout purpose | High | Collapse to single container; move children up. If the survivor is itself auto-layout, reconcile its `itemSpacing`/padding with the effective gap the removed wrapper was actually producing (`fix-flatten-wrappers.js` does this automatically) — do not assume copying x/y is sufficient |
-| `overflow-container` | Mechanical | Child frame wider/taller than parent, or negative x/y offset | Medium | Default to `layoutSizingHorizontal/Vertical = 'FILL'` on the offending node (plus centered alignment on it and any text children using oversized widths to fake centering) — not a resize/reposition. Treat as a real defect to fix, not a possibly-intentional centering technique; "it renders correctly today" is not evidence of intent when nothing in the tree declares the relationship. See `fix-overflow.js` MODE='FILL' |
+| `redundant-wrappers` | Mechanical | A single-child frame whose child has the same size (1px tolerance) and that adds nothing of its own: no fill, stroke, effect, padding or clipping. A wrapper named `...:transform` or `...:margin` is a web-capture leftover, and its rotation or transform is checked before flattening | High | Collapse to single container; move children up. If the survivor is itself auto-layout, reconcile its `itemSpacing`/padding with the effective gap the removed wrapper was actually producing (`fix-flatten-wrappers.js` does this automatically) — do not assume copying x/y is sufficient |
+| `overflow-container` | Mechanical | Child frame that takes part in the layout and is wider/taller than its parent, or starts before or ends past a parent edge, beyond a 1px tolerance. An ignore-auto-layout (ABSOLUTE) child is never reported here: its overhang may be deliberate, so it is reported once under `hard-pinned-position` with the overhang attached | Medium | Default to `layoutSizingHorizontal/Vertical = 'FILL'` on the offending node (plus centered alignment on it and any text children using oversized widths to fake centering) — not a resize/reposition. Treat as a real defect to fix, not a possibly-intentional centering technique; "it renders correctly today" is not evidence of intent when nothing in the tree declares the relationship. See `fix-overflow.js` MODE='FILL' |
 | `no-auto-layout` | Mechanical | Frame with structurally-related children using absolute x/y (children that stack, align, or space together) | Medium | For a simple stack: convert to auto-layout, derive spacing from current gaps. For a fixed-viewport frame with a trailing child pinned to an edge (e.g. header/content/footer where the footer must stay put): do NOT apply one uniform derived spacing — it will drag the pinned child out of position. Instead wrap the in-between children in a new frame with `layoutSizingVertical/Horizontal = 'FILL'` (a flex-spacer that absorbs the leftover space in a FIXED-height parent), so the trailing child's position falls out of the layout instead of a hardcoded gap. See `fix-auto-layout.js` WRAP_RANGE |
 | `width-mismatch` | Judgment | Container narrower than screen — may be intentional margin; state assumption before fixing | Medium | Widen to screen width with padding, or confirm narrow is intentional |
 | `hard-pinned-position` | Judgment | Ignore-auto-layout (`layoutPositioning: 'ABSOLUTE'`) child inside an auto-layout parent, still on Figma's default `MIN`/`MIN` constraints — no declared relationship to any edge. A node with the same ABSOLUTE positioning but *non-default* constraints is presumed deliberately anchored (Figma's own recommended pattern) and should NOT be flagged | Low | Single-edge relationship (e.g. pin to bottom): set the matching `constraints` — `fix-hard-pinned-position.js`. Needs to flex with leftover space among multiple siblings: bring into the flow via a FILL spacer — `fix-auto-layout.js` WRAP_RANGE. See `references/auto-layout-best-practices.md` |
+| `empty-frame` | Judgment | A frame with no children and no visible fill, stroke or effect. Likely capture debris, but it may be a placeholder; report it and never delete it without the operator's yes | Low | Propose deletion, or mark as intentional |
 | `component-owned` | Component-owned | Node is a `COMPONENT`/`COMPONENT_SET`, or an `INSTANCE` (or descendant of one) backed by a remote/library `mainComponent` | — | No local fix. Report the needed change and point to the source component/library file |
 
 ---
@@ -269,3 +270,11 @@ Confidence markers are hidden in normal operation. Enable them only when activel
 - Any node created with `figma.createFrame()` (or `figma.createAutoLayout()`) — e.g. a spacer/wrapper introduced by `no-auto-layout` or restructure fixes — defaults to a solid white fill. Always set `fills = []` on it immediately after creation unless a visible fill is actually wanted; verify with `node.fills` in the same script's return value, not just a screenshot (a white fill over a white/light canvas can pass a visual check unnoticed)
 - Before flagging `hard-pinned-position`, check the node's `constraints` — an ignore-auto-layout child with deliberately set (non-default) constraints is a correctly anchored element, not a defect; only flag it when still on Figma's default `MIN`/`MIN`
 - When a new scenario doesn't cleanly match the taxonomy, or a fix's correctness is uncertain, consult `references/` before guessing — it documents which of this skill's rules are confirmed against Figma's own documentation and which are still open questions
+
+---
+
+## Notes from the 2026-10-22 fresh run
+
+- **Precedence.** A node is reported under one class. An ABSOLUTE child that also overhangs appears under `hard-pinned-position` only, with its overhang listed, and the proposed fix keeps the overhang unless the operator says otherwise.
+- **Right-to-left frames.** On an RTL frame, x offsets read from the right edge. State which edge is the start edge as an assumption before proposing a MIN or MAX constraint or a child order, and give it in the finding.
+- **Raw web captures.** Expect many wrappers and absolute nodes that come from the import and not from the design. Classify what is mechanical, and leave a deliberate overhang, such as a badge on the edge of a bar, as a judgment finding.
