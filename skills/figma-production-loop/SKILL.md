@@ -316,8 +316,9 @@ a changelog or a substitute for project design records.
    production commitment.
 2. **Construct or revise in Figma.** Use the Figma plugin's `figma-use` and
    `figma-generate-design` when a Figma frame must be built or structurally
-   changed. Use `figma-roundtrip` only for its
-   HTML/CSS bridge; it is not an Android translator. Use preview tooling only
+   changed. Use the Figma plugin's `generate_figma_design`
+   capture to bring a running page into Figma and `get_design_context` to read a
+   node back as code; neither is an Android translator. Use preview tooling only
    when an HTML mockup is actually the relevant comparison surface.
 3. **Log an accepted delta.** Add a concise, referential change-log entry. Do
    not log exploratory pixel nudges that have no decision or translation

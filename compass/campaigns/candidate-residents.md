@@ -19,7 +19,7 @@ Purpose: a comparison or testing control in an interactive mockup, such as toggl
 Proposed admission:
 
 - Kind: a standard, a stable constraint on mockup construction rather than a deliverable shape or reasoning framework.
-- Overlap: not yet checked against `preview-server` or Figma-roundtrip conventions.
+- Overlap: not yet checked against `preview-server` conventions.
 - Shape: likely `standards/mockup-comparison-controls.md`, with scope, the binding rule, and guidance on avoiding CSS or selector collisions when an outer-harness class name is reused in app content.
 - Client-content scan: not yet performed. The source incident comes from Sharon and needs a neutral generalized case before admission, following Q-59's precedent for adopted material.
 
