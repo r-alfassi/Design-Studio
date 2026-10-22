@@ -18,8 +18,26 @@ visual identity on the page. Chrome means:
 - on a design-system page, section headers and the containers that hold a
   component with its variants.
 
-Open: the section headers and component containers for design-system pages are
-not in the kit yet.
+The kit's pieces for design-system pages, drawn from Sharon's and Karma
+Warrior's Figma files and from what the official documentation pages of
+Carbon, Atlassian and Primer share:
+
+- **Section header:** a title, one line saying what the section holds, and a
+  status (for example provisional, accepted or deprecated) with its date.
+- **Component container:** an eyebrow naming the kind (primitive, atom,
+  assembly), the component name, one line of description, a preview slot for
+  its variants, and a usage line. It also has two optional slots, one for an
+  anatomy diagram and one for do and don't pairs, which the Designer chose to
+  include.
+- **Callout:** a notice for a standard or an accepted exception that applies to
+  what is shown.
+- **Token tile:** a color swatch, a spacing bar, or a type sample, each with the
+  token's name and value.
+
+A component's documentation can span several views, such as examples, usage
+and accessibility. Each view is its own section and not a bigger container.
+
+Open: these pieces are not built in the kit yet.
 
 The kit is quiet on purpose. A project's presentation then reads the same way
 from one project to the next, and the thing being shown is never competing with
