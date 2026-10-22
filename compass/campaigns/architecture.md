@@ -80,7 +80,7 @@ Admission of `standards/studio-presentation.md`, 2026-10-22 (the studio containe
 - Overlap: the studio containers section of `skills/figma-production-loop/SKILL.md`, which now points to the standard. No other resident covers presentation chrome.
 - Shape: `standards/studio-presentation.md`, with scope, binding statement, validation and exception route.
 - Client-content scan: written from the general case and holds no project name, node id, library key or operator path.
-- Open: the kit lacks section headers and component containers for design-system pages, no script yet lists the chrome nodes for validation, the standard's name is not settled, and the Design Studio Figma file still holds the withdrawn board frame and card until the Designer says to remove them.
+- Open: the kit lacks section headers and component containers for design-system pages, no script yet lists the chrome nodes for validation, the standard's name is not settled, and the withdrawn board frame and its Board card component set were removed from the Design Studio Figma file on 2026-10-22, leaving an empty Variants frame and the card's section caption, which the Designer has not yet said to remove.
 
 Origin of the quest: seed below, logged earlier the same session series.
 
