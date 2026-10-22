@@ -93,4 +93,4 @@ Loads only a small spine at first and the rest when the work calls for it, with 
 
 - Satisfies: R-13, R-17
 
-Open: practices the Figma production loop already shows that no requirement names. They are the sprint operating board, the studio containers built from Design Studio's own Figma file, the pixel-raster fidelity gate used on a pixel-art project, and the Android Views adapter. Each should pass the fresh-run test (R-16) or leave.
+Open: practices the Figma production loop already shows that no requirement names. They are the studio containers built from Design Studio's own Figma file, the pixel-raster fidelity gate used on a pixel-art project, and the Android Views adapter. The sprint operating board was withdrawn on 2026-10-22. Each should pass the fresh-run test (R-16) or leave.

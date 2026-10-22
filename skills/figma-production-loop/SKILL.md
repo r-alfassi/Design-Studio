@@ -216,18 +216,16 @@ every child is a text node and nothing is nested, because text inside a frame
 can be interface text. After restoring a version, read back what came back and
 what was lost before relying on it.
 
-### Sprint operating board
+### No board of work in progress
 
-Keep one sprint operating board per project with four zones: Now (one active
-scope, or an explicit "none", and the decision it is making), Next, History
-(resolved, superseded or kept as evidence, with no current authority), and a
-Parking lot. A parked item needs a named decision that unlocks it. The
-Template page of the Design Studio Figma file holds the board.
+Do not keep a board of what is active, next, done or parked in the Figma file.
+The project's own record holds that, and a board beside it is a second source
+that goes stale. Link to the project's status where a reader needs it.
 
 ### Studio containers
 
-Build sprint containers (direction summaries, state labels, placeholder boxes,
-the operating board) from the Design Studio Figma file's components and tokens,
+Build sprint containers (direction summaries, state labels, placeholder boxes)
+from the Design Studio Figma file's components and tokens,
 so the project's own design is the only strong visual identity on the board.
 The same file's Practice page shows this practice and its Examples page shows
 it in use.

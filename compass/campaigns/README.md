@@ -18,3 +18,7 @@ This folder is Design Studio's current registry. Read this overview before openi
 ## Later
 
 - `candidate-residents.md`: decide whether either proposed resident belongs in Design Studio.
+
+## Parked
+
+- `parked.md`: ideas with no place yet, each with the condition that revives it.

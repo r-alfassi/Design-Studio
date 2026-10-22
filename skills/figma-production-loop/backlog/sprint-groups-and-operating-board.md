@@ -9,8 +9,9 @@
   skill did not describe.
 - **Operating correction:** state the alternating axes; allow a tinted
   sprint-group section around related sprints and keep unrelated sprints in
-  separate sections; keep one operating board per project; build all studio
-  containers from the Design Studio components and tokens.
+  separate sections; build all studio containers from the Design Studio
+  components and tokens. The operating board was withdrawn on 2026-10-22 by
+  the Designer, as a second source beside the project's record.
 - **Open question:** whether a small test, such as a palette check, may be one
   auto-layout sequence frame or must be one frame per step. Both were used.
 - **Close when:** a project page with at least two related sprints is arranged
