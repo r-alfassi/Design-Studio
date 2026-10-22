@@ -224,11 +224,10 @@ that goes stale. Link to the project's status where a reader needs it.
 
 ### Studio containers
 
-Build sprint containers (direction summaries, state labels, placeholder boxes)
-from the Design Studio Figma file's components and tokens,
-so the project's own design is the only strong visual identity on the board.
-The same file's Practice page shows this practice and its Examples page shows
-it in use.
+Build the chrome of a sprint page (direction summaries, state labels,
+placeholder boxes, frame cards, section backgrounds) as `standards/studio-presentation.md`
+requires, from the Design Studio Figma file's components and tokens. That
+standard is where the rule and its exception route live.
 
 ### Sprint direction summary
 

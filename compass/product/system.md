@@ -50,6 +50,10 @@ Realized by: none yet
 
 Realized by: `skills/figma-production-loop/SKILL.md`
 
+### Present work with the studio's containers
+
+Realized by: `standards/studio-presentation.md`
+
 ### Never overwrite the Designer's hand
 
 Realized by: `skills/figma-production-loop/SKILL.md`, `skills/figma-production-loop/scripts/reconcile-figma-scope.js`

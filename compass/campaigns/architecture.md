@@ -74,6 +74,14 @@ Reuse decisions, 2026-10-21, for the other four Figma skills (task 2):
 
 Fresh-run results, 2026-10-22 (journal entry `2026-10-22-audit-skill-fresh-run.md`): `figma-audit-structure` was fixed and kept. `figma-design-system` did not beat having no skill on a read-only plan, and was rewritten around the formalize journey. `figma-roundtrip` did not beat having no skill on the pull side, at higher cost, and was retired on 2026-10-22 with its push side untested. Still to test: the four loop parts that have no failure record. Open: the formalize skill keeps the folder name `figma-design-system`, and its new name is not decided.
 
+Admission of `standards/studio-presentation.md`, 2026-10-22 (the studio containers promoted to a shared standard by the Designer, who also wants it to cover design-system sections and component containers, a "design system's design system"; binding on a project that adopts it in its `DESIGN.md`):
+
+- Kind: a standard, because it is a reusable constraint on presentation with a validation and an exception route, and a skill would only describe steps.
+- Overlap: the studio containers section of `skills/figma-production-loop/SKILL.md`, which now points to the standard. No other resident covers presentation chrome.
+- Shape: `standards/studio-presentation.md`, with scope, binding statement, validation and exception route.
+- Client-content scan: written from the general case and holds no project name, node id, library key or operator path.
+- Open: the kit lacks section headers and component containers for design-system pages, no script yet lists the chrome nodes for validation, the standard's name is not settled, and the Design Studio Figma file still holds the withdrawn board frame and card until the Designer says to remove them.
+
 Origin of the quest: seed below, logged earlier the same session series.
 
 State (before): Seed.

@@ -39,6 +39,12 @@ Keeps each sprint as a named section with its direction summary, options side by
 
 - Satisfies: R-04, R-22, R-28
 
+## Present work with the studio's containers
+
+Builds sprint pages and design-system pages from one quiet kit of labels, containers and section backgrounds, and records any departure from it.
+
+- Satisfies: R-30, R-31
+
 ## Never overwrite the Designer's hand
 
 Reads the Figma file before writing, keeps every change the Designer made, and proposes a token for a hand change that needs one before creating it.
@@ -93,4 +99,4 @@ Loads only a small spine at first and the rest when the work calls for it, with 
 
 - Satisfies: R-13, R-17
 
-Open: practices the Figma production loop already shows that no requirement names. They are the studio containers built from Design Studio's own Figma file, the pixel-raster fidelity gate used on a pixel-art project, and the Android Views adapter. The sprint operating board was withdrawn on 2026-10-22. Each should pass the fresh-run test (R-16) or leave.
+Open: practices the Figma production loop already shows that no requirement names. They are the pixel-raster fidelity gate used on a pixel-art project, and the Android Views adapter. The sprint operating board was withdrawn on 2026-10-22. Each should pass the fresh-run test (R-16) or leave.

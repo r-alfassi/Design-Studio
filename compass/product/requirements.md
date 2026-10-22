@@ -39,6 +39,11 @@ Source: the Designer's answers in the grilling session of 2026-10-21 on the sing
 - **R-26** When Figma is the stale side, it is updated from the code before the component is formalized. Serves: PN-02, SC-11. <!-- R-26 -->
 - **R-25** A formalized component is reusable, has its tokens bound, and mirrors the product's code and `DESIGN.md`. Serves: SC-10, SC-11. <!-- R-25 -->
 
+## Presenting work
+
+- **R-30** The chrome on a sprint page or a design-system page, meaning its labels, containers and section backgrounds, is built from the studio kit, and the project's own design is the only strong visual identity on the page. Serves: SC-14. <!-- R-30 -->
+- **R-31** A project departs from the kit only by recording the exception in its `DESIGN.md` with the node and the reason. Serves: SC-14. <!-- R-31 -->
+
 ## Keeping the record
 
 - **R-08** An accepted change that production does not yet match gets a row in `DESIGN-DEBT.md` with its Figma reference, its governing decision, its status and its evidence. Serves: SC-11. <!-- R-08 -->
