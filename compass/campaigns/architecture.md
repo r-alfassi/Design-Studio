@@ -65,6 +65,13 @@ Reuse decisions, 2026-10-21, for `figma-production-loop` (task 2):
 - Four parts have no failure record and no requirement: the sprint operating board, the studio containers, the pixel-raster fidelity gate, and the Android Views adapter. Each needs a fresh run to stay (R-16), and the last two stay out of the spine, as each fits one project type.
 - Open: whether a part that came from a recorded failure (F-001, F-003, F-007, F-008) counts as having passed the PN-03 test already. This is my suggested reading, and the Designer has not confirmed it.
 
+Reuse decisions, 2026-10-21, for the other four Figma skills (task 2):
+
+- `figma-audit-structure` becomes the audit branch. Its issue taxonomy, its mechanical, judgment and component-owned layers, and its five fix scripts carry over, the scripts as tools. The component guardrail and clone-before-fix move into the shared stopping standard (R-05, R-06). Its `backlog/` loop and its dev-mode confidence markers leave. Fresh-run test: audit a real frame with and without it, using the ProShift baseline frames from the raw capture.
+- `figma-ds-recreate` is cut down to Phase 0: the audit with its fixed report format and stop for the Designer's yes, and `audit-bound-variables.js`. It joins the audit branch as the variable-binding check. Its Step 8 verify list becomes the definition of a formalized component (R-25). Steps 1 to 7 leave, because they call tools that do not exist here and repeat the plugin's `figma-generate-design`.
+- `figma-design-system` becomes the formalize branch: scaffold, token extraction, variables, atom-molecule-organism classification, migration and the check that no instance loses its main component. Its four opening questions leave, replaced by the direction check and the Designer's gates. Fresh-run test: organize a real Figma file with and without it, since it has never run.
+- `figma-roundtrip` keeps its CSS-to-Figma mapping tables, the parking of properties that cannot cross, the layout-mode rule on pull and its RTL rules. The per-component folder convention, the converter stored in the Figma file under a "harness" name, and the superseded phase material leave. It is the likeliest to leave whole: R-21 and R-26 may both be covered by the plugin's own tools. Fresh-run test: pull a frame to HTML and push a component, each against the plugin's capture and `get_design_context`.
+
 Origin of the quest: seed below, logged earlier the same session series.
 
 State (before): Seed.
