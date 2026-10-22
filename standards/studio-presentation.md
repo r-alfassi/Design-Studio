@@ -56,8 +56,14 @@ each one is an instance of a kit component or uses kit variables, with no raw
 color, radius or spacing of its own. Re-check after cloning or restructuring a
 page.
 
-Open: no script produces that list yet. It belongs in `tools/`, since what must
-be exact should come from a tool.
+A script produces the list: `tools/check-presentation-chrome.js`. It is read-only.
+For each section on a page it reports every direct child that is not an instance
+of a kit component, and every section whose own fill does not use a kit variable.
+The sprint route runs it before a page is reviewable. A project's design belongs
+inside a kit frame card or container, not directly in a section.
+
+Open: the rule that "chrome" means the direct children of a section is my reading
+of the standard, and the Designer has not confirmed it.
 
 ## Exceptions
 

@@ -1,0 +1,71 @@
+// check-presentation-chrome.js — read-only check for standards/studio-presentation.md
+// Paste into use_figma. Set the parameters below before running.
+// Reports where the presentation chrome of a page does not come from the studio kit.
+// It reports and never writes, moves or deletes anything.
+//
+// The rule it checks: on a sprint page or a design-system page, every direct child of a
+// section is an instance of a studio kit component, and each section's own fill uses a
+// studio kit variable. A project's design belongs inside a kit frame card or container,
+// not directly in a section.
+
+const PAGE_NAME = '';                 // Name of the page to check
+const KIT_COMPONENT_NAMES = [         // Names of the kit's components or component sets
+  'State label', 'Placeholder box', 'Sprint direction summary',
+];
+const KIT_VARIABLE_COLLECTION_PREFIX = 'Studio'; // Kit variable collections start with this
+
+const page = figma.root.children.find((p) => p.name === PAGE_NAME);
+if (!page) throw new Error(`Page not found: ${PAGE_NAME}`);
+await figma.setCurrentPageAsync(page);
+
+const kitNames = KIT_COMPONENT_NAMES.map((n) => n.toLowerCase());
+const isKitName = (name) => kitNames.includes(String(name).toLowerCase());
+
+async function kitCollectionIds() {
+  const ids = new Set();
+  const collections = await figma.variables.getLocalVariableCollectionsAsync();
+  for (const c of collections) if (c.name.startsWith(KIT_VARIABLE_COLLECTION_PREFIX)) for (const id of c.variableIds) ids.add(id);
+  return ids;
+}
+const kitVariableIds = await kitCollectionIds();
+
+async function variableIsKit(alias) {
+  if (!alias || !alias.id) return false;
+  if (kitVariableIds.has(alias.id)) return true;
+  const v = await figma.variables.getVariableByIdAsync(alias.id);
+  if (!v) return false;
+  const coll = await figma.variables.getVariableCollectionByIdAsync(v.variableCollectionId);
+  return !!coll && coll.name.startsWith(KIT_VARIABLE_COLLECTION_PREFIX);
+}
+
+const findings = [];
+let sectionsChecked = 0, childrenChecked = 0;
+
+for (const section of page.findAllWithCriteria({ types: ['SECTION'] })) {
+  sectionsChecked++;
+  // The section's own fill must come from a kit variable.
+  const fills = (section.fills === figma.mixed ? [] : section.fills).filter((f) => f.visible !== false);
+  if (fills.length) {
+    const alias = section.boundVariables && section.boundVariables.fills && section.boundVariables.fills[0];
+    if (!(await variableIsKit(alias))) {
+      findings.push({ sectionId: section.id, sectionName: section.name, nodeId: section.id, nodeName: section.name, type: 'SECTION', reason: 'section fill does not use a kit variable' });
+    }
+  }
+  for (const child of section.children) {
+    childrenChecked++;
+    if (child.type === 'SECTION') continue; // a nested section is checked as a section
+    if (child.type === 'INSTANCE') {
+      const main = await child.getMainComponentAsync();
+      const set = main && main.parent && main.parent.type === 'COMPONENT_SET' ? main.parent : main;
+      if (set && isKitName(set.name)) continue;
+      findings.push({ sectionId: section.id, sectionName: section.name, nodeId: child.id, nodeName: child.name, type: 'INSTANCE', reason: `instance of a non-kit component "${set ? set.name : 'unknown'}"` });
+    } else {
+      const looksLikeKit = isKitName(child.name);
+      findings.push({ sectionId: section.id, sectionName: section.name, nodeId: child.id, nodeName: child.name, type: child.type, reason: looksLikeKit ? 'named like a kit component but not an instance (detached copy)' : 'not an instance of a kit component' });
+    }
+  }
+}
+
+const byReason = {};
+for (const f of findings) byReason[f.reason.replace(/"[^"]*"/, '"…"')] = (byReason[f.reason.replace(/"[^"]*"/, '"…"')] || 0) + 1;
+return { page: page.name, sectionsChecked, childrenChecked, findingCount: findings.length, byReason, findings: findings.slice(0, 60) };
