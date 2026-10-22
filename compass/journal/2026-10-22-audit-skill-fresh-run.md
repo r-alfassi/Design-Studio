@@ -24,3 +24,12 @@ Two fresh agents audited the same frame, read-only, and each returned a report. 
 ## Reading
 
 The skill was more exact on the problems its taxonomy names, and it gave the layered gating the other run lacked. It was noisier and cost about twice the tool calls. The run without it covered layer names, missing components and empty frames, which the taxonomy does not hold. Those may belong to the formalize branch. Inference: the skill earns its place only after its script and rules are fixed. The Designer decides.
+
+## Rerun after the fixes
+
+Run the same day on the same frame, by a fresh agent that read the fixed skill (commit `f0847d3`). One run, so again no measure of variance.
+
+- **Counts.** 13 raw entries on 13 distinct nodes, against 20 on 17 before: 2 redundant wrappers, 10 hard-pinned, 1 without auto layout. No overflow, no empty-frame and no progress-track false positive. About 8 were actionable, as before, and 4 were noise or deliberate (two rotation artifacts, two label badges). Cost: about 11 tool calls, against 12.
+- **What improved.** The sub-pixel overflow noise is gone, the padded progress track is no longer a wrapper, and the report named the two caret wrappers with a caution a no-skill run would not have given: each wraps a child rotated -180 degrees that makes the caret point up, so flattening it blindly would flip the glyph.
+- **What the run found still wrong.** The wrapper test ignores the child's rotation and only prints a note. The overhang check reads x and y as the visual bounds, so a rotated node looks as if it overhangs its parent. A visible empty node (the stray dark pill, 7:219) has no class of its own, and the report format offers only Fix, Skip or Mark as intentional, with no "needs the operator's answer". The tree trimmed to depth 2 shows almost nothing on a capture whose issues sit at depths 13 to 15. The dated notes at the end of `SKILL.md` read as a log and not as rules.
+- **Reading.** The fixes cut the noise and kept every real finding. Inference: with four small follow-ups, the skill beats having none on exactness and gating, at roughly twice the tool calls. The Designer decides.
