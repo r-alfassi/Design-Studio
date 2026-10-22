@@ -72,6 +72,8 @@ Reuse decisions, 2026-10-21, for the other four Figma skills (task 2):
 - `figma-design-system` becomes the formalize branch: scaffold, token extraction, variables, atom-molecule-organism classification, migration and the check that no instance loses its main component. Its four opening questions leave, replaced by the direction check and the Designer's gates. Fresh-run test: organize a real Figma file with and without it, since it has never run.
 - `figma-roundtrip` keeps its CSS-to-Figma mapping tables, the parking of properties that cannot cross, the layout-mode rule on pull and its RTL rules. The per-component folder convention, the converter stored in the Figma file under a "harness" name, and the superseded phase material leave. It is the likeliest to leave whole: R-21 and R-26 may both be covered by the plugin's own tools. Fresh-run test: pull a frame to HTML and push a component, each against the plugin's capture and `get_design_context`.
 
+Fresh-run results, 2026-10-22 (journal entry `2026-10-22-audit-skill-fresh-run.md`): `figma-audit-structure` was fixed and kept. `figma-design-system` did not beat having no skill on a read-only plan, and was rewritten around the formalize journey. Still to test: the roundtrip, and the four loop parts that have no failure record. Open: the formalize skill keeps the folder name `figma-design-system`, and its new name is not decided.
+
 Origin of the quest: seed below, logged earlier the same session series.
 
 State (before): Seed.

@@ -1,103 +1,41 @@
 ---
 name: figma-design-system
-description: Organize an existing Figma file into a structured design system using atomic design layers (Foundations, Atoms, Molecules, Organisms, Templates). Generates scaffold, extracts tokens, creates variables, and migrates components.
+description: Formalize a component, or a set of captured frames, into a design system in Figma: reusable components with their tokens bound, built from frames and not moved. Use when a sprint has ended in the Designer's decision to formalize a component, or when the Figma file has gone stale beside the code.
 ---
 
-# Figma Design System
+# Formalize a component into the design system
 
-A phased workflow for restructuring an existing Figma file into a layered design system. Assumes the atomic design framework (Primitives → Atoms → Molecules → Organisms → Templates) and a vertical section-based canvas layout.
+This is Design Studio's formalize route. It turns frames into reusable components with variables, text styles and effect styles bound, and it leaves the design's trail intact. It never defines a project's intent and it never moves work into production.
 
-## When to use
+## Before anything
 
-- Reorganizing an existing file with components into a formal design system
-- Setting up a new design system page from existing UI work
-- Auditing and structuring components that have grown organically
+1. **The Designer has decided.** A proposal to formalize a component waits for the Designer's yes before any design-system change is made. Without it, only analyze and propose.
+2. **A direction is stated.** If the project states none, ask where it is and stop.
+3. **Load the plugin's skills.** Load `figma-use` before any `use_figma` call, and `figma-generate-design` for building. This skill does not restate their mechanics.
+4. **Read `DESIGN.md` first**, if the project has one. Its token names and scale names win over the defaults below.
 
-## Pre-flight: Decision Gates
+## Steps
 
-Before starting, ask the user:
+1. **Say which side is newer.** Compare the Figma frame with the product's code and `DESIGN.md`, and tell the Designer which side is ahead for this component. If Figma is the stale side, update it from the code first, and only then formalize. If the component was born in a sprint and is ahead of the code, go on, and give it a design-debt row with its direction at the end.
+2. **Audit the source frame.** Run `figma-audit-structure` on it and report its findings. Anything a library component owns is reported and never fixed locally. A fix beyond the mechanical ones waits for the Designer.
+3. **Extract tokens, read-only.** From the source frames list every color (fills, text and strokes, counted), type style (family, weight, size, letter spacing), spacing and padding value, corner radius, stroke weight and shadow. Separate what sits on a scale from what is off it, and from capture leftovers: fallback fonts, 0.8px strokes from rem conversion, `:margin` paddings, decimal sizes.
+4. **Propose, and stop.** Show the Designer the token proposal. For each off-scale value, propose the nearest step and say why. Never snap, drop or keep an off-scale value silently, because the Designer's yes decides it. Use the project's own names. Without them, use `color/<group>/<step>`, `space/<n>`, `radius/<n>`, text styles `<role>/<size>` and effects `shadow/<name>`, with one numeric pattern across spacing and radius.
+5. **Create the foundations.** After the yes, create the variable collections (primitives, then semantic), text styles and effect styles. Set every variable's scopes explicitly. Build them in a foundations area beside the frames, and leave the raw frames untouched as the baseline.
+6. **Classify the components.** Sort them into atoms, molecules and organisms by structure and repeat count, matching frames by size, fill and child count. Check what is grouped against a screenshot, since imported layer names are not reliable. Split by platform or role only when the product has several.
+7. **Build one component first.** Create it from a copy of the frame, as a component, with auto layout, bound tokens, variants for its states, a meaningful name and a description. Look at it, then build the rest of the set.
+8. **Replace frames with instances only where approved.** Swapping a frame for an instance changes an approved design, so it waits for the Designer. Before a change that touches more than one screen, list exactly what will change. Keep the sprint's frames as labelled history.
+9. **Check the formalized component.** A component passes when all of these hold:
+   - every instance points at its main component, with none missing;
+   - fills, radii, spacing and text use variables or styles, and nothing is a raw value except a value the Designer approved;
+   - no layer keeps a default name such as `Frame 123` or `Rectangle 4`;
+   - the hierarchy matches the source, and every frame has explicit auto layout and sizing;
+   - hidden layers are kept and set to hidden;
+   - its tokens agree with `DESIGN.md`, and it mirrors the product's code;
+   - a screenshot matches the original.
+10. **Record it.** Update `DESIGN.md` if the system changed, in the format `impeccable` reads. If the component is ahead of the code, add a `DESIGN-DEBT.md` row that says which direction it runs.
 
-1. **Where do components currently live?** (which pages/sections contain the source components)
-2. **Multi-platform split?** Does the product serve multiple user roles or platforms? If yes, ask for the role names (e.g., "Admin/User", "Fixer/Client"). This determines whether Molecules and Organisms sections need sub-columns per platform.
-3. **Naming language** — Are component names in English, another language, or mixed? This affects classification.
-4. **Scope** — Full system (tokens + components) or components-only? If full, we extract and create variables. If components-only, we organize without token extraction.
+## Rules that run through every step
 
-## Phase 1: Generate Scaffold
-
-Create Figma sections stacked vertically on the target page:
-
-- **01 — Foundations / Primitives** — Sub-frames for: Colors, Typography, Spacing Scale, Border Radius, Elevation/Shadows, Grid Definitions, Icon Guidelines
-- **02 — Atoms** — Empty section for smallest components
-- **03 — Molecules** — If multi-platform: create side-by-side sub-frames (Common / [Role A] / [Role B]). If single-platform: flat section.
-- **04 — Organisms** — Same sub-frame structure as Molecules
-- **05 — Templates** (optional) — For full-screen layout patterns
-
-Section width: ~3600px. Sections use dashed-border placeholder frames with labels. Color-code platform sub-frames for scannability.
-
-## Phase 2: Extract Tokens (Foundations)
-
-Audit all component sections the user identified. Extract:
-
-- **Colors** — Every unique solid fill and stroke color. Group into: Brand/Primary, Accent, Neutrals, Semantic (error/warning/success/info). Display as labeled swatches.
-- **Typography** — All font families, weights, and sizes used. Organize as a type scale from largest to smallest with role labels (Display, Heading, Body, Caption).
-- **Spacing** — All auto-layout itemSpacing, padding values. Filter to a clean 4px-based scale.
-- **Border Radius** — All unique corner radius values. Filter to meaningful steps.
-- **Elevation** — All drop shadows and blurs. Name by intensity (sm/md/lg).
-
-Populate the Foundations section with visual documentation of these values.
-
-## Phase 3: Create Variables
-
-Create a "Primitives" Variable Collection with:
-
-- **Color variables** — One per swatch, named `color/[group]/[scale]` (e.g., `color/purple/500`)
-- **Spacing variables** — Named `spacing/[size]` (xs, sm, md, base, lg, xl, 2xl, 3xl)
-- **Radius variables** — Named `radius/[size]` (none, sm, md, lg, xl, 2xl, full)
-
-Bind each Foundation swatch/shape to its corresponding variable using `setBoundVariableForPaint` (for colors) and `setBoundVariable` (for radius/spacing).
-
-## Phase 4: Classify Components
-
-Audit all COMPONENT_SET and standalone COMPONENT nodes in the source sections. Classify each as:
-
-- **Atom** — Cannot be broken down further (buttons, inputs, toggles, checkboxes, icons, avatars, badges, tags, dividers, individual indicators)
-- **Molecule** — Combination of 2+ atoms into a functional group (form fields, search bars, nav items, tab bars, chat bubbles, date pickers, notifications)
-- **Organism** — Self-contained interface section built from molecules (headers, navigation bars, cards, forms, modals, steppers, list sections)
-
-Classification signals:
-- Small size + single purpose → Atom
-- Contains instances of other components → Molecule or Organism
-- Would make sense as a full "section" of a screen → Organism
-- Has a "platform/role" variant property → goes in Common (adapts via variant)
-
-If multi-platform: also classify each Molecule/Organism as Common, [Role A], or [Role B] based on:
-- Has platform-switching variant property → Common
-- Name contains a role name → that role's column
-- Used in both platform screens → Common
-- Used exclusively in one platform's screens → that role's column
-
-## Phase 5: Migrate Components
-
-For each classified component:
-
-1. **Test first** — Move ONE component to validate that instance connections survive (check `inst.mainComponent.parent` for all instances of that component across the file).
-2. **Move in batches** — `section.appendChild(componentSet)` preserves all instance references within the same file.
-3. **Position** — Stack components vertically within their target section/sub-frame with consistent spacing.
-4. **Verify** — After each batch, count all INSTANCE nodes on the page and confirm zero have a null or removed `mainComponent`.
-
-## Phase 6: Validate
-
-Final checks:
-- All instances across the file still reference their main components ✅
-- Foundations swatches are bound to variables ✅
-- Source sections are empty (or contain only deprecated/unused items) ✅
-- Section heights accommodate their content ✅
-
-## Key Rules
-
-- **Never edit source files/sections** — only move components out of them
-- **Moving within the same file preserves all instance connections** — instances track by internal ID, not canvas position
-- **Tokens before components** — always extract and create variables before organizing components
-- **Atoms are platform-agnostic** — platform splits only apply at Molecule level and above
-- **Components with a platform-switching variant property are "Common"** — they serve both sides from one source of truth
-- **Skip deprecated components** — anything marked "Not used" or deprecated stays in an archive section
+- **The Designer's hand is kept.** Before writing, read what is in the file. Keep every change the Designer made, and propose a token for a hand change that needs one before creating it.
+- **Right-to-left sources.** Build in the source's layout direction and with its fonts. Check mirrored variants with the `rtl` skill. Emoji used as icons stay as they are, and are reported for the Designer to decide.
+- **No invention.** Do not fill a gap with a made-up token or content. Name the gap.
