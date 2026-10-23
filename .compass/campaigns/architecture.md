@@ -90,6 +90,8 @@ Restructure, pass 1 of 2026-10-23, after the Designer accepted `STRUCTURE.next.m
 
 Restructure, pass 3 of 2026-10-23: `standards/stopping-rules.md` was written and the spine now routes to it. Admission: kind, a standard, because it is a constraint with a test and an exception route and not steps; overlap, the stewardship, clone-first, library-component and bulk-removal rules that sat in `figma-sprint`, whose bulk-removal section now points to it; shape, one self-contained file with scope, binding statement, validation and exception route; client-content scan, clean, with no project name, node id or key.
 
+Restructure, passes 4 to 6 of 2026-10-23, after the first three: the `which-way-in` and `which-side-is-newer` frameworks, the `tune-in-place` skill and the `design-debt` template were written; the `figma-sprint` loop was rewritten to end at the handoff, the `figma-change-log` template and the sprint skill's `backlog/` were removed (its open entries F-004 to F-008 now sit under Q-67), and the contract's authority section was changed to follow PN-02. Each framework and `tune-in-place` ran once with a fresh agent on a real case, and each was tightened from what the run found. Still open under Q-68: the kit pieces are not built in Figma and the library is not published; `figma-formalize`, the rewritten `figma-sprint` loop and `figma-pixel-fidelity` have not been run against having no skill; the `product-design` template still has intent and flow layers that conflict with the scope; and the global skill links for the renamed skills need `bin/link-skills.ps1`, which links every package, so it has not been run.
+
 Origin of the quest: seed below, logged earlier the same session series.
 
 State (before): Seed.
