@@ -64,14 +64,14 @@ This is the migration map. Nothing moves until the Designer accepts the proposal
 | `references/`, `library/` | unchanged | |
 | `compass/` | the record | unchanged |
 
-## Proposed junction frameworks
+## Junction frameworks
 
-Each is a judgment the agent now makes inside a skill or by habit. Giving each a framework keeps the reasoning out of the skill's sequence. Each is a proposal and none is written.
+Each is a judgment the agent makes inside a skill, and giving it a framework keeps the reasoning out of the skill's sequence. The Designer chose two on 2026-10-23, and neither is written yet.
 
 - **Which way in:** sprint, formalize or tune in place, from the request. This is also the open question from the entry-point discussion.
-- **Which side is newer:** Figma or the code, for a component, which decides the direction on a debt row.
-- **What counts as approved:** the line between exploring and changing what the Designer has approved.
-- **How to propose a token:** what to do with an off-scale value, by snapping, keeping or asking.
+- **Which side is newer:** Figma or the code, for a component, which decides the direction on a debt row. Both the formalize skill and the handoff need it.
+
+Two other judgments are settled by rules and so are not frameworks. What counts as approved, meaning the approved design, `DESIGN.md`, a library component, production and any deletion, becomes a standard of the stopping rules. How to propose a token for an off-scale value stays a rule inside `figma-formalize`: propose the nearest step and never snap silently.
 
 ## Naming rules
 
@@ -82,11 +82,11 @@ Each is a judgment the agent now makes inside a skill or by habit. Giving each a
 
 ## Decided by the Designer
 
+- 2026-10-23: two junction frameworks are written, "which way in" and "which side is newer", and the stopping rules become a standard.
 - 2026-10-23: skills keep the `figma-` prefix when they work only on Figma files, with a short verb after it, as listed under the naming rules. The medium-neutral skill has no prefix. Nothing is renamed until the proposal as a whole is accepted.
 - 2026-10-23: the one word "template" replaces "format" for the shape of a file or deliverable, including the large deliverable specs, which become templates with their own folders. Nothing is renamed until the proposal as a whole is accepted.
 
 ## Decisions still open
 
-1. Which of the four junction frameworks to write, if any.
-2. Where the maintenance file lives, since Codex reads only an entry file at a repo root.
-3. Whether the proposal replaces `STRUCTURE.md` as it stands.
+1. Where the maintenance rules live, since Codex reads only an entry file at a repo root.
+2. Whether the proposal replaces `STRUCTURE.md` as it stands.
