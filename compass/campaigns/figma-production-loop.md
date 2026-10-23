@@ -22,7 +22,7 @@ Surfaces:
 - `formats/figma-implementation-contract.md` specifies the bounded Figma-to-production mapping.
 - `skills/figma-production-loop/SKILL.md` orchestrates the loop and refers to existing procedures rather than copying them.
 - Container topology is a required contract invariant: material visible boxes must have a truthful Figma hierarchy and named Android mapping, not merely similar pixels.
-- `adapters/android-views.md` applies only to Android Views.
+- `adapters/android-views.md` applied only to Android Views, and was folded on 2026-10-23 into the translation record's platform difference checks.
 
 Pilot: Sharon is the first project instance. Its records are root files, `FIGMA-CHANGELOG.md` and `FIGMA-TRANSLATION.md`, beside `DESIGN.md`; two files do not justify a new directory. The component or screen is intentionally unselected; the next real Sharon design change supplies the candidate.
 

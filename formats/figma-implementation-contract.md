@@ -48,14 +48,38 @@ silently copied back into Figma.
   Figma topology to production owners and state one-to-many or many-to-one
   mappings where true; never invent one-to-one correspondence or wrapper Views
   merely for superficial parity.
-- **Intentional differences:** Named Android/platform/runtime difference, why
-  it exists, and its reconciliation route if one is expected.
+- **Intentional differences:** Named platform or runtime difference, why it
+  exists, and its reconciliation route if one is expected. Account for each
+  check under "Platform difference checks" below.
 - **Status and evidence:** Exploring, accepted for translation, implemented,
   or device-verified; link code revision and proportionate verification.
 ```
 
 No entry means no claimed parity. Link outward to the Figma change log and
 governing documents instead of duplicating their history or rationale.
+
+## Platform difference checks
+
+Before declaring parity, account for each of these, whatever the platform. A
+difference that affects the result is an intentional difference to record. It
+is not a reason to edit Figma silently or to misrepresent the record.
+
+- **Text metrics.** The platform's fonts, line heights and text scaling differ
+  from Figma's, so a fixed height in Figma may be content-sized in production.
+- **System insets and safe areas.** Status bars, navigation bars, notches and
+  keyboards. Say whether a fixed padding stands in for an inset.
+- **Touch and pointer targets.** The platform's minimum size for a tappable
+  element, measured against the Figma frame and the built view.
+- **Layout direction.** Right-to-left mirroring, and whether the production
+  layout uses start and end, not left and right.
+- **Accessibility semantics.** Labels, roles and focus order, which Figma does
+  not carry.
+- **Dynamic content.** Long names, wrapping, truncation, empty and error states.
+- **Runtime-only states.** Pressed, focused, loading and gesture states that a
+  resting frame does not show.
+- **Variants as named states.** Map a Figma variant to a named production state
+  or branch, and do not collapse materially different states into an undocumented
+  boolean.
 
 ## Quality check
 

@@ -306,8 +306,7 @@ a changelog or a substitute for project design records.
    parent/child role and layout rule (direction, padding, gap, alignment,
    sizing, scrolling or semantic overlay). In Figma, represent normal flow
    with nested Auto Layout frames; do not use absolute placement to fake a
-   container. Read [Android Views guidance](adapters/android-views.md) when
-   that is the target.
+   container. Account for the contract's platform difference checks.
 5. **Pass the promotion gate.** A production change requires a named Figma
    scope, governing decision, accepted contract entry, and separately granted
    implementation authority. Iterating in Figma does not authorize a code
