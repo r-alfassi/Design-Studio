@@ -52,3 +52,13 @@ Append-only. One line per ID, added when the ID is created; one line appended wh
 - SC-14 · 2026-10-22 · Hold a shared presentation kit and standard for Figma work
 - R-30 · 2026-10-22 · Presentation chrome comes from the studio kit
 - R-31 · 2026-10-22 · A departure from the kit is recorded as an exception
+- SC-09 · closed 2026-10-23 · replaced by SC-15, the studio works in a Figma file
+- SC-10 · closed 2026-10-23 · replaced by SC-16, three stages in Figma
+- R-02 · closed 2026-10-23 · no choice of entry point remains
+- R-18 · closed 2026-10-23 · the in-place path left the scope
+- R-23 · closed 2026-10-23 · the in-place path left the scope
+- SC-15 · 2026-10-23 · Guide visual design work in a Figma file, to a design ready for production
+- SC-16 · 2026-10-23 · Work in three stages: sprint, formalize, prepare for production
+- SC-17 · 2026-10-23 · Does not tune visuals directly in a product's code
+- R-32 · 2026-10-23 · With no Figma file, the agent offers to start one and waits
+- R-33 · 2026-10-23 · The agent never edits the product's code

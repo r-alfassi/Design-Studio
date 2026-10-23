@@ -11,7 +11,7 @@ Lists the components where production and the approved design disagree, so that 
 
 ## When it is used
 
-When an agreed change is not yet in production, or when production is ahead of Figma for a component. A project that tunes its visuals in place has no design debt, because the design is the code.
+When an agreed change is not yet in production, or when production is ahead of Figma for a component.
 
 ## Project instance
 

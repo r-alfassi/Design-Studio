@@ -11,7 +11,7 @@ This file says why the project exists, the main problem it answers, how it answe
 
 Design Studio holds reusable design craft for the Designer, Principal, and their projects. It keeps cross-project design procedures, deliverable formats, reasoning frameworks, standards, references, and external library pointers separate from any one client engagement.
 
-Design Studio is also responsible for design and visual interfaces, in any medium. It carries the Designer's process for the visual phase, which starts once a project's direction is stated, and keeps the craft that process draws on. Figma is a tool it uses for collaboration and for formalizing the design system, and it is not required.
+Design Studio also carries the Designer's process for the visual phase, which starts once a project's direction is stated and happens in a Figma file. The Designer and the agent collaborate there until the design is aligned, formalize what should become part of the design system, and prepare the design so that production can take it from there. Visual work done directly in a product's code is not part of this process.
 
 ## The main problem
 

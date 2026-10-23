@@ -1,6 +1,6 @@
 # Stopping rules
 
-Binding cross-project standard for when an agent doing visual design work proceeds on its own and when it stops for the Designer. Adopt it in a project's `DESIGN.md` when an agent does visual work on the project, in Figma or in code. It governs the agent's conduct around approved work only. What the project's design should be stays the project's decision.
+Binding cross-project standard for when an agent doing visual design work proceeds on its own and when it stops for the Designer. Adopt it in a project's `DESIGN.md` when an agent does visual work on the project in Figma. It governs the agent's conduct around approved work only. What the project's design should be stays the project's decision.
 
 ## Binding statement
 
@@ -11,10 +11,10 @@ What counts as approved:
 - an approved design in Figma, and the accepted result of a sprint;
 - the project's `DESIGN.md`;
 - a library component, meaning one that belongs to a published library or to the design system;
-- production, in code and in what ships;
+- production, in code and in what ships, which the agent never edits;
 - the removal of anything.
 
-Where nothing is approved, the agent explores without asking. That is a marked sprint area in Figma, or a branch in code. In a sprint area the agent may create, revise and compare frames. On a branch it may change and show visuals. Neither is approved until the Designer says so, and merging a branch is the Designer's approval.
+Where nothing is approved, the agent explores without asking. That is a marked sprint area in Figma, where the agent may create, revise and compare frames. Nothing there is approved until the Designer says so.
 
 ## What the agent does around approved work
 

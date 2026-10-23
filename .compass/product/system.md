@@ -1,5 +1,5 @@
 ---
-description: How Design Studio's visual-design package works inside: a spine that routes by kind of work to three ways in, shared stopping rules, record templates, and scripts, with the parts that realize each feature.
+description: How Design Studio's visual-design package works inside: a spine that checks the direction and the Figma file and routes to three stages in Figma, shared stopping rules, record templates, and scripts, with the parts that realize each feature.
 follows: [constraints.md, principles.md, features.md]
 ---
 
@@ -21,8 +21,8 @@ Source: derived from the features on 2026-10-21. Open: a draft. Most of the pack
 
 A request for visual work reaches the spine, an `AGENTS.md` that holds the sequence and loads nothing else at first.
 
-1. **The spine checks the direction.** It looks for the project's stated direction and stops and asks where it is when there is none. It then names the way in that the request calls for.
-2. **Three ways in carry the whole job.** Each is a procedure with its own folder. Sprints work in Figma in a marked area that leaves a trail. Formalizing works on a component in the design system. Tuning in place works on a branch of the project's code.
+1. **The spine checks the direction and the Figma file.** It looks for the project's stated direction and stops and asks where it is when there is none. It then looks for the Figma file the work happens in, and offers to start one when there is none.
+2. **Three stages carry the whole job, all in Figma.** Each is a procedure with its own folder. Sprints work in a marked area that leaves a trail and end in alignment. Formalizing works on a component in the design system once the Designer decides to formalize it. Preparing for production audits the agreed frames and writes what production needs, and the sprint skill's handoff carries it.
 3. **Shared stopping rules are standards, not part of any way in.** What counts as approved, the clone-before-fix rule, the library-component rule, the conflict route and the reconcile-before-writing rule each sit in one short standard that every way in points to, so a change of preference edits one file.
 4. **Scripts do what must be exact.** The structure audit, the variable-binding audit, the reconcile and the fix scripts return facts the agent reads, and they never write on their own.
 5. **Records are plain files in the project.** `DESIGN.md` holds the style, `DESIGN-DEBT.md` holds where production and the approved design disagree, and `FIGMA-TRANSLATION.md` holds the mapping for a component whose production form differs structurally. Templates in the package give their shapes. Intent is never written here.
@@ -34,9 +34,9 @@ A request for visual work reaches the spine, an `AGENTS.md` that holds the seque
 
 Realized by: none yet
 
-### Say which way in
+### Start from a Figma file
 
-Realized by: none yet
+Realized by: `AGENTS.md`
 
 ### Keep the project's style document
 
@@ -74,10 +74,6 @@ Realized by: `templates/design-debt.md`, `templates/figma-implementation-contrac
 
 Realized by: none yet
 
-### Tune in place on a branch
-
-Realized by: `skills/tune-in-place/SKILL.md`
-
 ### Formalize a component
 
 Realized by: `skills/figma-formalize/SKILL.md`
@@ -92,7 +88,7 @@ Realized by: `bin/link-skills.ps1`
 
 ## What was ruled out
 
-- **A package made only for Figma.** Projects tuned in place, in code, would have no way in, and the Designer holds that the studio is responsible for design in any medium.
+- **Tuning visuals in place, in the product's code.** It was a third way in until 2026-10-23, when the Designer narrowed the studio to work in a Figma file. The studio is effective only where the design process happens in Figma, live iteration in code has its own tools such as `impeccable`, and a second path made the studio choose a way in before every job.
 - **A fixed winner between Figma and code.** One of the two paths would lose work silently.
 - **A separate change log file.** The need was a status across design and production, which `DESIGN-DEBT.md` serves, and a per-change log duplicated its status line.
 - **Intent and flow layers inside Design Studio.** A PRD file and an HTML flow chart would have Design Studio defining intent, which the scope rules out.

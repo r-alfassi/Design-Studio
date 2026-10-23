@@ -54,7 +54,7 @@ If two compartments seem to fit, one resident is probably mis-filed, or two over
 ## Naming
 
 - One word for each compartment, as in the table. A retired word is not used again in any file.
-- A skill keeps the `figma-` prefix when it works only on Figma files, followed by a short verb for the job: `figma-sprint`, `figma-audit`, `figma-formalize`, `figma-pixel-fidelity`. A skill that is medium-neutral has no prefix, such as `tune-in-place`. The name `rtl` is grandfathered.
+- A skill keeps the `figma-` prefix when it works only on Figma files, followed by a short verb for the job: `figma-sprint`, `figma-audit`, `figma-formalize`, `figma-pixel-fidelity`. A skill that is medium-neutral has no prefix. The name `rtl` is grandfathered.
 - A standard is named for what it governs. A template is named for the thing it shapes.
 - A skill that fits one project type fires only there, because its description says so.
 

@@ -288,12 +288,15 @@ evidenced, including an explicit “no update required” outcome where applicab
    mockup is the relevant comparison surface.
 3. **Agree.** Done when the Designer says the result is agreed. Before that, run
    `figma-audit` on the agreed frames, and report what a library component owns
-   without fixing it.
+   without fixing it. If the Designer agreed before the audit ran, run it now,
+   before any debt row, and report what it found. A finding does not undo the
+   agreement, and the Designer decides whether it is fixed first.
 4. **Open a design-debt row for each agreed change that production does not yet
    match.** Follow the design-debt template: the direction (which side is ahead,
    as `frameworks/which-side-is-newer.md` decides it), the Figma reference, the
    governing decision, what differs, the status and the evidence that will close
-   the row. Do not record exploratory nudges that carry no decision.
+   the row. Create `DESIGN-DEBT.md` when the project has none, and say so. Do not
+   record exploratory nudges that carry no decision.
 5. **Write a translation record only where production differs structurally.**
    State the visual invariants, the container topology, the production mapping
    and the intentional differences, and account for the contract's platform

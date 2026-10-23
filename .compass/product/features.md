@@ -7,7 +7,7 @@ follows: [requirements.md, journeys.md]
 
 This file says which features deliver the requirements. Each feature names the requirements it satisfies, so a requirement no feature satisfies can be seen. The parts that realize a feature are named in the system file.
 
-Source: derived from the three journeys, with the practice that the Figma production loop and the other skills already show from real use. Open: a draft awaiting the Designer's reading.
+Source: derived from the journeys, with the practice that the Figma production loop and the other skills already show from real use. Open: a draft awaiting the Designer's reading.
 
 ## Find the direction first
 
@@ -15,11 +15,11 @@ Looks for the project's stated direction before any visual work, and stops and a
 
 - Satisfies: R-01, R-14
 
-## Say which way in
+## Start from a Figma file
 
-Names the way in that the work calls for: a sprint, formalizing the design system, or tuning in place.
+Checks that the work has a Figma file, offers to start one from a capture of the running product or from the direction when it has none, and points a request to tune visuals in code to the project's own tools.
 
-- Satisfies: R-02
+- Satisfies: R-32, R-33
 
 ## Keep the project's style document
 
@@ -74,12 +74,6 @@ Opens a `DESIGN-DEBT.md` row for each agreed change that production does not yet
 When the Designer asks, compares the built screen with the approved design and reports the differences, and moves nothing.
 
 - Satisfies: R-29
-
-## Tune in place on a branch
-
-Makes visual changes on a branch of the project, shows each one running, and brings them in only when the Designer approves.
-
-- Satisfies: R-18, R-23
 
 ## Formalize a component
 
