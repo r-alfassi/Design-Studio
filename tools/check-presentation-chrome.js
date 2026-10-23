@@ -11,6 +11,7 @@
 const PAGE_NAME = '';                 // Name of the page to check
 const KIT_COMPONENT_NAMES = [         // Names of the kit's components or component sets
   'State label', 'Placeholder box', 'Sprint direction summary',
+  'Frame card', 'Section header', 'Component container', 'Callout', 'Token tile',
 ];
 const KIT_VARIABLE_COLLECTION_PREFIX = 'Studio'; // Kit variable collections start with this
 

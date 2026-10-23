@@ -39,7 +39,7 @@ Carbon, Atlassian and Primer share:
 A component's documentation can span several views, such as examples, usage
 and accessibility. Each view is its own section and not a bigger container.
 
-Open: the pieces are built on the Components page of the studio's Figma file, but the library is not published. Only the Designer can publish it, and a subscribing file cannot use the pieces until then.
+The pieces are built on the Components page of the studio's Figma file and the Designer published the library on 2026-10-23. A file imports them by key, and `tools/check-presentation-chrome.js` read the library's variables correctly on a subscribing file. Open: the Template page's sprint-section fill is not yet bound to a kit variable.
 
 The kit is quiet on purpose. A project's presentation then reads the same way
 from one project to the next, and the thing being shown is never competing with

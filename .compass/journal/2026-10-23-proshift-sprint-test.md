@@ -11,3 +11,6 @@ What it found:
 - **A hidden `position: fixed` toast is captured as an empty frame**, which showed as a dark pill in the middle of the page.
 - **`DESIGN.md` missed four colors** that v8 hardcodes (the amber tint, its ink, its rule, and the dark step-number fill). They are in the Figma tokens and should be added to `DESIGN.md`.
 - **A script that sets `FILL` before a node has a parent fails** and leaves half-built nodes on the page. The retry removes page-level orphans first.
+- **After the republish the sprint section built as designed.** The baseline clone and both proposals sit in frame cards with state labels, and `tools/check-presentation-chrome.js` ran on the ProShift page with no findings (it resolved the library's `surface/sunk` variable as "Studio · Color"). Its name list was missing the new kit components and was extended.
+- **The audit script called all slotted content component-owned.** `inspect.js` walks up to a remote instance, and a design in a frame card's slot has one as an ancestor. The walk now stops at a slot. Run on the two proposals it found row cells overflowing the table by 3px (fixed by making the cells fill the row), 14 deliberately empty role-row cells per proposal (left, as removing them needs the Designer's yes), and the popover's default pin (left, it is an overlay).
+

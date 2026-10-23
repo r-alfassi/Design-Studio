@@ -194,6 +194,8 @@ async function annotateComponentOwnership(issues) {
     // Check ancestors for a remote INSTANCE
     let p = n.parent;
     while (p) {
+      // Content placed in a slot belongs to the project and not to the component.
+      if (p.type === 'SLOT') break;
       if (p.type === 'INSTANCE') {
         const main = await p.getMainComponentAsync();
         if (main && main.remote) {
