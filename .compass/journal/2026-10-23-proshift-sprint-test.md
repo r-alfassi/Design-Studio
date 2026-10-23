@@ -18,3 +18,15 @@ What it found:
 - **Closing a sprint ran end to end.** The Designer picked Proposal A. B was labelled not chosen, A became the Final outcome at the far right, the review was recorded in a kit callout beside the summary (components: no update; flows: the flow box marked agreed), and a design-debt row was written in the project. The expanded state of A's banner had not been designed, which only showed up when writing the row's status.
 - **Sprint 02 followed from Sprint 01.** Its baseline is the Sprint 01 outcome, cloned, and its proposals differ from it only in the rest-ratio control.
 
+## Formalizing the ProShift design system (same day)
+
+The Designer asked to step back and formalize the existing system, so the formalize skill ran on ProShift with the captured frames as the source.
+
+- **Which side is newer:** the code. Figma had no components, and the tokens made earlier the same day were read from the stylesheet. The sprint outcomes were ahead of the code and already had a debt row.
+- **Extraction on four captured frames (795 nodes):** 17 decimal font sizes from rem conversion, 20 spacing values with many odd ones, 14 radii, 0.8px strokes on 211 nodes (a capture leftover for 1px), 8 colors outside the documented palette, and 37 text nodes in Arial. The Arial is real: the step pills and the ×, → and ← buttons are native buttons that do not inherit the font, so v8 renders them in Arial, a production bug. The Designer approved the proposal as written, which moved it to Heebo.
+- **Foundations created:** 46 variables in three collections, 8 text styles, 5 effect styles, all with explicit scopes and CSS names, documented on a Foundations page built only from kit pieces.
+- **A text style mismatched the capture.** Letter spacing of 0.5px had been put on the 12px bold Label style, but only 7 of about 35 uses had it, so it was removed.
+- **The kit's Component container had the Frame card's flaw.** Its preview, anatomy and do and don't areas were plain frames, which the Plugin API will not add children to inside an instance. They are now bound to slot properties, and the anatomy and do and don't areas, which had been 590px wide inside a 514px column, now fill the width. It needs the Designer's republish before another file sees it.
+- **Main components cannot live in a container.** A main component cannot sit inside an instance, so the formalize skill now says main components stay at page level and the container's preview holds instances of the variants.
+- **First component:** the Button, with kind, size and state variants, bound to the new tokens. The remaining atoms, molecules and organisms wait for the Designer's look at it.
+
