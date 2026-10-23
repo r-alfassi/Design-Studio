@@ -62,8 +62,10 @@ of a kit component, and every section whose own fill does not use a kit variable
 The sprint route runs it before a page is reviewable. A project's design belongs
 inside a kit frame card or container, not directly in a section.
 
-Open: the rule that "chrome" means the direct children of a section is my reading
-of the standard, and the Designer has not confirmed it.
+A section may group other sections, as a tinted sprint-group section does. A
+grouping section passes when its own fill uses a kit variable and its direct
+children are sections or kit instances. Every other direct child of a section is
+chrome that must be a kit instance, which the Designer confirmed on 2026-10-23.
 
 ## Exceptions
 
