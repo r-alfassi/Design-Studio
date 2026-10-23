@@ -37,5 +37,5 @@ This is Design Studio's formalize route. It turns frames into reusable component
 ## Rules that run through every step
 
 - **The Designer's hand is kept.** Before writing, read what is in the file. Keep every change the Designer made, and propose a token for a hand change that needs one before creating it.
-- **Right-to-left sources.** Build in the source's layout direction and with its fonts. Check mirrored variants with the `rtl` skill. Emoji used as icons stay as they are, and are reported for the Designer to decide.
+- **Right-to-left sources.** Build in the source's layout direction and with its fonts. Check mirrored variants with the `rtl` skill. Emoji used as icons stay as they are, and are reported for the Designer to decide. When the Designer approves replacing them, take icons from a library in the file first, found by `search_design_system`. A library that exposes only the icons its own components use is no icon set. Otherwise import the SVGs of an open icon set, record its name, version and license in the component's description, and bind the stroke or fill to a token.
 - **No invention.** Do not fill a gap with a made-up token or content. Name the gap.
