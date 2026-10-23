@@ -185,6 +185,19 @@ for (const f of node.findAll(n => n.type === 'FRAME' && n.layoutMode === 'VERTIC
 
 ---
 
+## A page captured from a right-to-left browser arrives mirrored
+
+A web page that is already right-to-left (`dir="rtl"` or `direction: rtl`) is captured into Figma as horizontal auto-layout rows whose children are in DOM order, placed left to right. Figma's auto-layout has no direction, and the capture does not reverse the rows. The Hebrew letters read correctly, so the mirroring is easy to miss, but the logo, the first step, the first table column and the title all land on the wrong side. Found 2026-10-23 on a captured Hebrew scheduling screen, checked against a browser render of the same page.
+
+Compare the capture with a browser render before using it as a baseline. If it is mirrored, work on a clone and say which is the original, then:
+
+- reverse the flow children of every horizontal row, leaving Latin-only rows such as a logo alone;
+- swap `MIN` and `MAX` main-axis alignment on those rows, because `flex-start` is the right edge in RTL;
+- mirror absolutely placed children across their parent's width;
+- do **not** flip padding or text alignment. The capture records computed physical values, so they are already right. This is the difference from the conversion phases above, which start from a left-to-right design.
+
+A hidden `position: fixed` element, such as a toast slid off-screen by CSS, is captured as an empty frame inside the page. It is capture noise, and it is removed from the clone and left in the original.
+
 ## Phase 2 — Element Order Reversal
 
 Figma renders children left-to-right on screen in array order — there is no native `dir` flip like HTML has. This means **the array itself must be reversed** when converting direction; alignment alone is not enough (this is the Horizontal Mirror Principle from SKILL.md, applied concretely).

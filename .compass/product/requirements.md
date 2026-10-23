@@ -13,6 +13,7 @@ Source: the Designer's answers in the grilling session of 2026-10-21 on the sing
 
 - **R-01** When a project states no direction, the agent asks where it is and stops before doing visual work. Serves: SC-05. <!-- R-01 -->
 - **R-32** When the work has no Figma file, the agent offers to start one, from a capture of the running product or from the direction, and does no visual work until the Designer answers. Serves: SC-15. <!-- R-32 -->
+- **R-34** A baseline captured from the running product is compared with a browser render before it is used, and a right-to-left page that arrives mirrored is corrected on a clone. Serves: SC-15. <!-- R-34 -->
 - **R-03** A project without a `DESIGN.md` is offered one before visual work starts. Serves: SC-11. <!-- R-03 -->
 - **R-21** The current state of the product is captured in Figma, readable in one place, before the agent changes any design. Serves: SC-15, SC-16. <!-- R-21 -->
 

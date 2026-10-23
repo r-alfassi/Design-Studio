@@ -275,6 +275,10 @@ This is a deliberate promotion review, not an automatic duplication of every
 screen into Components or Flows. Close the sprint only after the review is
 evidenced, including an explicit “no update required” outcome where applicable.
 
+### Capturing the running product as a baseline
+
+A capture is evidence of what was built, and it is a baseline and not an approved design. Before relying on one, compare it with a browser render of the same page. A right-to-left page comes into Figma mirrored, with its rows in DOM order from left to right, so it is checked and mirrored on a clone as `skills/rtl/references/figma.md` describes. Build proposals from the browser render or the corrected clone and never from the raw capture's order. A hidden fixed element, such as a toast, comes in as an empty frame and is removed from the clone.
+
 ## Loop
 
 1. **Admit a bounded scope.** Name the Figma nodes, the production surface, and

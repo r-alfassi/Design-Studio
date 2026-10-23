@@ -62,3 +62,4 @@ Append-only. One line per ID, added when the ID is created; one line appended wh
 - SC-17 · 2026-10-23 · Does not tune visuals directly in a product's code
 - R-32 · 2026-10-23 · With no Figma file, the agent offers to start one and waits
 - R-33 · 2026-10-23 · The agent never edits the product's code
+- R-34 · 2026-10-23 · A captured baseline is checked against a browser render
