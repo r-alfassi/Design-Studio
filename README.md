@@ -13,7 +13,7 @@ path.
 | Directory | Holds |
 |---|---|
 | `AGENTS.md` | The spine a project imports: what loads first and where each kind of visual work goes. |
-| `skills/` | Whole jobs carried to a result. Figma: `figma-sprint`, `figma-audit`, `figma-formalize`, `figma-pixel-fidelity`; also `rtl`, `translate`, `checklist-design`, `preview-server`, `transcript-ingestion`. Full index with "reach for it when": `skills/README.md`. |
+| `skills/` | Whole jobs carried to a result. Figma: `figma-sprint`, `figma-audit`, `figma-formalize`, `figma-pixel-fidelity`; also `rtl`, `translate`, `checklist-design`. Full index with "reach for it when": `skills/README.md`. |
 | `frameworks/` | One judgment each, as questions and quality bars: `which-side-is-newer`. |
 | `standards/` | Binding rules a project adopts by naming them in its `DESIGN.md`: `mobile-design` (the mobile text floor), `studio-presentation` (the quiet kit for presenting work in Figma). |
 | `templates/` | The required shape of a file or deliverable: `design-debt`, `figma-implementation-contract`. |

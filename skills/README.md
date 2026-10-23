@@ -32,5 +32,3 @@ on how design work is done, not on an artifact.
 | Skill | Reach for it when… |
 |---|---|
 | `checklist-design` | reviewing a UI against published design checklists — audit (item-by-item) or critique (quick peer feedback) |
-| `preview-server` | serving a project's HTML mockups with an auto-generated index |
-| `transcript-ingestion` | pulling decisions, questions, and rules out of meeting transcripts into a governed project |
