@@ -41,7 +41,7 @@ Source: the Designer's answers in the grilling session of 2026-10-21 on the sing
 
 ## Presenting work
 
-- **R-30** The chrome on a sprint page or a design-system page, meaning its labels, containers and section backgrounds, is built from the studio kit, and the project's own design is the only strong visual identity on the page. Serves: SC-14. <!-- R-30 -->
+- **R-30** On a project that has adopted the studio presentation standard, the chrome on a sprint page or a design-system page, meaning its labels, containers and section backgrounds, is built from the studio kit, and the project's own design is the only strong visual identity on the page. Serves: SC-14. <!-- R-30 -->
 - **R-31** A project departs from the kit only by recording the exception in its `DESIGN.md` with the node and the reason. Serves: SC-14. <!-- R-31 -->
 
 ## Keeping the record

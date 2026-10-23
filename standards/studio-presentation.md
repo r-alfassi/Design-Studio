@@ -9,6 +9,8 @@ project-owned.
 
 ## Binding statement
 
+The standard binds every project that adopts it, by naming it in its `DESIGN.md`. The Designer confirmed on 2026-10-23 that adoption is explicit, as with the mobile standard.
+
 Presentation chrome is built from the studio kit, the components and tokens in
 Design Studio's Figma file, so that the project's own design is the only strong
 visual identity on the page. Chrome means:
