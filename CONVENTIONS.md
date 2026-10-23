@@ -41,7 +41,7 @@ Then update `skills/README.md` (for a skill) so the resident is discoverable.
 
 New Figma-specific skills use a `figma-` prefix (`figma-ds-recreate`,
 `figma-audit-structure`, `figma-design-system`,
-`figma-conversion-skill-builder`, `figma-production-loop`).
+`figma-pixel-fidelity`, `figma-conversion-skill-builder`, `figma-production-loop`).
 
 A skill counts as Figma-specific if it operates on Figma design files via the
 Plugin API or Figma-native constructs. It does **not** apply to a skill that

@@ -95,26 +95,6 @@ alter the shared `space/4` token. If no zero-gap token exists, propose
 `space/0` with `GAP` scope and a scoped implementation syntax; preserve the
 unbound user edit until that proposal is accepted.
 
-### Pixel-raster fidelity gate
-
-When a Figma component family presents pixel or other raster source artwork,
-its preview structure must never silently change the asset silhouette. Before
-promotion, run `scripts/audit-pixel-raster-fidelity.js` in a read-only
-`use_figma` call with the exact source component-set IDs.
-
-- The component set, every variant root, and every immediate raster host must
-  have a zero corner radius and no effects.
-- Treat zero radius as fixed asset geometry, not a radius token. The rule
-  prevents Figma's default preview treatment from rounding or softening a
-  pixel edge; it is not a ban on intentional pixel-art chamfers drawn in the
-  raster itself.
-- Do not use a decorative frame, mask, shadow, or rounded presentation wrapper
-  as a source primitive. If one is needed for documentation, keep it outside
-  the source family and name it as presentation-only.
-- The audit only reports violations. Apply a correction only to the exact
-  source nodes it returns, then re-run the audit and inspect one representative
-  preview at native size.
-
 Do not scan the entire file by default: reconciliation is intentionally scoped
 to avoid noise and to respect unrelated work. Run a deeper system audit before
 production promotion, a component-library handoff, or a material foundations

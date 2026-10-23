@@ -22,6 +22,7 @@ A layered set — for a Figma task, start here and pick the leaf.
 |---|---|
 | `figma-ds-recreate` | **recreating** an existing component with real design-system library instances + bound tokens |
 | `figma-design-system` | organizing a whole Figma file **into** an atomic design system (scaffold, tokens, variables) |
+| `figma-pixel-fidelity` | a Figma component family presents **pixel-art or raster source artwork** and its preview must not round or soften the silhouette; fires only on such a project |
 | `figma-audit-structure` | auditing a frame for **layout/structure** problems (overflow, wrappers, missing auto-layout, hard pins) and fixing authorized findings |
 
 ## Web / HTML (craft)

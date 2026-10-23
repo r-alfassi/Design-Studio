@@ -99,4 +99,4 @@ Loads only a small spine at first and the rest when the work calls for it, with 
 
 - Satisfies: R-13, R-17
 
-Open: practices the Figma production loop already shows that no requirement names. They are the pixel-raster fidelity gate used on a pixel-art project, and the Android Views adapter. The sprint operating board was withdrawn on 2026-10-22. Each should pass the fresh-run test (R-16) or leave.
+Open: practices the Figma production loop already shows that no requirement names. They are the Android Views adapter. The sprint operating board was withdrawn on 2026-10-22, and the pixel-raster gate became its own skill, `figma-pixel-fidelity`, on 2026-10-23, outside the package's requirements because it fires only on pixel-art projects. Each should pass the fresh-run test (R-16) or leave.
