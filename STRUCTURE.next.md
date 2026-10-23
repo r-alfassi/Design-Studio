@@ -88,10 +88,14 @@ Three points in this work are evidence for Blueprint and Compass, and the Design
 - Principle 5, check by using: five fresh runs on real frames and screens decided what stayed, what was fixed and what left.
 - Routes, not copies: the operating board was a second source of status beside the record, and it had already gone stale.
 
-## Decisions for the Designer
+## Decided by the Designer
 
-1. Whether the one word "template" replaces "format" for the shapes of files and deliverables.
-2. Whether the ways in are named as skills for an activity, with `figma-` kept only on Figma-only skills.
-3. Which of the four junction frameworks to write, if any.
-4. Where the maintenance file lives, since Codex reads only an entry file at a repo root.
-5. Whether the proposal replaces `STRUCTURE.md` as it stands.
+- 2026-10-23: the one word "template" replaces "format" for the shape of a file or deliverable, including the large deliverable specs, which become templates with their own folders. Nothing is renamed until the proposal as a whole is accepted.
+
+## Decisions still open
+
+1. Whether the ways in are named as skills for an activity, with `figma-` kept only on Figma-only skills.
+2. Which of the four junction frameworks to write, if any.
+3. Where the maintenance file lives, since Codex reads only an entry file at a repo root.
+4. Whether the proposal replaces `STRUCTURE.md` as it stands.
+5. How Blueprint is brought in to Design Studio.
