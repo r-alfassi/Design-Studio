@@ -43,6 +43,17 @@ The kit is quiet on purpose. A project's presentation then reads the same way
 from one project to the next, and the thing being shown is never competing with
 the frame around it.
 
+## How a project gets the kit
+
+The kit is published as a team library from Design Studio's Figma file, and a
+project's Figma file subscribes to it. There is one source, so a fix to the kit
+reaches every project that adopts the standard. The Designer chose this on
+2026-10-23. Publishing is a step in Figma and not something an agent can do.
+
+Open: the file is not yet published, and `tools/check-presentation-chrome.js` has
+only run on files that hold the kit locally. It must be run on a file that
+subscribes to the published library before the check can be relied on there.
+
 ## What it does not govern
 
 - The project's own design, and its design system.
