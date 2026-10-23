@@ -76,7 +76,7 @@ Realized by: none yet
 
 ### Tune in place on a branch
 
-Realized by: none yet
+Realized by: `skills/tune-in-place/SKILL.md`
 
 ### Formalize a component
 

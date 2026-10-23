@@ -21,6 +21,7 @@ A layered set — for a Figma task, start here and pick the leaf.
 |---|---|
 | `figma-formalize` | a sprint ended in your decision to **formalize a component** into the design system, or the Figma file has gone stale beside the code: tokens, text and effect styles, a component built from the frame, and the check that it is reusable and bound |
 | `figma-pixel-fidelity` | a Figma component family presents **pixel-art or raster source artwork** and its preview must not round or soften the silhouette; fires only on such a project |
+| `tune-in-place` | the Designer wants a **visual change seen live** in the running product, or the project was never decomposed into Figma: a branch, each change shown running, and the merge as the approval |
 | `figma-audit` | auditing a frame for **layout/structure** problems (overflow, wrappers, missing auto-layout, hard pins) and fixing authorized findings; also checks which values are bound to variables |
 
 ## Web / HTML (craft)
