@@ -295,6 +295,10 @@ Append children in canvas left-to-right order, but design the sequence so the He
 // → append track-name last so it lands at the right (Hebrew first-read)
 ```
 
+### A hug-width row in a vertical frame sits on the left, which is wrong for RTL
+
+In a vertical auto-layout frame, a child that hugs its content is packed to the left edge, because the cross axis starts at the left. In a right-to-left screen a short row, such as a row of stat tiles or a row of tabs, belongs on the right edge. Make the row fill the frame's width and set its main-axis alignment to `MAX` (the right end), with its children already in reversed order. Check every direct child of a card for this, since a full-width frame hides the problem. Found 2026-10-23 on a built-from-scratch Hebrew screen.
+
 ### `COMPONENT_SET` variant nodes: `insertChild` is silently blocked
 
 When a node is a **variant** (direct child of a `COMPONENT_SET`), `insertChild` does **nothing** — no error, no reorder, just a silent no-op. This is a Plugin API restriction specific to variants.
