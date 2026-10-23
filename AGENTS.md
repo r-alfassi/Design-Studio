@@ -10,6 +10,7 @@ This file says what Design Studio loads and when, for a project that imports it.
 
 ## By kind of work
 
+- Choosing a way into the work: follow `frameworks/which-way-in.md`.
 - Iterating a design in Figma, and handing it off: follow `skills/figma-sprint/SKILL.md`.
 - Formalizing a component into the design system: follow `skills/figma-formalize/SKILL.md`.
 - Auditing a Figma frame: follow `skills/figma-audit/SKILL.md`.
