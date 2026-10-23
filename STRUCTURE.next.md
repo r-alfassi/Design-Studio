@@ -2,11 +2,11 @@
 
 This document proposes how Design Studio's compartments are named, what each one holds, and how they load. It is for the Designer to react to, and it replaces `STRUCTURE.md` only if the Designer accepts it. Read it through once, then use the vocabulary table as a lookup. Everything here is a proposal unless a line says the Designer decided it.
 
-It rests on three sources. The Blueprint principles supply the shape: one spine, branches that are smaller spines, a compartment for each junction, routes and not copies, only what earns its place, a check by use, and exact things from tools. Compass and Principal supply the words and the construction rules, because both already name the same compartments. The sessions of 2026-10-21 to 2026-10-23 supply the requirements the structure has to meet (`compass/product/requirements.md`).
+It rests on two things. The Designer's design principles supply the shape: one spine, branches that are smaller spines, a compartment for each junction, routes and not copies, only what earns its place, a check by use, and exact things from tools. Compass and Principal supply the words and the construction rules, because both already name the same compartments. The sessions of 2026-10-21 to 2026-10-23 supply the requirements the structure has to meet (`compass/product/requirements.md`).
 
 ## The shape
 
-One spine loads first and is the only part that loads anything. Each way into the work is a skill, which is a smaller spine for its own job. A skill pulls in the frameworks, standards, templates and tools it needs by route, and those leaves load nothing. The record, the journal and the research stay outside the run.
+One spine loads first and is the only part at its level that loads anything. Each way into the work is a skill, which is a smaller spine for its own job. A skill pulls in the frameworks, standards, templates and tools it needs by route, and those parts load nothing themselves. The record, the journal and the research stay outside the run.
 
 ```
 spine           the root entry file: what loads before the first move, the flow, the routes by kind of work
@@ -37,10 +37,10 @@ One word for each compartment. The right column says what it is called today.
 
 ## How loading works
 
-1. **Only the spine loads at first.** A project imports it through its own entry file. The spine names the direction check, the way in that the request calls for, and the other crafts, and it loads nothing else. Blueprint principle 1.
-2. **A skill is a smaller spine.** It holds its own sequence and loads its frameworks, standards, templates and tools by route, under the same principles as the root. A skill never restates a standard's rule. Blueprint principles 1 and 3.
-3. **A leaf loads nothing.** A framework works on what is already loaded and names other material by concept and not by path. A standard, a template and a tool pull in nothing. Blueprint principle 1.
-4. **Each junction is its own compartment.** A moment where judgment is handed to the agent gets a framework, so that a change of preference touches one file and no spine. Blueprint principle 2.
+1. **Only the spine loads at first.** A project imports it through its own entry file. The spine names the direction check, the way in that the request calls for, and the other crafts, and it loads nothing else.
+2. **A skill is a smaller spine.** It holds its own sequence and loads its frameworks, standards, templates and tools by route, under the same principles as the root. A skill never restates a standard's rule.
+3. **A part that carries no whole job loads nothing.** A framework works on what is already loaded and names other material by concept and not by path. A standard, a template and a tool pull in nothing.
+4. **Each junction is its own compartment.** A moment where judgment is handed to the agent gets a framework, so that a change of preference touches one file and no spine.
 5. **A part that fires for one kind of project is its own skill.** It loads only there, and the spine does not carry it. The pixel-art skill is the case.
 
 ## Where each present resident goes
@@ -66,7 +66,7 @@ This is the migration map. Nothing moves until the Designer accepts the proposal
 
 ## Proposed junction frameworks
 
-Each is a judgment the agent now makes inside a skill or by habit. Giving each a framework applies Blueprint principle 2. Each is a proposal and none is written.
+Each is a judgment the agent now makes inside a skill or by habit. Giving each a framework keeps the reasoning out of the skill's sequence. Each is a proposal and none is written.
 
 - **Which way in:** sprint, formalize or tune in place, from the request. This is also the open question from the entry-point discussion.
 - **Which side is newer:** Figma or the code, for a component, which decides the direction on a debt row.
@@ -80,14 +80,6 @@ Each is a judgment the agent now makes inside a skill or by habit. Giving each a
 - One word for each compartment, as in the table above. A retired word is not used again in any file. Search the record for the old words when this is accepted.
 - A standard is named for what it governs. A template is named for the thing it shapes.
 
-## What this adds to the principles
-
-Three points in this work are evidence for Blueprint and Compass, and the Designer decides whether to record them there:
-
-- Principle 4, only what earns its place: a fresh run showed that a mapping table and several principles in the Android guidance added nothing a cold agent lacked, and that one list in it did.
-- Principle 5, check by using: five fresh runs on real frames and screens decided what stayed, what was fixed and what left.
-- Routes, not copies: the operating board was a second source of status beside the record, and it had already gone stale.
-
 ## Decided by the Designer
 
 - 2026-10-23: the one word "template" replaces "format" for the shape of a file or deliverable, including the large deliverable specs, which become templates with their own folders. Nothing is renamed until the proposal as a whole is accepted.
@@ -98,4 +90,3 @@ Three points in this work are evidence for Blueprint and Compass, and the Design
 2. Which of the four junction frameworks to write, if any.
 3. Where the maintenance file lives, since Codex reads only an entry file at a repo root.
 4. Whether the proposal replaces `STRUCTURE.md` as it stands.
-5. How Blueprint is brought in to Design Studio.
