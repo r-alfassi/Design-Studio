@@ -20,9 +20,9 @@
       "sourceType": "github",
       "sourceRef": "ccbc15639c97057cbfcf32ecebc38ef716e4bb37",
       "upstreamPath": "skills/brandkit/SKILL.md",
-      "vendoredPath": "skills/brandkit/",
+      "vendoredPath": "archive/skills/brandkit/",
       "license": "MIT",
-      "licenseFile": "skills/brandkit/LICENSE",
+      "licenseFile": "archive/skills/brandkit/LICENSE",
       "sha256_SKILL_md": "b0c4837e1bd140ca816ae54948754ddd2ac1e2a4d3619363777a80caf00b2ede",
       "admitted": "2026-09-06",
       "record": "Compass"
@@ -32,9 +32,9 @@
       "sourceType": "github",
       "sourceRef": "ccbc15639c97057cbfcf32ecebc38ef716e4bb37",
       "upstreamPath": "skills/taste-skill/SKILL.md",
-      "vendoredPath": "skills/design-taste-frontend/",
+      "vendoredPath": "archive/skills/design-taste-frontend/",
       "license": "MIT",
-      "licenseFile": "skills/design-taste-frontend/LICENSE",
+      "licenseFile": "archive/skills/design-taste-frontend/LICENSE",
       "sha256_SKILL_md": "aa194351b246b8b4799099d4ed7b033d29eab6e6e3d58d8d2172978be7b3ec89",
       "admitted": "2026-09-06",
       "record": "Compass"

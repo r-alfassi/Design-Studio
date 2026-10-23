@@ -13,12 +13,12 @@ path.
 | Directory | Holds |
 |---|---|
 | `AGENTS.md` | The spine a project imports: what loads first and where each kind of visual work goes. |
-| `skills/` | Whole jobs carried to a result. Figma: `figma-sprint`, `figma-audit`, `figma-formalize`, `figma-pixel-fidelity`; meta: `skill-creator`, `figma-conversion-skill-builder`; and the web, mockup, brand and review crafts. Full index with "reach for it when": `skills/README.md`. |
-| `frameworks/` | One judgment each, as questions and quality bars: `brand-strategy-foundations`, `ux-expert` (the 30 Laws of UX). |
+| `skills/` | Whole jobs carried to a result. Figma: `figma-sprint`, `figma-audit`, `figma-formalize`, `figma-pixel-fidelity`; also `rtl`, `translate`, `checklist-design`, `preview-server`, `transcript-ingestion`. Full index with "reach for it when": `skills/README.md`. |
+| `frameworks/` | One judgment each, as questions and quality bars: `which-side-is-newer`. |
 | `standards/` | Binding rules a project adopts by naming them in its `DESIGN.md`: `mobile-design` (the mobile text floor), `studio-presentation` (the quiet kit for presenting work in Figma). |
-| `templates/` | The required shape of a file or deliverable: `product-design`, `product-component`, `strategic-deck`, `ux-benchmark`, `video`, `design-debt`, `figma-implementation-contract`. |
+| `templates/` | The required shape of a file or deliverable: `design-debt`, `figma-implementation-contract`. |
 | `tools/` | Scripts that produce what must be exact, such as `check-presentation-chrome.js`. |
-| `references/` | This repo's own how-tos (tool set-up, FigJam board conventions). |
+| `archive/` | Residents set aside on 2026-10-23 because the Designer was not sure of them. Not loaded or indexed; see its README. |
 | `library/` | External, non-binding design and UX resources worth returning to. Governs nothing. |
 | `STRUCTURE.md` | How Design Studio is organized and named, and how a resident is admitted. For people working on the repo. |
 | `skills-lock.json` | Provenance and integrity for vendored third-party skills. |

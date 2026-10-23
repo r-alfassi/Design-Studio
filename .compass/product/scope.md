@@ -28,4 +28,4 @@ This file says what the product does and does not do, each with its reason, so a
 - **Tune visuals directly in a product's code.** Iterating live in the running product is other tools' work, and a second way in would make the studio choose between paths instead of serving the one it is built for. <!-- SC-17 -->
 - **Hold personal Designer preferences or universal collaboration culture.** Those subjects have their own homes and would make reusable craft falsely universal. <!-- SC-07 -->
 
-Open: the `product-design` format still has layers for intent and flow, with a PRD file and an HTML flow chart, and so has Design Studio holding a project's intent. That conflicts with the second line above and needs revising. It also still assumes the retired `.harness/` folder.
+The `product-design` template, whose intent and flow layers conflicted with SC-05, was archived on 2026-10-23.
