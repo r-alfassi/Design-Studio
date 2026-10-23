@@ -2,6 +2,10 @@
 
 This folder is Design Studio's record: its current intent, its work in progress, and the evidence that supports a reusable design-craft decision.
 
+## Working on Design Studio itself
+
+Read `STRUCTURE.md` at the repo root first. It says how the compartments are named and loaded, and how a resident is admitted. A project that imports Design Studio never loads it.
+
 ## Core
 
 - `product/README.md`: the current product record and which question each file answers.

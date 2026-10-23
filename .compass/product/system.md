@@ -84,7 +84,7 @@ Realized by: `skills/figma-formalize/SKILL.md`
 
 ### Keep only what earns its place
 
-Realized by: `CONVENTIONS.md`
+Realized by: `STRUCTURE.md`
 
 ### Load by kind of work
 

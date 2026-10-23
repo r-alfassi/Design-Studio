@@ -1,13 +1,12 @@
 # Skills — resident index
 
 Every skill, its tag, and when to reach for it. See `../STRUCTURE.md` for what a
-skill is versus a format or framework, and `../CONVENTIONS.md` for the admission
-checklist.
+skill is versus a template, framework or standard, and for the admission checklist.
 
 **Tags:** `craft` — produces or modifies a design artifact · `meta` — operates
 on how design work is done, not on an artifact.
 
-> Living index — updated on every admission (`CONVENTIONS.md` step 5). The
+> Living index — updated on every admission (`STRUCTURE.md`, "Admitting a resident"). The
 > Figma skills are listed as a flat set below; the target is a `figma` router
 > plus shared references the leaves draw from (design-studio Q-63 unit 3,
 > commissioned).

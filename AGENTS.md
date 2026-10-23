@@ -1,11 +1,20 @@
 # Design Studio
 
-Reusable cross-project design craft.
+This file says what Design Studio loads and when, for a project that imports it. Design Studio holds the visual-design process and the craft it draws on. It does not define a project's intent, and it does not assume the project keeps its record in any particular system.
 
-Compass is the authoritative Design Studio record. Before changing Design Studio governance or resident work, read its product record and the relevant campaign or journal overview.
+## Whenever visual work starts
 
-<!-- compass:start -->
-Compass is installed at `node_modules/@r-alfassi/compass`. The paths in its `AGENTS.md` are relative to that folder.
+1. Find the project's stated direction, in whatever form it keeps one. If it states none, ask where it is and stop.
+2. Read the project's `DESIGN.md`. If it has none, offer to create one before visual work starts.
+3. Work freely where nothing is approved. Stop for the Designer before changing anything approved: the approved design, `DESIGN.md`, a library component, production, or a deletion.
 
-@node_modules/@r-alfassi/compass/AGENTS.md
-<!-- compass:end -->
+## By kind of work
+
+- Iterating a design in Figma, and handing it off: follow `skills/figma-sprint/SKILL.md`.
+- Formalizing a component into the design system: follow `skills/figma-formalize/SKILL.md`.
+- Auditing a Figma frame: follow `skills/figma-audit/SKILL.md`.
+- A Figma file with pixel-art or raster assets: follow `skills/figma-pixel-fidelity/SKILL.md`.
+- Presenting sprints or a design system in Figma: load `standards/studio-presentation.md`.
+- Mobile screens: load `standards/mobile-design.md`.
+- Writing a translation record for a handoff: load `templates/figma-implementation-contract.md`.
+- Any other craft, such as brand, decks, video, mirroring a layout, translating copy or reviewing a design: find it in `skills/README.md`, `frameworks/` or `templates/`.
