@@ -22,7 +22,7 @@ This skill is Figma-specific — it assumes the conversion happens via `use_figm
 ## Relationship to other skills
 
 - **Defers to `skills/skill-creator` for generic SKILL.md mechanics** — frontmatter conventions, versioning, how to structure a workflow section, etc. This skill focuses only on what's specific to screen-conversion: the calibration methodology, the mechanical/judgment split, the gotcha-catalogue habit, and batch/production discipline. Don't re-derive skill-authoring basics here; load `skill-creator` for those.
-- **Not `figma-ds-recreate` or the Figma plugin's `figma-generate-design`** — those build a single component/screen from a spec or an existing source. This skill is for a *repeatable transformation applied across many screens*, where the transformation itself needs to be discovered before it can be documented.
+- **Not the Figma plugin's `figma-generate-design`** — those build a single component/screen from a spec or an existing source. This skill is for a *repeatable transformation applied across many screens*, where the transformation itself needs to be discovered before it can be documented.
 
 ---
 

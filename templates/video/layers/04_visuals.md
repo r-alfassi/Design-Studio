@@ -19,7 +19,7 @@
 - Before video interpolation between adjacent shots: verify structural anatomy matches (trunk, root flare, branch angles, etc.) and correct if needed.
 
 **Artifacts:**
-- `visuals/FRAMES.md` — base visual grammar + per-shot generation specs. Start from `formats/video/craft/FRAMES.md`.
+- `visuals/FRAMES.md` — base visual grammar + per-shot generation specs. Start from `templates/video/craft/FRAMES.md`.
 - `storyboard.html` — visual review surface; all confirmed images displayed here
 
 **File naming:** `visuals/FRAMES.md`, `storyboard.html`

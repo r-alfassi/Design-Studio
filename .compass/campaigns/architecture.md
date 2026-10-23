@@ -86,6 +86,8 @@ Admission of `standards/studio-presentation.md`, 2026-10-22 (the studio containe
 
 Validation of `standards/studio-presentation.md` chosen 2026-10-22 by the Designer: a script in `tools/`. `tools/check-presentation-chrome.js` was written and run read-only on two pages. On Design Studio's own Template page it reported 5 findings: the sprint section's fill is not bound to a kit variable, and the four step frames are plain frames, because the kit has no frame card component yet. On Karma Warrior's Sprints page, which predates the kit, it reported 204 findings across 31 sections and 207 children. Publishing chosen 2026-10-23: Design Studio's Figma file becomes a team library that projects subscribe to, which only the Designer can publish, and the script must then be run on a subscribing file. Tasks that follow: publish the file, build the missing kit pieces (a frame card, the section header, the component container, the callout and the token tile), and bind the template section's fill to a kit variable.
 
+Restructure, pass 1 of 2026-10-23, after the Designer accepted `STRUCTURE.next.md`: the record folder `compass/` became `.compass/`; `formats/` became `templates/` and each folder's `FORMAT.md` became `TEMPLATE.md`; `figma-production-loop` became `figma-sprint`, `figma-audit-structure` became `figma-audit`, and `figma-design-system` became `figma-formalize`; `figma-ds-recreate` was folded into `figma-audit` as its variable-binding check, with its script. Entries above this paragraph use the names that held when they were written.
+
 Origin of the quest: seed below, logged earlier the same session series.
 
 State (before): Seed.

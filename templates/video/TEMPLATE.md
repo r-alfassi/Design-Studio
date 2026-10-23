@@ -90,8 +90,8 @@ The video generation layer. Written only after images are confirmed. Translates 
 ## File Structure
 
 ```
-formats/video/
-├── FORMAT.md             # This file — the governing protocol
+templates/video/
+├── TEMPLATE.md           # This file — the governing protocol
 ├── layers/               # Layer definitions — what each stage is and how to run it
 │   ├── 01_narrative.md
 │   ├── 02_concept.md
@@ -157,7 +157,7 @@ The file opens with a plain-language description of the visual world, followed b
 [Frame-specific JSON block — composition, subject, action, depth_of_field, mood, any special fields]
 ```
 
-Start from `formats/video/craft/FRAMES.md`.
+Start from `templates/video/craft/FRAMES.md`.
 
 ---
 

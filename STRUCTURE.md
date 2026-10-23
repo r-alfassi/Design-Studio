@@ -16,7 +16,7 @@ and are not interchangeable.
 
 | Kind | Answers | Prescribes | Does **not** prescribe | Lives in |
 |---|---|---|---|---|
-| **Format** | "What shape must this deliverable take?" | the structure, layers, and gates of a named deliverable | how you think through the content, or the tool you use | `formats/` |
+| **Format** | "What shape must this deliverable take?" | the structure, layers, and gates of a named deliverable | how you think through the content, or the tool you use | `templates/` |
 | **Framework** | "How do I reason through this design question and make an evidence-aware choice?" | a sequence of questions and quality bars | any deliverable shape, any procedure, any tool | `frameworks/` |
 | **Standard** | "What reusable design constraint must this selected project satisfy?" | a stable constraint, its scope, validation, and explicit exception route | a project’s product decisions or an execution workflow | `standards/` |
 | **Skill** | "How do I carry out this task?" | a workflow — steps, tool calls, checks | — | `skills/<name>/SKILL.md` |
@@ -44,7 +44,7 @@ design artifact:
 
 - `skill-creator` — authors other skills
 - `figma-conversion-skill-builder` — builds a screen-conversion skill by calibration
-- `figma-production-loop` — governs a Figma→production iteration with promotion gates
+- `figma-sprint` — governs a Figma→production iteration with promotion gates
 
 These are still skills (steps you run). They are **tagged `meta`** in the
 resident index so a reader looking for a craft procedure isn't misdirected.

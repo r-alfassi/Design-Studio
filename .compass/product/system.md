@@ -48,7 +48,7 @@ Realized by: none yet
 
 ### Sprint pages that leave a trail
 
-Realized by: `skills/figma-production-loop/SKILL.md`
+Realized by: `skills/figma-sprint/SKILL.md`
 
 ### Present work with the studio's containers
 
@@ -56,19 +56,19 @@ Realized by: `standards/studio-presentation.md`
 
 ### Never overwrite the Designer's hand
 
-Realized by: `skills/figma-production-loop/SKILL.md`, `skills/figma-production-loop/scripts/reconcile-figma-scope.js`
+Realized by: `skills/figma-sprint/SKILL.md`, `skills/figma-sprint/scripts/reconcile-figma-scope.js`
 
 ### Audit before relying on a frame
 
-Realized by: `skills/figma-audit-structure/SKILL.md`, `skills/figma-ds-recreate/scripts/audit-bound-variables.js`
+Realized by: `skills/figma-audit/SKILL.md`, `skills/figma-audit/scripts/figma/audit-bound-variables.js`
 
 ### Dry run before removal
 
-Realized by: `skills/figma-production-loop/SKILL.md`
+Realized by: `skills/figma-sprint/SKILL.md`
 
 ### Hand off agreed work as design debt
 
-Realized by: `formats/figma-implementation-contract.md`
+Realized by: `templates/figma-implementation-contract.md`
 
 ### Review the built result against the design
 
@@ -80,7 +80,7 @@ Realized by: none yet
 
 ### Formalize a component
 
-Realized by: `skills/figma-design-system/SKILL.md`
+Realized by: `skills/figma-formalize/SKILL.md`
 
 ### Keep only what earns its place
 

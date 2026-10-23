@@ -6,7 +6,7 @@ description: "Build a reusable UI component as a self-contained four-file packag
 # new-component
 
 Produce a component in the **`product-component`** shape (see
-`formats/product-component.md` for the four-file standard, the four
+`templates/product-component.md` for the four-file standard, the four
 non-negotiables, and the `spec.md` section list) and wire it into the host
 mockup.
 
@@ -46,6 +46,6 @@ implementation — its `preview.html` and `spec.md` set the bar.
 
 ## Related
 
-- `formats/product-component.md` — the required shape this produces
+- `templates/product-component.md` — the required shape this produces
 - `render-html` — run after the component is complete to produce a
   dependency-free snapshot for sharing or embedding

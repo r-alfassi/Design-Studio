@@ -1,9 +1,9 @@
 ---
-name: figma-audit-structure
-description: Audit a Figma frame for structural issues — overflow, redundant wrappers, missing auto-layout, hard-pinned positions — then fix authorized findings. Always inspects and gates before touching anything.
+name: figma-audit
+description: Audit a Figma frame for structural issues and for values not bound to variables — overflow, redundant wrappers, missing auto-layout, hard-pinned positions — then fix authorized findings. Always inspects and gates before touching anything.
 ---
 
-# figma-audit-structure
+# figma-audit
 
 Inspect a Figma frame for layout and structure problems, report findings at a gate, then apply authorized fixes.
 
@@ -22,6 +22,7 @@ Reusable Figma scripts live in `scripts/figma/`. Set the parameter block at the 
 | Script | Phase | Use for |
 |---|---|---|
 | `inspect.js` | Phase 1 | Structural inspection — returns issue list and tree; drives Phase 2 classification. Also annotates component ownership (Component Guardrail) and checks `constraints` on ignore-auto-layout children (`hard-pinned-position`) |
+| `audit-bound-variables.js` | Binding check | Read-only check of which sizes, radii, spacing and fills of a frame are bound to variables and which are raw. Used by the variable-binding check below |
 | `fix-flatten-wrappers.js` | Phase 3 | Collapse redundant nested frames; reconciles the survivor's `itemSpacing`/padding if it's auto-layout |
 | `fix-overflow.js` | Phase 3 | Default `MODE:'FILL'` — adopt the parent's size declaratively instead of resize/reposition |
 | `fix-auto-layout.js` | Phase 3 | Convert plain frame to auto-layout; derives item spacing from current child gaps, or use `WRAP_RANGE` for a flex-spacer when a trailing child must stay pinned to an edge |
@@ -216,6 +217,16 @@ Fix: [what will change]
 - 🔵 Low — maintainability issue; not visually broken
 
 ---
+
+## Variable-binding check
+
+This is the audit's second job: find the values in a frame that should use a design-system variable and do not. It joins the structure audit as one more set of findings, with the same stop for the Designer's yes before anything is fixed. It never changes a remote library's own components.
+
+1. **Read three things at once.** Run in parallel on the target node, or on each top-level child of a section: `get_design_context` for layout, fills, text styles and spacing, `get_variable_defs` for the official token set, and `scripts/figma/audit-bound-variables.js` through `use_figma` with `NODE_ID` set. Do not judge a dimension as unlinked from `get_design_context` alone, because it prints every size as a raw pixel value even when a variable is bound. The script reads `node.boundVariables`, which is the reliable signal.
+2. **Cross-reference.** A value written as a raw number or hex where a token equivalent exists is unlinked. A value with no token equivalent is also unlinked, and is noted separately as off-scale. The same element with different values or link status across breakpoint variants is an auto-layout mismatch. The script skips remote library internals, flags only `FIXED` dimensions, and handles the case where individual corner variables are bound and the `cornerRadius` shorthand reads as a raw number.
+3. **Report in this order, one link per finding.** Group by category, with each finding on one line as the Figma node link, a dash, and what is wrong: unlinked color; unlinked spacing that has a token equivalent; unlinked spacing with none, flagged off-scale; unlinked radius; auto-layout mismatches shown as a pair of links. Use node links of the form `https://www.figma.com/design/[FILE_KEY]/[FILE_NAME]?node-id=[NODE-ID]` with dashes in the node id.
+4. **Stop.** Ask: "These are the remaining issues. Would you like me to fix them?" Fix nothing unless the Designer confirms, and then only the categories they select.
+5. **Scope.** Work only in the current file. Fix in-file loose frames and unbound tokens directly after the yes. For an unbound value or missing token inside a remote library component, report the component, the library and what needs fixing, and do not change it. A local instance of a component under review is acceptable and is noted, not forced.
 
 ## Improvement Loop
 

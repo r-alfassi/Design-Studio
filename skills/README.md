@@ -20,17 +20,16 @@ A layered set — for a Figma task, start here and pick the leaf.
 
 | Skill | Reach for it when… |
 |---|---|
-| `figma-ds-recreate` | **recreating** an existing component with real design-system library instances + bound tokens |
-| `figma-design-system` | organizing a whole Figma file **into** an atomic design system (scaffold, tokens, variables) |
+| `figma-formalize` | a sprint ended in your decision to **formalize a component** into the design system, or the Figma file has gone stale beside the code: tokens, text and effect styles, a component built from the frame, and the check that it is reusable and bound |
 | `figma-pixel-fidelity` | a Figma component family presents **pixel-art or raster source artwork** and its preview must not round or soften the silhouette; fires only on such a project |
-| `figma-audit-structure` | auditing a frame for **layout/structure** problems (overflow, wrappers, missing auto-layout, hard pins) and fixing authorized findings |
+| `figma-audit` | auditing a frame for **layout/structure** problems (overflow, wrappers, missing auto-layout, hard pins) and fixing authorized findings; also checks which values are bound to variables |
 
 ## Web / HTML (craft)
 
 | Skill | Reach for it when… |
 |---|---|
 | `rtl` | mirroring a screen's layout direction (RTL↔LTR) for Hebrew/Arabic, or reviewing RTL compliance |
-| `new-component` | building a reusable UI component to the `product-component` format (see `../formats/product-component.md` for the shape) and wiring it into its host mockup |
+| `new-component` | building a reusable UI component to the `product-component` format (see `../templates/product-component.md` for the shape) and wiring it into its host mockup |
 | `render-html` | producing a fully self-contained single HTML file |
 | `md-renderer` | building a markdown-driven HTML renderer (`.md` content layer + `.html` renderer) |
 | `preview-server` | serving a project's HTML mockups with an auto-generated index |
@@ -67,7 +66,7 @@ procedure, so it lives with the frameworks.
 |---|---|
 | `skill-creator` | authoring or revising a skill |
 | `figma-conversion-skill-builder` | building a repeatable screen-conversion skill (desktop→mobile, DS→DS, LTR→RTL) by calibration |
-| `figma-production-loop` | running a contracted Figma→production iteration with a change log and promotion gates |
+| `figma-sprint` | running a design **sprint in Figma**: a marked area that leaves a trail, the sprint page layout, and the handoff of agreed work as design debt |
 
 ---
 

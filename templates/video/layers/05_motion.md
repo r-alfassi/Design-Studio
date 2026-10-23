@@ -12,6 +12,6 @@
 
 **Keyframe Interpolation:** Place two images as start and end frames. Write a motion prompt describing only what happens between them. Use when both endpoints are confirmed.
 
-**Starting point:** `formats/video/craft/motion.md` contains the reusable motion vocabulary — principles, camera patterns, and motion/time effects — that apply to any project. Copy it into the project and add project-specific transition directives.
+**Starting point:** `templates/video/craft/motion.md` contains the reusable motion vocabulary — principles, camera patterns, and motion/time effects — that apply to any project. Copy it into the project and add project-specific transition directives.
 
 **File naming:** `MOTION.md`

@@ -1,5 +1,5 @@
 ---
-name: figma-design-system
+name: figma-formalize
 description: Formalize a component, or a set of captured frames, into a design system in Figma: reusable components with their tokens bound, built from frames and not moved. Use when a sprint has ended in the Designer's decision to formalize a component, or when the Figma file has gone stale beside the code.
 ---
 
@@ -17,7 +17,7 @@ This is Design Studio's formalize route. It turns frames into reusable component
 ## Steps
 
 1. **Say which side is newer.** Compare the Figma frame with the product's code and `DESIGN.md`, and tell the Designer which side is ahead for this component. If Figma is the stale side, update it from the code first, and only then formalize. If the component was born in a sprint and is ahead of the code, go on, and give it a design-debt row with its direction at the end.
-2. **Audit the source frame.** Run `figma-audit-structure` on it and report its findings. Anything a library component owns is reported and never fixed locally. A fix beyond the mechanical ones waits for the Designer.
+2. **Audit the source frame.** Run `figma-audit` on it and report its findings. Anything a library component owns is reported and never fixed locally. A fix beyond the mechanical ones waits for the Designer.
 3. **Extract tokens, read-only.** From the source frames list every color (fills, text and strokes, counted), type style (family, weight, size, letter spacing), spacing and padding value, corner radius, stroke weight and shadow. Separate what sits on a scale from what is off it, and from capture leftovers: fallback fonts, 0.8px strokes from rem conversion, `:margin` paddings, decimal sizes.
 4. **Propose, and stop.** Show the Designer the token proposal. For each off-scale value, propose the nearest step and say why. Never snap, drop or keep an off-scale value silently, because the Designer's yes decides it. Use the project's own names. Without them, use `color/<group>/<step>`, `space/<n>`, `radius/<n>`, text styles `<role>/<size>` and effects `shadow/<name>`, with one numeric pattern across spacing and radius.
 5. **Create the foundations.** After the yes, create the variable collections (primitives, then semantic), text styles and effect styles. Set every variable's scopes explicitly. Build them in a foundations area beside the frames, and leave the raw frames untouched as the baseline.

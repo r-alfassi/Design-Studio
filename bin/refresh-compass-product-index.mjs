@@ -3,7 +3,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
-const product = path.join(here, "..", "compass", "product");
+const product = path.join(here, "..", ".compass", "product");
 const index = path.join(product, "README.md");
 const core = ["purpose.md", "audience.md", "scope.md", "constraints.md"];
 const onDemand = ["principles.md", "requirements.md", "journeys.md", "features.md", "system.md"];

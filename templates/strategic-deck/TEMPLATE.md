@@ -145,7 +145,7 @@ This format was developed through practice, not theory. It should be treated as 
 |---|---|---|
 | v1.0 | June 2026 | Foundation commit. Original three-layer model (Brief, Rationale, Execution). |
 | v1.1 | June 2026 | Expanded to six-layer model: added Layer 2.5 (Content Normalization), Layer 3 (Design Conventions), Layer 3.5 (Slide Spec HTML). Language rule documented. |
-| v1.2 | June 2026 | Extracted from `Layered_Document_Governance_Protocol.md` into Harness `formats/` directory. Universal governance principles promoted to `HARNESS.md §19`. Deck-specific mechanics retained here. |
+| v1.2 | June 2026 | Extracted from `Layered_Document_Governance_Protocol.md` into Harness `templates/` directory. Universal governance principles promoted to `HARNESS.md §19`. Deck-specific mechanics retained here. |
 | v1.3 | June 2026 | Added "operator speaks freely; AI routes" principle to AI Behavior section. Reinforces `HARNESS.md §19.4` addition — layer navigation is never the operator's job. |
 | v1.4 | June 2026 | Enriched Layer 3.5 (Slide Spec) with three-function model (layout validation / review artifact / build source of truth), editing rule (upstream-first for argument changes, direct-edit OK for execution-layer changes), pilot-first rule for Spec→PPTX transition, and Chrome Headless PDF generation note. Promoted from client project practice. |
 | v1.5 | June 2026 | Added `resources/` directory to Cartridge Structure. Introduced `author.md` as a named artifact for the author's tacit knowledge, alongside existing knowledge artifacts. Renamed Knowledge Artifacts section to Resources. Updated File Naming Reference. Promoted from CTX Knowledge Share project practice. |

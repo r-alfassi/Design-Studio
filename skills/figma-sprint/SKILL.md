@@ -1,5 +1,5 @@
 ---
-name: figma-production-loop
+name: figma-sprint
 description: Run a Figma-first design iteration for an explicitly contracted screen or component, logging accepted deltas and promoting only approved work to production.
 ---
 
@@ -15,9 +15,9 @@ relationship, or to claim that an exploratory Figma change is shipped.
 Before iteration, locate or create the project's instances of:
 
 - `FIGMA-CHANGELOG.md`, following
-  [figma-change-log.md](../../formats/figma-change-log.md)
+  [figma-change-log.md](../../templates/figma-change-log.md)
 - `FIGMA-TRANSLATION.md`, following
-  [figma-implementation-contract.md](../../formats/figma-implementation-contract.md)
+  [figma-implementation-contract.md](../../templates/figma-implementation-contract.md)
 - the governing project `DESIGN.md` and relevant product/work decision
 
 Read the contract's authority and conflict route before treating any Figma
