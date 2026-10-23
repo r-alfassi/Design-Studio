@@ -54,3 +54,11 @@ Tasks:
 4. Run the admission checklist on any resident this adds, because the Figma file is new.
 
 Done when: F-005 and F-006 are closed on evidence, the Assets page is filled or removed, and the sequence-frame question is decided.
+
+Backlog entries moved here on 2026-10-23, when the sprint skill's `backlog/` folder was removed. Each stays open until its condition is evidenced:
+
+- F-004, harden the sprint practice with a modular runbook and regression evidence. Close when the skill has modular references and a reconciliation-record template, the five named regression cases have been run and captured, and one test shows a user edit detected, preserved, classified and either rebound to an accepted token or kept as a pending token decision.
+- F-005, label every frame on the canvas with a name and a state. Close when the next completed sprint on a page built with the studio components passes a canvas read-through in which every frame's state can be named without opening the layer panel, and the hierarchy review finds no unnamed section.
+- F-006, alternate the layout axes. Close when a project page with at least two related sprints is arranged as a tinted group section holding stacked sprint sections, and a page-level review confirms the axes and containment. The operating-board part was withdrawn on 2026-10-22.
+- F-007, keep the design apart from the sprint layout. Close when a project page of at least five sprints is arranged this way, with a read-back that every step is a direct child of its sprint section and carries a state label, and the Designer confirms a reader can tell the design from the layout.
+- F-008, list the nodes before any bulk removal. Close when the next bulk change to a project's Figma file shows a listed dry run to the Designer before removing anything, and no node that holds design is removed.

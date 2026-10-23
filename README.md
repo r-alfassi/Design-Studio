@@ -16,7 +16,7 @@ path.
 | `skills/` | Whole jobs carried to a result. Figma: `figma-sprint`, `figma-audit`, `figma-formalize`, `figma-pixel-fidelity`; meta: `skill-creator`, `figma-conversion-skill-builder`; and the web, mockup, brand and review crafts. Full index with "reach for it when": `skills/README.md`. |
 | `frameworks/` | One judgment each, as questions and quality bars: `brand-strategy-foundations`, `ux-expert` (the 30 Laws of UX). |
 | `standards/` | Binding rules a project adopts by naming them in its `DESIGN.md`: `mobile-design` (the mobile text floor), `studio-presentation` (the quiet kit for presenting work in Figma). |
-| `templates/` | The required shape of a file or deliverable: `product-design`, `product-component`, `strategic-deck`, `ux-benchmark`, `video`, `figma-change-log`, `figma-implementation-contract`. |
+| `templates/` | The required shape of a file or deliverable: `product-design`, `product-component`, `strategic-deck`, `ux-benchmark`, `video`, `design-debt`, `figma-implementation-contract`. |
 | `tools/` | Scripts that produce what must be exact, such as `check-presentation-chrome.js`. |
 | `references/` | This repo's own how-tos (tool set-up, FigJam board conventions). |
 | `library/` | External, non-binding design and UX resources worth returning to. Governs nothing. |

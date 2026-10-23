@@ -18,5 +18,5 @@ This file says what Design Studio loads and when, for a project that imports it.
 - A Figma file with pixel-art or raster assets: follow `skills/figma-pixel-fidelity/SKILL.md`.
 - Presenting sprints or a design system in Figma: load `standards/studio-presentation.md`.
 - Mobile screens: load `standards/mobile-design.md`.
-- Writing a translation record for a handoff: load `templates/figma-implementation-contract.md`.
+- Recording what production still owes a design: load `templates/design-debt.md`. Writing a translation record for a component that differs structurally: load `templates/figma-implementation-contract.md`.
 - Any other craft, such as brand, decks, video, mirroring a layout, translating copy or reviewing a design: find it in `skills/README.md`, `frameworks/` or `templates/`.

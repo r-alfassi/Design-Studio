@@ -1,9 +1,9 @@
 ---
 name: figma-implementation-contract
-description: "The required shape of a bounded mapping from named Figma nodes to a production surface — preserves structural intent and declared platform differences. Not Figma parity for uncontracted nodes. Used with the figma-sprint skill and the figma-change-log format."
+description: "The required shape of a bounded mapping from named Figma nodes to a production surface — preserves structural intent and declared platform differences. Not Figma parity for uncontracted nodes. Used with the figma-sprint skill and the design-debt template."
 ---
 
-# Format: Figma Implementation Contract
+# Template: Figma Implementation Contract
 
 ## Purpose
 
@@ -19,16 +19,18 @@ screens explicitly admitted to the loop.
 
 ## Authority and conflict route
 
-For components and screens explicitly named in this record, Figma is the
-working authority for their current visual construction: tokens, anatomy,
-variants, and layout. It does not create or override product, interaction,
-accessibility, data, or platform commitments. The project's `DESIGN.md` owns
-those design decisions; production code owns runtime and platform behavior.
+Neither Figma nor production wins by default for a component in this record.
+The project's `DESIGN.md` owns product and design decisions, and production
+code owns runtime and platform behavior. When Figma and production disagree on
+how something looks, either side may be ahead. The direction goes into the
+component's design-debt row, as `frameworks/which-side-is-newer.md` decides it,
+and a disagreement that cannot be shown to lead either way is put to the
+Designer.
 
-A Figma discovery that would change a `DESIGN.md` decision is a logged proposal
-and becomes authoritative only when the decision record is updated. A runtime
-or platform constraint is recorded as an implementation difference, not
-silently copied back into Figma.
+A Figma discovery that would change a `DESIGN.md` decision is a proposal and
+becomes authoritative only when the decision record is updated. A runtime or
+platform constraint is recorded as an implementation difference, not silently
+copied back into Figma.
 
 ## Required record shape
 
@@ -55,7 +57,7 @@ silently copied back into Figma.
   or device-verified; link code revision and proportionate verification.
 ```
 
-No entry means no claimed parity. Link outward to the Figma change log and
+No entry means no claimed parity. Link outward to the design-debt row and
 governing documents instead of duplicating their history or rationale.
 
 ## Platform difference checks

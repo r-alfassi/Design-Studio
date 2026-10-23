@@ -68,7 +68,7 @@ Realized by: `standards/stopping-rules.md`
 
 ### Hand off agreed work as design debt
 
-Realized by: `templates/figma-implementation-contract.md`
+Realized by: `templates/design-debt.md`, `templates/figma-implementation-contract.md`
 
 ### Review the built result against the design
 

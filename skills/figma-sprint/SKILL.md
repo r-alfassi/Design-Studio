@@ -1,23 +1,25 @@
 ---
 name: figma-sprint
-description: Run a Figma-first design iteration for an explicitly contracted screen or component, logging accepted deltas and promoting only approved work to production.
+description: Run a design sprint in Figma for a screen or component: a marked area that leaves a trail, options side by side, the Designer's own tweaks kept, and agreed work handed off as design debt. Use when the Designer wants to iterate a design in Figma before anything changes in the product.
 ---
 
-# Figma-to-production loop
+# Figma sprint
 
-Use this skill when a project wants to iterate a screen or component in Figma
-before changing production, and needs a bounded, evidence-backed translation
-to production. Do not use it for a standalone Figma edit with no production
-relationship, or to claim that an exploratory Figma change is shipped.
+Use this skill when the Designer wants to iterate a screen or component in Figma
+before anything changes in the product, and to hand the agreed result to
+production work as design debt. It ends at the handoff. Implementing, releasing
+and verifying production are the project's own work. Do not use it to claim that
+an exploratory Figma change is shipped.
 
 ## Required project records
 
 Before iteration, locate or create the project's instances of:
 
-- `FIGMA-CHANGELOG.md`, following
-  [figma-change-log.md](../../templates/figma-change-log.md)
+- `DESIGN-DEBT.md`, following
+  [design-debt.md](../../templates/design-debt.md)
 - `FIGMA-TRANSLATION.md`, following
-  [figma-implementation-contract.md](../../templates/figma-implementation-contract.md)
+  [figma-implementation-contract.md](../../templates/figma-implementation-contract.md),
+  only when a component's production form differs structurally from the design
 - the governing project `DESIGN.md` and relevant product/work decision
 
 Read the contract's authority and conflict route before treating any Figma
@@ -252,7 +254,7 @@ until the containment gate passes.
 
 Before closing a sprint, explicitly review the accepted result against the
 shared Components and Flows pages. Record both decisions in the sprint's
-project change record:
+record beside its final outcome frame:
 
 First, place a clearly named **Final outcome** artifact at the far right of the
 sprint's progression. It must show the accepted result in the context of the
@@ -273,57 +275,49 @@ This is a deliberate promotion review, not an automatic duplication of every
 screen into Components or Flows. Close the sprint only after the review is
 evidenced, including an explicit “no update required” outcome where applicable.
 
-## Process-feedback backlog
-
-`backlog/` holds concise, reusable feedback from demonstrated loop failures.
-Before a Figma mutation, scan the relevant open entry or entries; do not load
-unrelated history. Each entry states the observed failure, its operating
-correction, and the condition for closing it. Add an entry when feedback changes
-how this skill should operate, then distill the durable rule into this file and
-close the entry only when its stated condition is evidenced. The backlog is not
-a changelog or a substitute for project design records.
-
 ## Loop
 
-1. **Admit a bounded scope.** Name the Figma nodes, production surface, and
-   governing decision. If a decision is absent, log a proposal; do not create a
-   production commitment.
+1. **Admit a bounded scope.** Name the Figma nodes, the production surface, and
+   the governing decision. If a decision is absent, record a proposal and do not
+   create a production commitment.
 2. **Construct or revise in Figma.** Use the Figma plugin's `figma-use` and
    `figma-generate-design` when a Figma frame must be built or structurally
-   changed. Use the Figma plugin's `generate_figma_design`
-   capture to bring a running page into Figma and `get_design_context` to read a
-   node back as code; neither is an Android translator. Use preview tooling only
-   when an HTML mockup is actually the relevant comparison surface.
-3. **Log an accepted delta.** Add a concise, referential change-log entry. Do
-   not log exploratory pixel nudges that have no decision or translation
-   consequence.
-4. **Update the implementation contract.** State the visual invariants,
-   precise container topology, production-container mapping, and intentional
-   platform differences. For every material visual container, name its
-   parent/child role and layout rule (direction, padding, gap, alignment,
-   sizing, scrolling or semantic overlay). In Figma, represent normal flow
-   with nested Auto Layout frames; do not use absolute placement to fake a
-   container. Account for the contract's platform difference checks.
-5. **Pass the promotion gate.** A production change requires a named Figma
-   scope, governing decision, accepted contract entry, and separately granted
-   implementation authority. Iterating in Figma does not authorize a code
-   change, external action, or release.
-6. **Implement and verify proportionately.** After authorized implementation,
-   link code and device/runtime evidence from the contract and change log. A
-   discovered runtime difference remains explicit until reconciled or accepted.
+   changed, and its `generate_figma_design` capture to bring a running page into
+   Figma and `get_design_context` to read a node back as code. Present the work
+   with the studio presentation standard. Use preview tooling only when an HTML
+   mockup is the relevant comparison surface.
+3. **Agree.** Done when the Designer says the result is agreed. Before that, run
+   `figma-audit` on the agreed frames, and report what a library component owns
+   without fixing it.
+4. **Open a design-debt row for each agreed change that production does not yet
+   match.** Follow the design-debt template: the direction (which side is ahead,
+   as `frameworks/which-side-is-newer.md` decides it), the Figma reference, the
+   governing decision, what differs, the status and the evidence that will close
+   the row. Do not record exploratory nudges that carry no decision.
+5. **Write a translation record only where production differs structurally.**
+   State the visual invariants, the container topology, the production mapping
+   and the intentional differences, and account for the contract's platform
+   difference checks. In Figma, represent normal flow with nested Auto Layout
+   frames, and never use absolute placement to fake a container.
+6. **Hand off, and stop.** The agreed design now goes to the project's own
+   production work, which this skill neither does nor authorizes. Whoever makes
+   production match removes the row, in the same commit, with the evidence.
+   When the Designer asks for it, compare the built result with the approved
+   design and report the differences, moving nothing.
 
 ## Boundaries
 
-Figma is working authority only for the visual construction of explicitly
-contracted nodes: tokens, anatomy, variants, and layout. `DESIGN.md` owns
-product and design decisions; production code owns runtime/platform behavior.
-Figma does not decide data, accessibility, interaction, permissions, or Android
-lifecycle merely because it is iterated first.
+`DESIGN.md` owns product and design decisions, and production code owns
+runtime and platform behavior. Figma does not decide data, accessibility,
+interaction, permissions or platform lifecycle merely because it is iterated
+first. When Figma and production disagree on how something looks, neither wins
+by default: the direction goes into the row, and a disagreement that cannot be
+shown to lead either way is put to the Designer.
 
-Container fidelity is a required part of visual construction. It means the
-Figma hierarchy must truthfully express the containers that create the visible
-result, while the contract explicitly records valid one-to-many or many-to-one
-Android mappings. It does not require a decorative one-frame/one-View copy.
+Container fidelity is a required part of visual construction. The Figma
+hierarchy must truthfully express the containers that create the visible
+result, while the translation record states valid one-to-many and many-to-one
+mappings. It does not require a decorative one-frame, one-view copy.
 
 Referenced skills remain their own authorities. Do not copy or silently broaden
-them. Review this loop if a referenced skill changes its scope or interface.
+them. Review this skill if a referenced skill changes its scope or interface.
