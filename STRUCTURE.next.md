@@ -49,7 +49,7 @@ This is the migration map. Nothing moves until the Designer accepts the proposal
 
 | Today | Becomes | Note |
 |---|---|---|
-| root `AGENTS.md` | the spine | the maintenance rules and the Compass import move to a separate file |
+| root `AGENTS.md` | the spine | the maintenance rules and the Compass import leave it, and its table and status line are dropped as duplicates |
 | `STRUCTURE.md`, `CONVENTIONS.md` | one file for people working on this repo | admission checklist and naming rules |
 | `skills/figma-production-loop` | `figma-sprint`, plus the handoff steps | loses the promotion gate and the production steps |
 | `skills/figma-audit-structure` | `figma-audit` | joins the variable-binding check of `figma-ds-recreate` |
@@ -62,7 +62,7 @@ This is the migration map. Nothing moves until the Designer accepts the proposal
 | the stopping rules, the conflict route, "keep the Designer's hand" | new standards | now spread through skills |
 | `frameworks/*` | frameworks | add the junction frameworks below |
 | `references/`, `library/` | unchanged | |
-| `compass/` | the record | unchanged |
+| `compass/` | the record, in `.compass/` | renamed to match the other repos |
 
 ## Junction frameworks
 
@@ -82,11 +82,11 @@ Two other judgments are settled by rules and so are not frameworks. What counts 
 
 ## Decided by the Designer
 
+- 2026-10-23: the maintenance rules follow Compass's pattern. The root entry file is only the spine. A maintainer finds the record by convention in the record folder, where the maintenance rules live, and Design Studio's record folder is renamed from `compass/` to `.compass/` to match the other repos. Nothing moves until the proposal as a whole is accepted.
 - 2026-10-23: two junction frameworks are written, "which way in" and "which side is newer", and the stopping rules become a standard.
 - 2026-10-23: skills keep the `figma-` prefix when they work only on Figma files, with a short verb after it, as listed under the naming rules. The medium-neutral skill has no prefix. Nothing is renamed until the proposal as a whole is accepted.
 - 2026-10-23: the one word "template" replaces "format" for the shape of a file or deliverable, including the large deliverable specs, which become templates with their own folders. Nothing is renamed until the proposal as a whole is accepted.
 
 ## Decisions still open
 
-1. Where the maintenance rules live, since Codex reads only an entry file at a repo root.
-2. Whether the proposal replaces `STRUCTURE.md` as it stands.
+1. Whether the proposal replaces `STRUCTURE.md` as it stands.
