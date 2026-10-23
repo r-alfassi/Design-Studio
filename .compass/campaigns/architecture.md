@@ -88,6 +88,8 @@ Validation of `standards/studio-presentation.md` chosen 2026-10-22 by the Design
 
 Restructure, pass 1 of 2026-10-23, after the Designer accepted `STRUCTURE.next.md`: the record folder `compass/` became `.compass/`; `formats/` became `templates/` and each folder's `FORMAT.md` became `TEMPLATE.md`; `figma-production-loop` became `figma-sprint`, `figma-audit-structure` became `figma-audit`, and `figma-design-system` became `figma-formalize`; `figma-ds-recreate` was folded into `figma-audit` as its variable-binding check, with its script. Entries above this paragraph use the names that held when they were written.
 
+Restructure, pass 3 of 2026-10-23: `standards/stopping-rules.md` was written and the spine now routes to it. Admission: kind, a standard, because it is a constraint with a test and an exception route and not steps; overlap, the stewardship, clone-first, library-component and bulk-removal rules that sat in `figma-sprint`, whose bulk-removal section now points to it; shape, one self-contained file with scope, binding statement, validation and exception route; client-content scan, clean, with no project name, node id or key.
+
 Origin of the quest: seed below, logged earlier the same session series.
 
 State (before): Seed.

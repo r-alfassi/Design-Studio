@@ -189,12 +189,9 @@ wrong.
 
 ### Bulk changes
 
-Before any change that removes more than one node, return the exact list of what
-it would remove, with the evidence that each holds only what was already moved
-or copied, and show it to the Designer first. A node is annotation only when
-every child is a text node and nothing is nested, because text inside a frame
-can be interface text. After restoring a version, read back what came back and
-what was lost before relying on it.
+Removals follow `standards/stopping-rules.md`: list what would go, show the
+list, and remove nothing until the Designer confirms. After restoring a version,
+read back what came back and what was lost before relying on it.
 
 ### No board of work in progress
 

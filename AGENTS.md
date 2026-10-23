@@ -6,7 +6,7 @@ This file says what Design Studio loads and when, for a project that imports it.
 
 1. Find the project's stated direction, in whatever form it keeps one. If it states none, ask where it is and stop.
 2. Read the project's `DESIGN.md`. If it has none, offer to create one before visual work starts.
-3. Work freely where nothing is approved. Stop for the Designer before changing anything approved: the approved design, `DESIGN.md`, a library component, production, or a deletion.
+3. Load `standards/stopping-rules.md`. Work freely where nothing is approved, and stop for the Designer before changing anything approved.
 
 ## By kind of work
 

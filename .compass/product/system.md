@@ -56,7 +56,7 @@ Realized by: `standards/studio-presentation.md`
 
 ### Never overwrite the Designer's hand
 
-Realized by: `skills/figma-sprint/SKILL.md`, `skills/figma-sprint/scripts/reconcile-figma-scope.js`
+Realized by: `standards/stopping-rules.md`, `skills/figma-sprint/SKILL.md`, `skills/figma-sprint/scripts/reconcile-figma-scope.js`
 
 ### Audit before relying on a frame
 
@@ -64,7 +64,7 @@ Realized by: `skills/figma-audit/SKILL.md`, `skills/figma-audit/scripts/figma/au
 
 ### Dry run before removal
 
-Realized by: `skills/figma-sprint/SKILL.md`
+Realized by: `standards/stopping-rules.md`
 
 ### Hand off agreed work as design debt
 
