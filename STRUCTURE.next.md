@@ -51,12 +51,12 @@ This is the migration map. Nothing moves until the Designer accepts the proposal
 |---|---|---|
 | root `AGENTS.md` | the spine | the maintenance rules and the Compass import move to a separate file |
 | `STRUCTURE.md`, `CONVENTIONS.md` | one file for people working on this repo | admission checklist and naming rules |
-| `skills/figma-production-loop` | the sprint skill, plus the handoff steps | loses the promotion gate and the production steps |
-| `skills/figma-audit-structure` | the audit skill | joins the variable-binding check of `figma-ds-recreate` |
-| `skills/figma-design-system` | the formalize skill | already rewritten |
-| `skills/figma-ds-recreate` | folded into the audit skill | Phase 0 only |
+| `skills/figma-production-loop` | `figma-sprint`, plus the handoff steps | loses the promotion gate and the production steps |
+| `skills/figma-audit-structure` | `figma-audit` | joins the variable-binding check of `figma-ds-recreate` |
+| `skills/figma-design-system` | `figma-formalize` | already rewritten |
+| `skills/figma-ds-recreate` | folded into `figma-audit` | Phase 0 only |
 | `skills/figma-pixel-fidelity` | stays a skill that fires only on pixel-art projects | |
-| tune in place | a new skill | not written yet |
+| tune in place | `tune-in-place` | a new skill, not written yet |
 | `formats/*` | templates | the contract format and the debt and translation shapes first |
 | `standards/mobile-design.md`, `standards/studio-presentation.md` | standards | unchanged |
 | the stopping rules, the conflict route, "keep the Designer's hand" | new standards | now spread through skills |
@@ -75,18 +75,18 @@ Each is a judgment the agent now makes inside a skill or by habit. Giving each a
 
 ## Naming rules
 
-- Name a skill for the activity it performs, in the form of an action, such as formalizing a component.
-- Keep the `figma-` prefix only on a skill that works on Figma files alone. A skill that is medium-neutral, such as tuning in place, has no prefix.
+- Keep the `figma-` prefix on a skill that works on Figma files alone, followed by a short verb for the job. A skill that is medium-neutral, such as tuning in place, has no prefix.
+- The skills become `figma-sprint`, `figma-audit`, `figma-formalize`, `figma-pixel-fidelity` and `tune-in-place`.
 - One word for each compartment, as in the table above. A retired word is not used again in any file. Search the record for the old words when this is accepted.
 - A standard is named for what it governs. A template is named for the thing it shapes.
 
 ## Decided by the Designer
 
+- 2026-10-23: skills keep the `figma-` prefix when they work only on Figma files, with a short verb after it, as listed under the naming rules. The medium-neutral skill has no prefix. Nothing is renamed until the proposal as a whole is accepted.
 - 2026-10-23: the one word "template" replaces "format" for the shape of a file or deliverable, including the large deliverable specs, which become templates with their own folders. Nothing is renamed until the proposal as a whole is accepted.
 
 ## Decisions still open
 
-1. Whether the ways in are named as skills for an activity, with `figma-` kept only on Figma-only skills.
-2. Which of the four junction frameworks to write, if any.
-3. Where the maintenance file lives, since Codex reads only an entry file at a repo root.
-4. Whether the proposal replaces `STRUCTURE.md` as it stands.
+1. Which of the four junction frameworks to write, if any.
+2. Where the maintenance file lives, since Codex reads only an entry file at a repo root.
+3. Whether the proposal replaces `STRUCTURE.md` as it stands.
