@@ -19,7 +19,6 @@ path.
 | `templates/` | The required shape of a file or deliverable: `design-debt`, `figma-implementation-contract`. |
 | `tools/` | Scripts that produce what must be exact, such as `check-presentation-chrome.js`. |
 | `archive/` | Residents set aside on 2026-10-23 because the Designer was not sure of them. Not loaded or indexed; see its README. |
-| `library/` | External, non-binding design and UX resources worth returning to. Governs nothing. |
 | `STRUCTURE.md` | How Design Studio is organized and named, and how a resident is admitted. For people working on the repo. |
 | `skills-lock.json` | Provenance and integrity for vendored third-party skills. |
 | `.compass/` | The record: what Design Studio intends and what is in progress. |

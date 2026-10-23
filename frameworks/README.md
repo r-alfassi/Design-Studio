@@ -10,5 +10,3 @@ procedure; the project picks its own medium and output. See `../STRUCTURE.md`.
 
 `brand-strategy-foundations` and `ux-expert` are in `../archive/`.
 
-Each framework may have a source shelf in `../library/` (attributed external
-material that informed it — non-binding).

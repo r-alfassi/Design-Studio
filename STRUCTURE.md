@@ -30,9 +30,8 @@ spine           the root entry file: what loads before the first move, the flow,
 | **Tool** | A script that produces what must be exact. It reports, or changes only what it is told. | What is the exact answer? | When a skill runs it | `tools/`, a skill's own `scripts/`, `bin/` |
 | **Kit** | The published Figma library of presentation parts that a standard points to. It lives in Figma and not in this repo. | Which parts hold and label the work? | By subscription in a project's Figma file | Design Studio's Figma file |
 | **Reference** | A how-to of this repo's own, such as tool set-up. | How do I set this up here? | By route from a skill | `references/` |
-| **Shelf** | Other people's material worth returning to. It binds nothing. | What have others written on this? | By route, rarely | `library/` |
 | **Archive** | Residents set aside because the Designer was not sure of them. Not loaded, indexed or linked, and bound to nothing. | Did we once have this? | Never in a run. Brought back by `git mv` and a new admission. | `archive/` |
-| **Record** | What is intended and in progress for Design Studio itself: product, campaigns, journal, research. | What is true and in progress here? | Never in a run. Read when working on this repo. | `.compass/` |
+| **Record** | What is intended and in progress for Design Studio itself: product, campaigns, journal, research, including the library of other people's material. | What is true and in progress here? | Never in a run. Read when working on this repo. | `.compass/` |
 
 ## How loading works
 
