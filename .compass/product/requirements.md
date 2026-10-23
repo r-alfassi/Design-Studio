@@ -29,6 +29,7 @@ Source: the Designer's answers in the grilling session of 2026-10-21 on the sing
 ## Working in a sprint
 
 - **R-22** A sprint keeps its trail: its options sit side by side, rejected ones stay labelled with a reason, and the accepted result sits at the far right. Serves: SC-16, PN-01. <!-- R-22 -->
+- **R-35** A sprint tests one concern, and its frames differ from the baseline only in that concern. Serves: PN-01, SC-16. <!-- R-35 -->
 - **R-28** Closing a sprint records whether its result reveals a reusable component or changes a flow. Serves: SC-16. <!-- R-28 -->
 
 ## Formalizing a component

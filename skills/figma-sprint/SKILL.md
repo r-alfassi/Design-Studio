@@ -208,6 +208,10 @@ placeholder boxes, frame cards, section backgrounds) as `standards/studio-presen
 requires, from the Design Studio Figma file's components and tokens. That
 standard is where the rule and its exception route live.
 
+### One concern per sprint
+
+A sprint tests one change to the experience, so that every difference between its frames is the thing being compared. Write the change as one plain sentence. If that sentence needs "and", or the proposals differ from the baseline in two unrelated ways, it is two sprints. Each other concern stays where the project already holds it, such as a proposal or an open question on the flow, and becomes its own sprint after the earlier one decides, since a later sprint builds on an earlier outcome. A frame never carries a second concern for company. Found 2026-10-23 on ProShift, where one sprint on the schedule screen mixed unfilled slots, the rest-ratio panel and a week-change question, and the Designer could not focus on any of them.
+
 ### Sprint direction summary
 
 Begin every exploratory Figma sprint with a concise **Sprint direction

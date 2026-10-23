@@ -63,3 +63,4 @@ Append-only. One line per ID, added when the ID is created; one line appended wh
 - R-32 · 2026-10-23 · With no Figma file, the agent offers to start one and waits
 - R-33 · 2026-10-23 · The agent never edits the product's code
 - R-34 · 2026-10-23 · A captured baseline is checked against a browser render
+- R-35 · 2026-10-23 · A sprint tests one concern
