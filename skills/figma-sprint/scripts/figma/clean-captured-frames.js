@@ -30,6 +30,7 @@ const TAB_LABELS = [
   // 'Kitchen',                            // a label that appears in the strip of hug-width tabs
 ];
 const MIRROR_ABSOLUTE = false;
+const RTL = true;                     // false for a left-to-right product: the rows are already in reading order, so only the noise is cleaned
 
 await figma.setCurrentPageAsync(figma.root.children[PAGE_INDEX]);
 const report = [];
@@ -40,14 +41,14 @@ for (const f of FRAMES) {
   if (!root || root.type !== 'FRAME') { report.push({ id: f.id, error: 'not a frame' }); continue; }
   let toast = 0, reversed = 0, flipped = 0, abs = 0, strips = 0;
   for (const c of [...root.children]) if (c.type === 'FRAME' && c.children.length === 0 && c.width <= 60 && c.height <= 30) { c.remove(); toast++; }
-  for (const h of root.findAll((n) => n.type === 'FRAME' && n.layoutMode === 'HORIZONTAL')) {
+  if (RTL) for (const h of root.findAll((n) => n.type === 'FRAME' && n.layoutMode === 'HORIZONTAL')) {
     const flow = [...h.children].filter((c) => c.layoutPositioning !== 'ABSOLUTE');
     if (flow.length > 1) { flow.reverse().forEach((c, k) => h.insertChild(k, c)); reversed++; }
     if (h.primaryAxisAlignItems === 'MIN') { h.primaryAxisAlignItems = 'MAX'; flipped++; }
     else if (h.primaryAxisAlignItems === 'MAX') { h.primaryAxisAlignItems = 'MIN'; flipped++; }
   }
   if (MIRROR_ABSOLUTE) for (const p of [root, ...root.findAll((n) => 'children' in n)]) for (const c of p.children || []) if (c.layoutPositioning === 'ABSOLUTE') { c.x = p.width - c.x - c.width; abs++; }
-  if (TAB_LABELS.length) for (const t of root.findAll((n) => n.type === 'TEXT' && TAB_LABELS.includes(n.characters))) {
+  if (RTL && TAB_LABELS.length) for (const t of root.findAll((n) => n.type === 'TEXT' && TAB_LABELS.includes(n.characters))) {
     const strip = t.parent && t.parent.parent, host = strip && strip.parent;
     if (strip && strip.layoutMode === 'HORIZONTAL' && host && host.layoutMode === 'VERTICAL' && host.counterAxisAlignItems === 'MIN') { host.counterAxisAlignItems = 'MAX'; strips++; }
   }

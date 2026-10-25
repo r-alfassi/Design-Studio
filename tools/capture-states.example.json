@@ -1,13 +1,13 @@
 {
-  "source": "../../my-product/index.html",
+  "target": "http://localhost:3000",
   "out": "capture-scratch",
   "port": 3101,
-  "width": 1536,
-  "height": 1500,
-  "reset": "localStorage.clear();",
-  "seed": "/* JavaScript that fills the product with sample data and renders it, using the product's own functions */",
+  "width": 390,
+  "height": 844,
+  "hide": ["nextjs-portal"],
+  "prepare": [ { "method": "POST", "path": "/api/reset" } ],
   "states": [
-    { "name": "01-first-draft", "run": "" },
-    { "name": "02-menu-open", "run": "document.querySelector('.some-item').click();", "delay": 3500 }
+    { "name": "01-home", "path": "/play", "run": "await __wait('.nav'); await __sleep(1500);" },
+    { "name": "02-menu", "path": "/play", "run": "await __wait('.nav'); document.querySelectorAll('.nav button')[1].click(); await __wait('.menu');" }
   ]
 }
