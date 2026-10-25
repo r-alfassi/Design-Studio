@@ -52,9 +52,20 @@ for (const section of page.findAllWithCriteria({ types: ['SECTION'] })) {
       findings.push({ sectionId: section.id, sectionName: section.name, nodeId: section.id, nodeName: section.name, type: 'SECTION', reason: 'section fill does not use a kit variable' });
     }
   }
+  // Names of the components that containers in this section document. A main component of that name may sit beside its container.
+  const documented = new Set();
+  for (const c of section.children) {
+    if (c.type !== 'INSTANCE') continue;
+    const m = await c.getMainComponentAsync();
+    if (m && m.name === 'Component container') {
+      const nameKey = Object.keys(c.componentProperties).find((k) => k.startsWith('Name'));
+      if (nameKey) documented.add(String(c.componentProperties[nameKey].value).toLowerCase());
+    }
+  }
   for (const child of section.children) {
     childrenChecked++;
     if (child.type === 'SECTION') continue; // a nested section is checked as a section
+    if ((child.type === 'COMPONENT_SET' || child.type === 'COMPONENT') && documented.has(child.name.toLowerCase())) continue; // the documented component itself
     if (child.type === 'INSTANCE') {
       const main = await child.getMainComponentAsync();
       const set = main && main.parent && main.parent.type === 'COMPONENT_SET' ? main.parent : main;

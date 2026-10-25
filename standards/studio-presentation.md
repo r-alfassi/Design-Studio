@@ -39,6 +39,19 @@ Carbon, Atlassian and Primer share:
 A component's documentation can span several views, such as examples, usage
 and accessibility. Each view is its own section and not a bigger container.
 
+## One page for a design system
+
+A design system has one page. It is divided into sections by layer, such as
+atoms, molecules and organisms, and each section opens with a section header.
+For each component the section holds the component container, which shows
+instances of its variants, and the component's own main component or component
+set, placed directly beside that container in the same section. A main
+component cannot sit inside a container's slot, so it sits next to it, and a
+reader finds the documentation and the source in one place. A second page that
+holds the same components is not kept, because two places compete. The main
+component is the project's own design and not chrome. It passes the check when
+its name is the name its container shows.
+
 The pieces are built on the Components page of the studio's Figma file and the Designer published the library on 2026-10-23. A file imports them by key, and `tools/check-presentation-chrome.js` read the library's variables correctly on a subscribing file. Open: the Template page's sprint-section fill is not yet bound to a kit variable.
 
 The kit is quiet on purpose. A project's presentation then reads the same way
@@ -52,9 +65,7 @@ project's Figma file subscribes to it. There is one source, so a fix to the kit
 reaches every project that adopts the standard. The Designer chose this on
 2026-10-23. Publishing is a step in Figma and not something an agent can do.
 
-Open: the file is not yet published, and `tools/check-presentation-chrome.js` has
-only run on files that hold the kit locally. It must be run on a file that
-subscribes to the published library before the check can be relied on there.
+The Designer published the library on 2026-10-23, and the check has run on files that subscribe to it.
 
 ## What it does not govern
 
@@ -72,7 +83,8 @@ page.
 A script produces the list: `tools/check-presentation-chrome.js`. It is read-only.
 For each section on a page it reports every direct child that is not an instance
 of a kit component, and every section whose own fill does not use a kit variable.
-The sprint route runs it before a page is reviewable. A project's design belongs
+A main component or component set passes when a container in the same section
+shows its name. The sprint route runs it before a page is reviewable. A project's design belongs
 inside a kit frame card or container, not directly in a section.
 
 A section may group other sections, as a tinted sprint-group section does. A
