@@ -52,9 +52,17 @@ for (const section of page.findAllWithCriteria({ types: ['SECTION'] })) {
       findings.push({ sectionId: section.id, sectionName: section.name, nodeId: section.id, nodeName: section.name, type: 'SECTION', reason: 'section fill does not use a kit variable' });
     }
   }
+  // A plain auto-layout frame with no fill, stroke or effect groups a container with the component it documents. Its children count as the section's own.
+  const isPlainGroup = (n) => n.type === 'FRAME' && n.layoutMode && n.layoutMode !== 'NONE'
+    && !(Array.isArray(n.fills) && n.fills.some((f) => f.visible !== false))
+    && !(Array.isArray(n.strokes) && n.strokes.length)
+    && !(n.effects && n.effects.some((e) => e.visible !== false));
+  const members = [];
+  const gather = async (nodes) => { for (const n of nodes) { if (isPlainGroup(n) && n.children.length) { childrenChecked++; await gather(n.children); } else members.push(n); } };
+  await gather(section.children);
   // Names of the components that containers in this section document. A main component of that name may sit beside its container.
   const documented = new Set();
-  for (const c of section.children) {
+  for (const c of members) {
     if (c.type !== 'INSTANCE') continue;
     const m = await c.getMainComponentAsync();
     if (m && m.name === 'Component container') {
@@ -62,7 +70,7 @@ for (const section of page.findAllWithCriteria({ types: ['SECTION'] })) {
       if (nameKey) documented.add(String(c.componentProperties[nameKey].value).toLowerCase());
     }
   }
-  for (const child of section.children) {
+  for (const child of members) {
     childrenChecked++;
     if (child.type === 'SECTION') continue; // a nested section is checked as a section
     if ((child.type === 'COMPONENT_SET' || child.type === 'COMPONENT') && documented.has(child.name.toLowerCase())) continue; // the documented component itself

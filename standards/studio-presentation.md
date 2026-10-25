@@ -43,10 +43,12 @@ and accessibility. Each view is its own section and not a bigger container.
 
 A design system has one page. It is divided into sections by layer, such as
 atoms, molecules and organisms, and each section opens with a section header.
-Inside a layer section, each component has its own section, named for the
-component, tinted differently from the layer. That section holds two things: the
-component container on one side, as the spec card, and the component's own main
-component or component set on the other. The main component is shown once. The
+Inside a layer section, each component has its own group, a plain auto-layout
+frame named for the component. It has no fill, stroke or effect, so it adds no
+chrome, and its direction is a setting: horizontal where the component is narrow
+and vertical where it is wide. The group holds two things: the component
+container, as the spec card, and the component's own main component or
+component set. The main component is shown once. The
 container does not repeat its variants, so its preview is left empty and hidden.
 A second page that holds the same components is not kept, and neither is a copy
 of a component beside its source, because duplicates compete and drift. A main
@@ -88,6 +90,11 @@ of a kit component, and every section whose own fill does not use a kit variable
 A main component or component set passes when a container in the same section
 shows its name. The sprint route runs it before a page is reviewable. A project's design belongs
 inside a kit frame card or container, not directly in a section.
+
+A plain auto-layout frame with no fill, stroke or effect may group a container
+with the component it documents. The check reads its children as the section's
+own. A frame with a fill, stroke or effect of its own is chrome and has to be a
+kit instance.
 
 A section may group other sections, as a tinted sprint-group section does. A
 grouping section passes when its own fill uses a kit variable and its direct
