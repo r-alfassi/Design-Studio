@@ -43,14 +43,16 @@ and accessibility. Each view is its own section and not a bigger container.
 
 A design system has one page. It is divided into sections by layer, such as
 atoms, molecules and organisms, and each section opens with a section header.
-For each component the section holds the component container, which shows
-instances of its variants, and the component's own main component or component
-set, placed directly beside that container in the same section. A main
-component cannot sit inside a container's slot, so it sits next to it, and a
-reader finds the documentation and the source in one place. A second page that
-holds the same components is not kept, because two places compete. The main
-component is the project's own design and not chrome. It passes the check when
-its name is the name its container shows.
+Inside a layer section, each component has its own section, named for the
+component, tinted differently from the layer. That section holds two things: the
+component container on one side, as the spec card, and the component's own main
+component or component set on the other. The main component is shown once. The
+container does not repeat its variants, so its preview is left empty and hidden.
+A second page that holds the same components is not kept, and neither is a copy
+of a component beside its source, because duplicates compete and drift. A main
+component cannot sit inside a container's slot through the Plugin API, so it
+sits beside the container. The main component is the project's own design and
+not chrome. It passes the check when its name is the name its container shows.
 
 The pieces are built on the Components page of the studio's Figma file and the Designer published the library on 2026-10-23. A file imports them by key, and `tools/check-presentation-chrome.js` read the library's variables correctly on a subscribing file. Open: the Template page's sprint-section fill is not yet bound to a kit variable.
 
