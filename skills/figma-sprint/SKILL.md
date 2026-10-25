@@ -258,6 +258,14 @@ until the containment gate passes.
 
 A project's Flows page holds its journeys as storyboards, one section per journey. A section opens with a section header. Under it sits one row of frame cards, one card per screen state, from the empty product to the filled one, each labelled Current and named for the step and the state ("1 · Roles, empty"). A right-to-left product reads from the right, so step 1 sits at the right end. A state that no screen reaches normally, such as an empty product or an open dialog, is reached by driving the running app and captured as it is, and a defect the capture shows is recorded beside its frame with a callout and not hidden. The sprint-close review adds the agreed result as a second row under the journey's current one. The Flows page is not a diagram of decisions.
 
+**Mapping the product as it is.** A journey is a sequence of states a person passes through to get one thing done, read from the product and not from a plan. Name the journeys from what the product lets a person do, list each journey's states in the order a person reaches them, and give each state a name that says the step and the situation ("3 · Pill menu open"). A state that repeats an earlier journey's frame is copied and not captured again. A state that could not be reproduced is named in the section header's description, so a gap is never silent. A callout states only what its screens show, and where a screen shows a defect or an open question, it points at the sprint or the debt row that handles it. The map belongs to the project, and so do its state pages. What the product should do instead is a decision the Designer makes elsewhere.
+
+The work has three mechanical steps, and each has a tool that is provisional until a second project has used it:
+
+1. **Capture the states.** `tools/capture-states.cjs` reads a manifest with the product's page, a seed and one short script per state. In `pages` mode it writes a scratch page per state and, with `--shots`, a browser screenshot of each, reporting a state that throws. Look at the screenshots before asking for capture ids. In `capture` mode it opens each page in a fresh browser profile with the id the agent got from `generate_figma_design`, then the agent polls each id.
+2. **Clean the captures.** `scripts/figma/clean-captured-frames.js` mirrors the frames to right to left, removes the hidden toast, keeps popups where the browser put them, end-aligns a hug-width tab strip, and names each frame. Compare each frame with its browser screenshot.
+3. **Lay the section.** `scripts/figma/build-journey-section.js` builds the kit header, the Frame cards and the callouts, with step 1 at the right.
+
 ### Sprint-close promotion review
 
 Before closing a sprint, explicitly review the accepted result against the
