@@ -196,6 +196,8 @@ Compare the capture with a browser render before using it as a baseline. If it i
 - mirror absolutely placed children across their parent's width;
 - do **not** flip padding or text alignment. The capture records computed physical values, so they are already right. This is the difference from the conversion phases above, which start from a left-to-right design.
 
+A popup menu is the exception to mirroring absolute children: the browser placed it from measured rectangles, so its captured position is already physical. Mirroring it across its parent moves it off its anchor. Keep the captured position, move the menu to the top layer of the frame so the table does not draw over it, and check it against a browser screenshot. A hug-width tab strip in a column aligned to the start stays at the left until the column is aligned to the end. A visible toast is fixed to the window bottom, so place it at the bottom of the frame.
+
 A hidden `position: fixed` element, such as a toast slid off-screen by CSS, is captured as an empty frame inside the page. It is capture noise, and it is removed from the clone and left in the original.
 
 ## Phase 2 — Element Order Reversal
