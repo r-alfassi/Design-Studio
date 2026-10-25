@@ -4,6 +4,7 @@
   "port": 3101,
   "width": 390,
   "height": 844,
+  "captureHeight": 800,
   "hide": ["nextjs-portal"],
   "prepare": [ { "method": "POST", "path": "/api/reset" } ],
   "states": [

@@ -68,3 +68,9 @@ The Designer missed a page for the current flows: screen by screen rows of each 
   - the builder needed a Frame card on the page to copy, so it imports the kit by key and makes the section itself; the callout also needed its height set to hug after a width change;
   - the cleanup script gained an `RTL` switch.
   These changes are untested on ProShift's sections, which were built with the earlier versions. The tools stay provisional.
+- **ProShift rerun with the changed tools (2026-10-25).** Journey 3's states plus a popup and a toast were rebuilt from scratch with the runner, the cleanup script and the builder, and compared with the browser. The pipeline reproduced the earlier result, after four more fixes the rerun forced:
+  - the capture no longer hugged its content, because a page that fills its viewport takes the capture window's height, so the runner now captures in a short viewport ("captureHeight") and the frames came out at 1399px against 1396 in the first build;
+  - a capture now turns a table into a grid, which reversing a row's children does not touch, so the table stayed left to right, and the cleanup script now mirrors a grid's columns and sizes (a cell cannot move onto an occupied column, so each goes through a temporary one);
+  - the popup's captured position was no longer the browser's, so the runner now writes each popup's real rectangle and the cleanup script places the popup by it;
+  - the screenshot pass shifted a right-to-left page that overflows sideways when it captured beyond the viewport, so it now sizes the viewport to the page.
+  The earlier Setup, Schedule and Weeks sections were built from an older capture format, are correct against the browser, and were not changed. The scratch rebuild and its frames were deleted. The three tools remain provisional, with two projects behind them now.

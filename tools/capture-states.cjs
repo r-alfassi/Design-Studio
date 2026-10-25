@@ -15,7 +15,8 @@
 //     "target": "http://localhost:3210",     the running product. Use the host name the product allows; a dev server may refuse 127.0.0.1
 //     "out": "path/to/scratch-folder",       where pages, profiles and screenshots go
 //     "port": 3101,                          where this tool listens
-//     "width": 1536, "height": 1500,         the browser window, which is the device width in the capture
+//     "width": 1536, "height": 1500,         the browser width (the device width in the capture) and the height of a screenshot's window
+//     "captureHeight": 800,                  the viewport height during a capture; a page that fills its viewport takes this height, so keep it short
 //     "reset": "localStorage.clear();",      runs first in every state, so no state leaks into the next
 //     "seed": "…",                           JavaScript shared by every state
 //     "hide": ["nextjs-portal"],             selectors to hide in every state: a dev server's own overlay is not part of the product
@@ -158,16 +159,24 @@ async function shoot(chrome, s, file, url, holdMs) {
     const send = (method, params = {}) => new Promise((r) => { const id = ++n; pending.set(id, r); ws.send(JSON.stringify({ id, method, params })); });
     const evalJs = async (expr) => (await send('Runtime.evaluate', { expression: expr, returnByValue: true })).result?.value;
     await send('Runtime.enable'); await send('Log.enable');
-    await send('Emulation.setDeviceMetricsOverride', { width: W, height: H, deviceScaleFactor: 1, mobile: false });
+    // A page that fills its viewport takes the viewport's height, so a capture uses a short one ("captureHeight") and frames hug their content.
+    await send('Emulation.setDeviceMetricsOverride', { width: W, height: holdMs ? (m.captureHeight || 800) : H, deviceScaleFactor: 1, mobile: false });
     await send('Page.navigate', { url: url || stateUrl(s) });
     let done = false;
     for (let i = 0; i < 100 && !done; i++) { await sleep(300); done = await evalJs('window.__stateDone === true'); }
     if (holdMs) { await sleep(holdMs); ws.close(); return done ? '' : 'STATE ERROR the state did not finish within 30s'; }
     await sleep(s.settle || 800);
+    // Where the browser really put each popup and toast, in page coordinates. A capture can place a box off its anchor, so the
+    // cleanup script is given these rectangles. A box that is hidden, transparent or off the window is left out.
+    const boxes = (await evalJs(`JSON.stringify(Array.from(document.querySelectorAll('body *')).filter((e) => { const c = getComputedStyle(e), r = e.getBoundingClientRect(); return (c.position === 'fixed' || c.position === 'absolute') && c.visibility !== 'hidden' && c.display !== 'none' && Number(c.opacity) > 0.5 && (e.innerText || '').trim() && r.width > 40 && r.height > 20 && r.width < innerWidth * 0.9 && r.top < innerHeight && r.bottom > 0; }).map((e) => { const r = e.getBoundingClientRect(); return { text: e.innerText.trim().split(String.fromCharCode(10))[0].slice(0, 40), x: Math.round(r.left + scrollX), y: Math.round(r.top + scrollY), w: Math.round(r.width), h: Math.round(r.height) }; }))`)) || '[]';
+    if (boxes !== '[]') fs.writeFileSync(file.replace(/[.]png$/, '-popups.json'), boxes);
     const title = (await evalJs('document.title')) || '';
     const err = done ? (title.startsWith('STATE ERROR') ? title : '') : 'STATE ERROR the state did not finish within 30s';
     const h = Math.min(Math.max(H, (await evalJs('document.documentElement.scrollHeight')) || H), 8000);
-    const img = await send('Page.captureScreenshot', { format: 'png', captureBeyondViewport: true, clip: { x: 0, y: 0, width: W, height: h, scale: 1 } });
+    // The viewport is made as tall as the page. Capturing beyond the viewport started from a shifted origin on a right-to-left page that overflows sideways.
+    await send('Emulation.setDeviceMetricsOverride', { width: W, height: h, deviceScaleFactor: 1, mobile: false });
+    await sleep(300);
+    const img = await send('Page.captureScreenshot', { format: 'png' });
     fs.writeFileSync(file, Buffer.from(img.data, 'base64'));
     ws.close();
     return err ? `${err}${problems.length ? ' [' + problems.slice(0, 3).join('; ') + ']' : ''}` : '';
