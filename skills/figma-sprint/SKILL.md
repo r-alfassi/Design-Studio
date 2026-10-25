@@ -254,6 +254,10 @@ section when needed, and re-run the inspection. Do not mark the screen
 reviewable, log an accepted delta, promote it, or translate it to production
 until the containment gate passes.
 
+### The Flows page
+
+A project's Flows page holds its journeys as storyboards, one section per journey. A section opens with a section header. Under it sits one row of frame cards, one card per screen state, from the empty product to the filled one, each labelled Current and named for the step and the state ("1 · Roles, empty"). A right-to-left product reads from the right, so step 1 sits at the right end. A state that no screen reaches normally, such as an empty product or an open dialog, is reached by driving the running app and captured as it is, and a defect the capture shows is recorded beside its frame with a callout and not hidden. The sprint-close review adds the agreed result as a second row under the journey's current one. The Flows page is not a diagram of decisions.
+
 ### Sprint-close promotion review
 
 Before closing a sprint, explicitly review the accepted result against the
@@ -281,7 +285,7 @@ evidenced, including an explicit “no update required” outcome where applicab
 
 ### Capturing the running product as a baseline
 
-A capture is evidence of what was built, and it is a baseline and not an approved design. Before relying on one, compare it with a browser render of the same page. A right-to-left page comes into Figma mirrored, with its rows in DOM order from left to right, so it is checked and mirrored on a clone as `skills/rtl/references/figma.md` describes. Build proposals from the browser render or the corrected clone and never from the raw capture's order. A hidden fixed element, such as a toast, comes in as an empty frame and is removed from the clone.
+A capture is evidence of what was built, and it is a baseline and not an approved design. Before relying on one, compare it with a browser render of the same page. A right-to-left page comes into Figma mirrored, with its rows in DOM order from left to right, so it is checked and mirrored on a clone as `skills/rtl/references/figma.md` describes. Build proposals from the browser render or the corrected clone and never from the raw capture's order. A hidden fixed element, such as a toast, comes in as an empty frame and is removed from the clone. To capture a state that needs data or a click, serve a scratch copy of the page that seeds the app's data and calls its own functions, clears any stored data first, and carries the capture script in its head. Inject the seeding script before the file's last closing body tag, since an earlier one can sit inside a string. Capture each state in a fresh browser profile.
 
 ## Loop
 
