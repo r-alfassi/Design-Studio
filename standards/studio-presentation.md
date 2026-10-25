@@ -28,7 +28,8 @@ Carbon, Atlassian and Primer share:
   status (for example provisional, accepted or deprecated) with its date.
 - **Component container:** an eyebrow naming the kind (primitive, atom,
   assembly), the component name, one line of description, a preview slot for
-  its variants, and a usage line. It also has two optional slots, one for an
+  its variants, and a usage line. A Framed switch, on by default, draws its card
+  fill and border, and is turned off when a group already draws the card. It also has two optional slots, one for an
   anatomy diagram and one for do and don't pairs, which the Designer chose to
   include.
 - **Callout:** a notice for a standard or an accepted exception that applies to
@@ -41,15 +42,19 @@ and accessibility. Each view is its own section and not a bigger container.
 
 ## One page for a design system
 
-A design system has one page. It is divided into sections by layer, such as
-atoms, molecules and organisms, and each section opens with a section header.
+A design system has one page, in two groups, each a section with a section
+header: **Primitives**, the tokens everything is built from (for example color,
+type, space, shape and effects, each its own section of token tiles), and
+**Components**, divided into sections by layer, such as atoms, molecules and
+organisms, laid out side by side. Each layer section opens with a section
+header.
 Inside a layer section, each component has its own group, an auto-layout frame
 named for the component. The group is one card: it stacks the component
 container, as the spec card, above the component's own main component or
 component set, and its fill, border and radius come from kit variables, so the
 description and the component read as one piece. Inside the group the spec card
-has its own fill and border turned off, which is the one override of a kit
-instance the standard allows. The group's layout direction is a setting. The main component is shown once. The
+has its Framed switch turned off, so it draws no fill or border of its own. The
+group's layout direction is a setting. The main component is shown once. The
 container does not repeat its variants, so its preview is left empty and hidden.
 A second page that holds the same components is not kept, and neither is a copy
 of a component beside its source, because duplicates compete and drift. A main
