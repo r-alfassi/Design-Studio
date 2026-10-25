@@ -52,13 +52,19 @@ for (const section of page.findAllWithCriteria({ types: ['SECTION'] })) {
       findings.push({ sectionId: section.id, sectionName: section.name, nodeId: section.id, nodeName: section.name, type: 'SECTION', reason: 'section fill does not use a kit variable' });
     }
   }
-  // A plain auto-layout frame with no fill, stroke or effect groups a container with the component it documents. Its children count as the section's own.
-  const isPlainGroup = (n) => n.type === 'FRAME' && n.layoutMode && n.layoutMode !== 'NONE'
-    && !(Array.isArray(n.fills) && n.fills.some((f) => f.visible !== false))
-    && !(Array.isArray(n.strokes) && n.strokes.length)
-    && !(n.effects && n.effects.some((e) => e.visible !== false));
+  // An auto-layout frame groups a container with the component it documents. It may have a fill, a stroke and a radius only when each is bound to a kit variable, and no effect. Its children count as the section's own.
+  const bv = (n) => n.boundVariables || {};
+  const isGroup = async (n) => {
+    if (n.type !== 'FRAME' || !n.layoutMode || n.layoutMode === 'NONE') return false;
+    if (n.effects && n.effects.some((e) => e.visible !== false)) return false;
+    const visFills = Array.isArray(n.fills) ? n.fills.filter((f) => f.visible !== false) : [];
+    if (visFills.length && !(await variableIsKit(bv(n).fills && bv(n).fills[0]))) return false;
+    if (Array.isArray(n.strokes) && n.strokes.length && !(await variableIsKit(bv(n).strokes && bv(n).strokes[0]))) return false;
+    if (typeof n.cornerRadius === 'number' && n.cornerRadius > 0 && !(await variableIsKit(bv(n).topLeftRadius))) return false;
+    return true;
+  };
   const members = [];
-  const gather = async (nodes) => { for (const n of nodes) { if (isPlainGroup(n) && n.children.length) { childrenChecked++; await gather(n.children); } else members.push(n); } };
+  const gather = async (nodes) => { for (const n of nodes) { if ((await isGroup(n)) && n.children.length) { childrenChecked++; await gather(n.children); } else members.push(n); } };
   await gather(section.children);
   // Names of the components that containers in this section document. A main component of that name may sit beside its container.
   const documented = new Set();

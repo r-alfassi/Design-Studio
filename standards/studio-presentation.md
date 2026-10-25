@@ -43,12 +43,13 @@ and accessibility. Each view is its own section and not a bigger container.
 
 A design system has one page. It is divided into sections by layer, such as
 atoms, molecules and organisms, and each section opens with a section header.
-Inside a layer section, each component has its own group, a plain auto-layout
-frame named for the component. It has no fill, stroke or effect, so it adds no
-chrome, and its direction is a setting: horizontal where the component is narrow
-and vertical where it is wide. The group holds two things: the component
-container, as the spec card, and the component's own main component or
-component set. The main component is shown once. The
+Inside a layer section, each component has its own group, an auto-layout frame
+named for the component. The group is one card: it stacks the component
+container, as the spec card, above the component's own main component or
+component set, and its fill, border and radius come from kit variables, so the
+description and the component read as one piece. Inside the group the spec card
+has its own fill and border turned off, which is the one override of a kit
+instance the standard allows. The group's layout direction is a setting. The main component is shown once. The
 container does not repeat its variants, so its preview is left empty and hidden.
 A second page that holds the same components is not kept, and neither is a copy
 of a component beside its source, because duplicates compete and drift. A main
@@ -91,10 +92,10 @@ A main component or component set passes when a container in the same section
 shows its name. The sprint route runs it before a page is reviewable. A project's design belongs
 inside a kit frame card or container, not directly in a section.
 
-A plain auto-layout frame with no fill, stroke or effect may group a container
-with the component it documents. The check reads its children as the section's
-own. A frame with a fill, stroke or effect of its own is chrome and has to be a
-kit instance.
+An auto-layout frame may group a container with the component it documents,
+when any fill, stroke or radius it has is bound to a kit variable and it has no
+effect. The check reads its children as the section's own. A frame with a raw
+fill, stroke, radius or an effect is chrome and has to be a kit instance.
 
 A section may group other sections, as a tinted sprint-group section does. A
 grouping section passes when its own fill uses a kit variable and its direct
