@@ -282,6 +282,20 @@ First run on ProShift, 2026-10-25, for two agreed sprints at once. The Flows pag
 
 What the first run found: the Current section's tables were mirrored the wrong way in every schedule frame, since a capture's grid is not mirrored by reversing rows, so the check in step 9 should look at the table's label column as well. It also found that a script that edits a duplicate should be run in one call, because a failed call rolls back and a rerun is then safe.
 
+### Housekeeping after production lands
+
+First run on ProShift, 2026-10-26, once the four debt rows were closed in the product. The Designer chose to recapture Current and remove Agreed, since the code now equals the design.
+
+1. **Confirm every row is closed.** The project's `DESIGN-DEBT.md` has no row for these sprints, and the commits that closed them are known.
+2. **Recapture every state into Current** with `tools/capture-states.cjs`, from the commit that closed the last row, using the project's own dummy data so the states are repeatable. Replace the frame inside each card's slot and keep the card, its name and its label. A card that repeated an earlier journey's frame takes a clone of the new frame. Clean the frames as for a first capture.
+3. **Add the states the design introduced** (an opened popover, an opened panel) as cards in a second row under the card they follow, each with a callout, since the code now reaches them.
+4. **Re-lay the journeys.** The new frames have other heights, so place the cards again in reading order, put each callout under its card, resize each journey and stack them.
+5. **Rewrite the headers and callouts** that describe the old capture (the commit, the date, the defects that are fixed). Remove a callout that recorded a defect the product no longer has.
+6. **Remove the Agreed section**, then run the presentation-chrome check and count the cards by label. Only Current cards remain.
+7. **Add a dated "Landed" follow-up** under each sprint's close review: the commit, the closed row, and that the Agreed section was removed. History is kept; nothing on the Sprints page is deleted.
+
+What the first run found, to check in a recapture: a grid with more columns than cells (a capture gave a two-field row five columns) leaves its cells in the temporary columns after the mirror, so check every grid's cells lie inside it; a time input's value is dropped by the capture and has to be put back from the browser screenshot; a text and its suffix in one hug-width box can overlap after the mirror, and a bold time range needs the left-to-right isolate again; a title in a narrow tile can sit at the wrong end. Look at each recaptured card beside its browser screenshot before the old frame is gone.
+
 ### Sprint-close promotion review
 
 Before closing a sprint, explicitly review the accepted result against the
