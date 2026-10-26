@@ -322,6 +322,7 @@ A capture is evidence of what was built, and it is a baseline and not an approve
    Figma and `get_design_context` to read a node back as code. Present the work
    with the studio presentation standard. Use preview tooling only when an HTML
    mockup is the relevant comparison surface.
+   A screenshot taken straight after a write can show the previous state, so take a second one at a different size before judging the result (seen four times on ProShift, 2026-10-26).
 3. **Agree.** Done when the Designer says the result is agreed. Before that, run
    `figma-audit` on the agreed frames, and report what a library component owns
    without fixing it. If the Designer agreed before the audit ran, run it now,
