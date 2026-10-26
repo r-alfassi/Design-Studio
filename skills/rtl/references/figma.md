@@ -200,6 +200,10 @@ A popup menu is the exception to mirroring absolute children: the browser placed
 
 A hidden `position: fixed` element, such as a toast slid off-screen by CSS, is captured as an empty frame inside the page. It is capture noise, and it is removed from the clone and left in the original.
 
+### A time range inside right-to-left text displays reversed
+
+A range such as `22:00–02:00` sits between two runs of digits, and in a right-to-left line the runs swap, so it shows as `02:00–22:00`, which makes a night shift read as 02:00 to 22:00. A browser capture reproduces the swap, because the product has the same bug, and so does any text written in Figma. Wrap the range in a left-to-right isolate, U+2066 before it and U+2069 after it, which Figma renders correctly (tested 2026-10-26 on ProShift's Heebo text). Do this in new text. Do not change a capture's text, which is the code's truth, and report the swap as a finding on the product.
+
 ## Phase 2 — Element Order Reversal
 
 Figma renders children left-to-right on screen in array order — there is no native `dir` flip like HTML has. This means **the array itself must be reversed** when converting direction; alignment alone is not enough (this is the Horizontal Mirror Principle from SKILL.md, applied concretely).
