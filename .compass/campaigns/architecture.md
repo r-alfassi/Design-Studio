@@ -45,7 +45,7 @@ Done when: every resident is filed against the Design Studio model; the Figma cl
 
 ## Quest Q-68 — make the visual phase a package, with Figma as one of its tools
 
-State: Defined (2026-10-21, after a grilling session with the Designer; the requirements are in `product/requirements.md`, R-01 to R-17).
+State: Defined (2026-10-21, after a grilling session with the Designer; the requirements are in `core/requirements.md`, R-01 to R-17).
 
 Decided 2026-10-21: the whole of Design Studio becomes an installable package with an `AGENTS.md` spine that routes by kind of work, as Compass does. The visual phase is its main route, in any medium. It has three entry points: sprints, formalizing the design system, and tuning in place. It keeps `DESIGN.md` (the format `impeccable` reads), `DESIGN-DEBT.md` (open debt only, each row with a direction) and a `FIGMA-TRANSLATION.md` only for structurally different components. It never defines a project's intent and does not assume Compass.
 
@@ -53,7 +53,7 @@ Done when: the package has a spine and routes, every resident is kept, folded in
 
 Tasks:
 
-1. Make the root `AGENTS.md` the package spine, and move the maintenance rules and the Compass import to a separate file for work on this repo. Decided 2026-10-21; open: where that file lives. The structure itself now stands in `product/system.md`, derived from the journeys and features. Serves: `product/requirements.md` R-17.
+1. Make the root `AGENTS.md` the package spine, and move the maintenance rules and the Compass import to a separate file for work on this repo. Decided 2026-10-21; open: where that file lives. The structure itself now stands in `core/system.md`, derived from the journeys and features. Serves: `core/requirements.md` R-17.
 2. Choose, for each existing resident, whether it is kept, folded in or retired, by a fresh-run test. The remaining Figma skills (`figma-production-loop`, `figma-audit-structure`, `figma-roundtrip`, `figma-ds-recreate`, `figma-design-system`) come first. Serves: R-16.
 3. Apply the scope line SC-13: the loop's promotion gate and its implement-and-verify step leave the package, and the contract's authority sentence, which makes Figma the fixed visual authority, changes to follow PN-02. Decide also the fate of the `product-design` format, whose intent and flow layers define intent, and of the `figma-change-log` format, which `DESIGN-DEBT.md` replaces.
 4. Decide what marks the end of work on the in-place path, and how the agent picks an entry point. Serves: R-02. Closed 2026-10-23: the in-place path left the scope, and a sprint is the default entry, with formalizing only on the Designer's decision.

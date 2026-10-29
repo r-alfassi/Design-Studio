@@ -8,11 +8,11 @@ Read `STRUCTURE.md` at the repo root first. It says how the compartments are nam
 
 ## Core
 
-- `product/README.md`: the current product record and which question each file answers.
-- `product/purpose.md`: why Design Studio exists and the problem it answers.
-- `product/audience.md`: who relies on Design Studio and what they need from it.
-- `product/scope.md`: what Design Studio does and does not do.
-- `product/constraints.md`: the boundary that keeps reusable design craft clear of client material.
+- `core/README.md`: the current product record and which question each file answers.
+- `core/purpose.md`: why Design Studio exists and the problem it answers.
+- `core/audience.md`: who relies on Design Studio and what they need from it.
+- `core/scope.md`: what Design Studio does and does not do.
+- `core/constraints.md`: the boundary that keeps reusable design craft clear of client material.
 
 ## Through overviews only
 
