@@ -18,6 +18,7 @@ Paste-ready scripts live in [`../scripts/figma/`](../scripts/figma/) — set the
 | `phase2b-auto-reverse-icon-rows.js` | 2 | Auto-reverses 2-child icon+content and `SPACE_BETWEEN` rows; flags ambiguous/variant rows instead of guessing. |
 | `phase2c-reverse-wrap-grid.js` | 2 | Reverses a `WRAP` grid's children within each row (grouped by y-position), preserving row order — a different transform than the full-array reversal `phase2b` does. |
 | `phase3-find-directional-icons.js` | 3 | Finds arrow/chevron/back-button candidates for the mirror-or-keep review. |
+| `phase4-audit-built-rtl.js` | 4 | Read-only audit of a screen built from scratch in RTL: hug-width columns packed left, left-aligned Hebrew text, rows packed left, bare ratios, review text inside the product frame. |
 
 Phase 5 (translation) has no script here — see `translate/scripts/figma/`.
 
@@ -305,6 +306,12 @@ Append children in canvas left-to-right order, but design the sequence so the He
 
 In a vertical auto-layout frame, a child that hugs its content is packed to the left edge, because the cross axis starts at the left. In a right-to-left screen a short row, such as a row of stat tiles or a row of tabs, belongs on the right edge. Make the row fill the frame's width and set its main-axis alignment to `MAX` (the right end), with its children already in reversed order. Check every direct child of a card for this, since a full-width frame hides the problem. Found 2026-10-23 on a built-from-scratch Hebrew screen.
 
+The same mistake hides one level down, and it was found again on 2026-11-03 on the Comuna role screens: **any vertical frame whose children hug their width** has the cross axis starting at the left. A name over its role, a label over its value, a title over its subtitle, a stat's number over its caption, all pack to the left edge of their own column and read as ragged on the wrong side, even when the row that holds the column is correct. In a right-to-left screen set `counterAxisAlignItems` to `MAX` on such a frame. A frame whose children all fill its width needs nothing, since the text alignment does the work. `scripts/figma/phase4-audit-built-rtl.js` finds these (`cross-axis-left`).
+
+### A ratio or a range reads reversed in a right-to-left line
+
+`3 / 4` and `2–6` carry no strong direction, so in a right-to-left line they show as `4 / 3` and `6–2`. The time-range note above is the same cause. Wrap a new ratio or range in a left-to-right isolate (U+2066 before, U+2069 after). The audit script reports a bare one (`bare-ratio`). Do not change a capture's text, which is the code's truth.
+
 ### `COMPONENT_SET` variant nodes: `insertChild` is silently blocked
 
 When a node is a **variant** (direct child of a `COMPONENT_SET`), `insertChild` does **nothing** — no error, no reorder, just a silent no-op. This is a Plugin API restriction specific to variants.
@@ -394,6 +401,14 @@ Screenshot the mirrored frame **before any translation happens** — text is sti
 - Child order wasn't scrambled by the batch Phase 1/2 passes (re-verify against the expected sequence if in doubt)
 
 Report what changed and flag anything still needing manual review, before moving on to Phase 5.
+
+### A screen built from scratch in right-to-left
+
+A screen built directly in Hebrew or Arabic has no left-to-right source to compare with and none of the conversion scripts run on it, so the mistakes in it are the ones nothing else catches. Before calling it reviewable:
+
+1. Run `scripts/figma/phase4-audit-built-rtl.js` on every frame. It is read-only. It reports a vertical frame that packs hug-width children left (`cross-axis-left`), Hebrew text aligned left (`text-left`), a row that fills its parent and packs left (`row-packs-left`), a ratio or range without an isolate (`bare-ratio`), and review text that sits inside the product frame (`leading-meta`).
+2. Look at the frame at its own size, in crops no taller than about 1000 px. A screenshot of a tall frame is shrunk to fit, and a one-line misalignment disappears at that size. Look at each kind of component once at 1:1: a list row, a card with a title and subtitle, a table row, a stat tile, a chip row, a form field.
+3. A clean script run does not replace the look, and the look does not replace the script. Each found something the other missed.
 
 ---
 

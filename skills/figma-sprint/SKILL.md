@@ -254,6 +254,47 @@ section when needed, and re-run the inspection. Do not mark the screen
 reviewable, log an accepted delta, promote it, or translate it to production
 until the containment gate passes.
 
+### Product-layout gate
+
+Treat the product frame's structure as part of the proposal, not as an
+implementation detail that a screenshot can replace. Use nested Auto Layout
+for a semantic container whose children stack, align, or space together.
+
+Absolute positioning is reserved for decoration and a genuine edge-pinned
+overlay. An edge-pinned overlay must ignore the parent Auto Layout deliberately
+and declare its edge with non-default constraints; it is not a substitute for a
+header, content column, action group, card, or other normal-flow container.
+
+Before reporting any proposed product frame as reviewable, run the read-only
+structural inspection from `skills/figma-audit/SKILL.md` on that frame. Do not
+report it reviewable while that inspection has a `no-auto-layout` finding. The
+only exception is one recorded in the project's `DESIGN.md` that names the
+frame or node path, the reason the relationship is intentionally absolute, and
+the compensating treatment that keeps it maintainable. The sprint-close report
+states the inspection result for every proposed product frame, or links each
+such named exception.
+
+### Right-to-left gate
+
+For a right-to-left product, a proposed product frame is not reviewable until
+three checks have run on it, and the sprint-close report states each result.
+
+1. Run `skills/rtl/scripts/figma/phase4-audit-built-rtl.js`. It is read-only
+   and reports a vertical frame that packs hug-width children left, Hebrew text
+   aligned left, a row packed left, a ratio or range without a left-to-right
+   isolate, and review text inside the frame. A finding is fixed, or recorded
+   as intended with its reason.
+2. Look at the frame at its own size, in crops no taller than about 1000 px,
+   and at each kind of component once at 1:1: a list row, a card with a title
+   and subtitle, a table row, a stat tile, a chip row. A screenshot of a tall
+   frame is shrunk to fit and hides a one-line misalignment. A clean script run
+   does not replace the look, and the look does not replace the script. On the
+   Comuna role screens each found something the other missed.
+3. View the frame alone and read every string. A role, a state, a direction or
+   a comparison note inside the frame is review text, and it moves to the frame
+   card or a sibling label (`standards/studio-presentation.md`, Construction,
+   item 1). Build the label first, so that the frame is born without it.
+
 ### The Flows page
 
 A project's Flows page holds its journeys as storyboards, one section per journey. A section opens with a section header. Under it sits one row of frame cards, one card per screen state, from the empty product to the filled one, each labelled Current and named for the step and the state ("1 · Roles, empty"). A right-to-left product reads from the right, so step 1 sits at the right end. A state that no screen reaches normally, such as an empty product or an open dialog, is reached by driving the running app and captured as it is, and a defect the capture shows is recorded beside its frame with a callout and not hidden. The sprint-close review adds the agreed result as an Agreed copy of the Flows page's Current section, as "Applying an agreed change to the Flows page" describes. The Flows page is not a diagram of decisions.

@@ -64,3 +64,4 @@ Append-only. One line per ID, added when the ID is created; one line appended wh
 - R-33 · 2026-10-23 · The agent never edits the product's code
 - R-34 · 2026-10-23 · A captured baseline is checked against a browser render
 - R-35 · 2026-10-23 · A sprint tests one concern
+- R-36 · 2026-11-03 · A right-to-left product frame passes the audit, the 1:1 look and the review-text check before it is reviewable

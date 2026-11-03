@@ -30,6 +30,7 @@ Source: the Designer's answers in the grilling session of 2026-10-21 on the sing
 
 - **R-22** A sprint keeps its trail: its options sit side by side, rejected ones stay labelled with a reason, and the accepted result sits at the far right. Serves: SC-16, PN-01. <!-- R-22 -->
 - **R-35** A sprint tests one concern, and its frames differ from the baseline only in that concern. Serves: PN-01, SC-16. <!-- R-35 -->
+- **R-36** A proposed product frame for a right-to-left product is not reported reviewable until the right-to-left audit has run on it, each kind of component has been looked at in 1:1 crops, and the frame viewed alone holds no review text. Serves: SC-16, PN-01. <!-- R-36 -->
 - **R-28** Closing a sprint records whether its result reveals a reusable component or changes a flow. Serves: SC-16. <!-- R-28 -->
 
 ## Formalizing a component

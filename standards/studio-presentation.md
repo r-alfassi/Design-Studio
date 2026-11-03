@@ -120,3 +120,5 @@ Keep the project's design apart from the layout: the design is the project's own
 frame, component instance or raster, and the chrome sits around it. A step frame
 is a kit frame card with a header carrying the state label and the frame's name,
 then the design and nothing else.
+
+1. **Put sprint metadata in sibling chrome, outside each proposed product frame.** A proposal state or number, direction, comparison note and callout explain the review rather than the product, so they belong in a frame card or another sibling container. Test: when the product frame is viewed alone, it reads as a possible shipped screen and reveals no sprint context.

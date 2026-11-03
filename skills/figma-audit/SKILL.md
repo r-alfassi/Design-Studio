@@ -28,6 +28,8 @@ Reusable Figma scripts live in `scripts/figma/`. Set the parameter block at the 
 | `fix-auto-layout.js` | Phase 3 | Convert plain frame to auto-layout; derives item spacing from current child gaps, or use `WRAP_RANGE` for a flex-spacer when a trailing child must stay pinned to an edge |
 | `fix-hard-pinned-position.js` | Phase 3b | Lightweight fix for a single-edge-pinned child: set `constraints` on an ignore-auto-layout node instead of restructuring the tree |
 
+For a right-to-left frame, also run `skills/rtl/scripts/figma/phase4-audit-built-rtl.js`. It is read-only and finds what `inspect.js` does not: a vertical frame that packs hug-width children left, Hebrew text aligned left, a row packed left, a ratio without a left-to-right isolate, and review text inside the product frame. Its findings are Judgment findings, since a left-packed column can be deliberate.
+
 When a fix reveals a new structural issue not in the original report, stop, re-run `inspect.js`, and re-gate before continuing.
 
 ---
