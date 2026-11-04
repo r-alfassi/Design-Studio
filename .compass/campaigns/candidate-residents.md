@@ -44,7 +44,7 @@ Awaiting: Designer decision whether the result is a new framework or a clause in
 
 ## Quest Q-69 — check what a generated diagram actually produced
 
-State: Seed.
+State: Defined (2026-11-04, the Designer asked for the framework to be drafted; the keep-test below has not been run).
 
 Origin: surfaced in a Figma MCP session on 2026-11-04 where an agent drew flowcharts on a FigJam board, and recorded in `journal/a-diagram-is-checked-by-its-render/2026-11-04-generated-diagram-placement-layout-connectors.md`. The 2026-11-03 journal entry on tall screens reviewed at a size that hides the error has the same cause: the agent checked what the tool reported and not what the render showed.
 
@@ -64,11 +64,11 @@ After drawing:
 - After any scripted move, check connector sizes and render again. A connector attached to a node moved by script can keep its old route, and comparing endpoint ids does not show it. Do not shift attached nodes.
 - Stop after two attempts at one diagram and change the structure before a third.
 
-Proposed admission:
+Admission, 2026-11-04:
 
-- Kind: a framework, one judgment ("is this diagram done, and where it was asked?") as questions and quality bars. A fixed procedure with a test would make it a standard instead.
+- Kind: a framework, decided. One judgment ("is this diagram done, and where it was asked?") as questions and quality bars. A fixed procedure with a test would make it a standard instead.
 - Overlap: the official Figma skills `figma-generate-diagram` and `figma-use-figjam`, which are why the Designer retired Design Studio's own `figjam` on 2026-10-21. This proposal overlaps them, and on two points the session found them wrong or silent: the FigJam skill says a file has a single page, and the diagram reference does not say a per-section direction can be ignored. It also overlaps R-34 (compare a capture with a browser render) and the sprint skill's right-to-left gate (1:1 crops), which are the same habit on other artifacts. A separate resident is justified only if the official skills stay silent on these points; the other route is to pass the two corrections upstream.
-- Shape: one self-contained file under `frameworks/`, or a short clause in `skills/figma-sprint/SKILL.md` where work is presented. Not routed from the spine until the Designer decides.
-- Client-content scan: clean. The session names no client, project, file key or node id.
+- Shape: `frameworks/is-the-diagram-done.md`, one self-contained file with a name and a description, a judgment, eight numbered questions and quality bars, a fallback line and a Do and a Don't. It names other material by concept and not by path, and it loads nothing. It is indexed in `frameworks/README.md` and is not routed from the spine or from a skill, so nothing loads it yet.
+- Client-content scan: clean on the framework and on this quest. Neither names a client, a project, a file key or a node id.
 
-Awaiting: Designer decision whether this is a framework, a clause in an existing file, a note passed upstream, or nothing until a second diagram session repeats these faults. The evidence is one session. The keep-test in `STRUCTURE.md`, a fresh agent drawing the same diagrams with and without it, has not been run.
+Awaiting: the keep-test from `STRUCTURE.md`, a fresh agent drawing the same kind of diagrams on a board with and without the framework, and the Designer's decision where to route it. The likely junction is a skill that draws on a board, and the spine does not carry it. The evidence is still one session. Until the test is run the framework is a draft and stays unrouted, and it leaves if the test shows no difference or if the official Figma skills come to cover these points.
