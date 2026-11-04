@@ -41,3 +41,34 @@ Proposed admission:
 - Client-content scan: not yet performed.
 
 Awaiting: Designer decision whether the result is a new framework or a clause inside an existing one.
+
+## Quest Q-69 — check what a generated diagram actually produced
+
+State: Seed.
+
+Origin: surfaced in a Figma MCP session on 2026-11-04 where an agent drew flowcharts on a FigJam board, and recorded in `journal/a-diagram-is-checked-by-its-render/2026-11-04-generated-diagram-placement-layout-connectors.md`. The 2026-11-03 journal entry on tall screens reviewed at a size that hides the error has the same cause: the agent checked what the tool reported and not what the render showed.
+
+Purpose: before an agent draws a diagram on a FigJam board, and again after, it checks what the tool's reply does not say.
+
+Before drawing:
+
+- List the board's pages and read the page the Designer named. The diagram tool takes no page and writes to the first, appended to the right of existing work.
+- Use one flow direction in a flowchart. A per-section direction can be dropped by the layout when edges cross sections.
+- Keep a loop to one step back inside a section, and point a back-reference at a duplicate of its target and not across the diagram.
+- Expect each new diagram to start where the last one ended, and say how wide the new one will be.
+
+After drawing:
+
+- Render the board and compare its size with what is expected. A render taken at the moment of a write can show the old state, so check the size again before judging.
+- Compare each new section's bounds with its neighbours.
+- After any scripted move, check connector sizes and render again. A connector attached to a node moved by script can keep its old route, and comparing endpoint ids does not show it. Do not shift attached nodes.
+- Stop after two attempts at one diagram and change the structure before a third.
+
+Proposed admission:
+
+- Kind: a framework, one judgment ("is this diagram done, and where it was asked?") as questions and quality bars. A fixed procedure with a test would make it a standard instead.
+- Overlap: the official Figma skills `figma-generate-diagram` and `figma-use-figjam`, which are why the Designer retired Design Studio's own `figjam` on 2026-10-21. This proposal overlaps them, and on two points the session found them wrong or silent: the FigJam skill says a file has a single page, and the diagram reference does not say a per-section direction can be ignored. It also overlaps R-34 (compare a capture with a browser render) and the sprint skill's right-to-left gate (1:1 crops), which are the same habit on other artifacts. A separate resident is justified only if the official skills stay silent on these points; the other route is to pass the two corrections upstream.
+- Shape: one self-contained file under `frameworks/`, or a short clause in `skills/figma-sprint/SKILL.md` where work is presented. Not routed from the spine until the Designer decides.
+- Client-content scan: clean. The session names no client, project, file key or node id.
+
+Awaiting: Designer decision whether this is a framework, a clause in an existing file, a note passed upstream, or nothing until a second diagram session repeats these faults. The evidence is one session. The keep-test in `STRUCTURE.md`, a fresh agent drawing the same diagrams with and without it, has not been run.

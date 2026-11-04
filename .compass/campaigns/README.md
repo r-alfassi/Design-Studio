@@ -17,7 +17,7 @@ This folder is Design Studio's current registry. Read this overview before openi
 
 ## Later
 
-- `candidate-residents.md`: decide whether either proposed resident belongs in Design Studio.
+- `candidate-residents.md`: decide whether any proposed resident belongs in Design Studio.
 
 ## Parked
 
