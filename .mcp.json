@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "graph-layout": {
+      "command": "python3",
+      "args": [
+        "${GRAPH_MASTER}/mcp_server.py"
+      ],
+      "env": {
+        "GRAPHS_DIR": "skills/figma-sprint",
+        "GRAPH_MASTER_PROJECT": "${CLAUDE_PROJECT_DIR}",
+        "GRAPH_MASTER_SUFFIX": ".graph.json",
+        "GRAPH_MASTER_HISTORY": "off"
+      }
+    }
+  }
+}
