@@ -416,3 +416,7 @@ mappings. It does not require a decorative one-frame, one-view copy.
 
 Referenced skills remain their own authorities. Do not copy or silently broaden
 them. Review this skill if a referenced skill changes its scope or interface.
+
+## The sprint as a graph
+
+`figma-sprint.graph.json`, beside this file, draws the sprint as a graph that graph-master's checker reads: its steps, who checks each, and where the Designer approves. The skill does not load it and nothing in a run depends on it. Change the sprint's steps here first, and then bring the graph into line, since the two are kept by hand.

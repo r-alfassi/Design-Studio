@@ -28,6 +28,7 @@ spine           the root entry file: what loads before the first move, the flow,
 | **Standard** | Binding rules for a kind of work, each with a scope, a test and an exception route. A project adopts it by naming it in its `DESIGN.md`. | What must hold here? | When a skill or a project names it | `standards/` |
 | **Template** | The required shape of one file or deliverable, with what each part is for and what not to add. | What shape must this take? | When a skill writes that thing | `templates/` |
 | **Tool** | A script that produces what must be exact. It reports, or changes only what it is told. | What is the exact answer? | When a skill runs it | `tools/`, a skill's own `scripts/`, `bin/` |
+| **Graph** | A process drawn as a graph that a checker can read, kept beside the skill it records. Read with graph-master's console; never loaded by the skill. | What are the steps, the checks and the approvals of this process, drawn so a tool can check them? | Never in a run | `skills/<name>/<name>.graph.json` |
 | **Kit** | The published Figma library of presentation parts that a standard points to. It lives in Figma and not in this repo. | Which parts hold and label the work? | By subscription in a project's Figma file | Design Studio's Figma file |
 | **Reference** | A how-to of this repo's own, such as tool set-up. | How do I set this up here? | By route from a skill | `references/` |
 | **Archive** | Residents set aside because the Designer was not sure of them. Not loaded, indexed or linked, and bound to nothing. | Did we once have this? | Never in a run. Brought back by `git mv` and a new admission. | `archive/` |
@@ -48,6 +49,8 @@ spine           the root entry file: what loads before the first move, the flow,
 3. Is it a constraint a project selects and must satisfy, with a test and an exception route, such as a legibility floor or the stopping rules? It is a **standard**.
 4. Is it steps you run, often against a tool, to carry a job through? It is a **skill**.
 5. Must it be exact, such as a count or a list of nodes? It is a **tool**, and a skill runs it and does not write it.
+
+A **graph** is not one of these residents: it loads nothing and no step of this list admits it. It sits beside the skill it records, and the skill does not read it.
 
 If two compartments seem to fit, one resident is probably mis-filed, or two overlap. Raise it and do not pick arbitrarily. The admission checklist exists to catch overlap before it lands.
 
