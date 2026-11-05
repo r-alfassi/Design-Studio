@@ -1,0 +1,225 @@
+{
+  "name": "design studio sprint",
+  "mode": "template",
+  "gate": {
+    "repeats": "yes",
+    "steps": "count_varies",
+    "ceiling": 3,
+    "source": "asked"
+  },
+  "context": "Every design sprint at the Studio: from the project's stated direction to the agreed result handed off as design debt.",
+  "compromises": [
+    "a no at approve_start stops the run; there is no earlier step worth sending it back to",
+    "a retry of a failed step cannot be drawn: if one option cannot be built, the run stops and says which",
+    "the Designer can change the Figma file at any time and the Studio re-reads it before every write; here it is read again only when a no from approve_choice sends the work back to read_canvas",
+    "a removal needs a listed set and the Designer's yes before it happens; that rule is not drawn",
+    "the loop-back limit of 3 rounds at each approval was proposed when the graph was drawn and the Designer has not confirmed it",
+    "two steps are the graph author's reading of the skill, not something it says in so many words: approve_start (confirming the direction and the Figma file before any visual work) and read_canvas (a read of the file before the options are planned)"
+  ],
+  "outputs": [
+    "design_debt"
+  ],
+  "nodes": [
+    {
+      "id": "read_direction",
+      "kind": "tool",
+      "job": "read the project's DESIGN.md and its stated direction",
+      "outputs": [
+        "direction"
+      ],
+      "cost": 1
+    },
+    {
+      "id": "find_file",
+      "kind": "tool",
+      "job": "open the Figma file that DESIGN.md names",
+      "outputs": [
+        "figma_file"
+      ],
+      "cost": 1
+    },
+    {
+      "id": "approve_start",
+      "kind": "human",
+      "job": "confirm the direction and the Figma file are the right ones, or say what to start from",
+      "inputs": [
+        "direction",
+        "figma_file"
+      ],
+      "outputs": [
+        "start_ok"
+      ],
+      "cost": 3
+    },
+    {
+      "id": "frame_change",
+      "kind": "worker",
+      "job": "write the one-sentence change this sprint tests, and the direction summary",
+      "inputs": [
+        "direction",
+        "start_ok"
+      ],
+      "outputs": [
+        "sprint_change"
+      ],
+      "cost": 2
+    },
+    {
+      "id": "check_change",
+      "kind": "verify",
+      "job": "try to break the change: more than one concern, or a decision outside the direction",
+      "inputs": [
+        "sprint_change",
+        "direction"
+      ],
+      "outputs": [
+        "change_checked"
+      ],
+      "cost": 1,
+      "context": "fresh"
+    },
+    {
+      "id": "approve_change",
+      "kind": "human",
+      "job": "read the change and say yes or no to testing it",
+      "inputs": [
+        "change_checked"
+      ],
+      "outputs": [
+        "change_ok"
+      ],
+      "cost": 3,
+      "on_no": {
+        "back_to": "frame_change",
+        "max": 3
+      }
+    },
+    {
+      "id": "read_canvas",
+      "kind": "tool",
+      "job": "read the scoped part of the Figma file as it stands, with the Designer's own changes kept",
+      "inputs": [
+        "figma_file",
+        "change_ok"
+      ],
+      "outputs": [
+        "canvas_state"
+      ],
+      "cost": 1
+    },
+    {
+      "id": "plan_options",
+      "kind": "worker",
+      "job": "decide the design options to compare, each differing from the baseline only in the tested change",
+      "inputs": [
+        "change_ok",
+        "canvas_state"
+      ],
+      "outputs": [
+        "options"
+      ],
+      "lists": [
+        "options"
+      ],
+      "cost": 2
+    },
+    {
+      "id": "build_option",
+      "kind": "worker",
+      "job": "build one option as a labelled frame inside the sprint section",
+      "inputs": [
+        "options",
+        "change_ok",
+        "canvas_state"
+      ],
+      "outputs": [
+        "frame"
+      ],
+      "cost": 4,
+      "writes": [
+        "figma/sprint/option-{item}"
+      ],
+      "each": {
+        "over": "options",
+        "max": 3,
+        "typical": 2
+      }
+    },
+    {
+      "id": "check_option",
+      "kind": "verify",
+      "job": "try to break one option: it differs from the baseline in more than the tested change, sits outside the section, or lacks a state label",
+      "inputs": [
+        "frame",
+        "options",
+        "change_ok"
+      ],
+      "outputs": [
+        "option_checked"
+      ],
+      "cost": 2,
+      "context": "fresh",
+      "each": {
+        "over": "options",
+        "max": 3,
+        "typical": 2
+      }
+    },
+    {
+      "id": "arrange_page",
+      "kind": "tool",
+      "job": "place the checked options in the sprint section left to right in the order explored, each with its state label",
+      "inputs": [
+        "option_checked",
+        "change_checked"
+      ],
+      "outputs": [
+        "sprint_page"
+      ],
+      "cost": 1
+    },
+    {
+      "id": "approve_choice",
+      "kind": "human",
+      "job": "read the sprint page, tweak it, and say which option is agreed",
+      "inputs": [
+        "sprint_page"
+      ],
+      "outputs": [
+        "choice"
+      ],
+      "cost": 5,
+      "on_no": {
+        "back_to": "read_canvas",
+        "max": 3
+      }
+    },
+    {
+      "id": "write_handoff",
+      "kind": "worker",
+      "job": "write the agreed result as design debt, naming what stays rejected and why",
+      "inputs": [
+        "choice",
+        "sprint_page"
+      ],
+      "outputs": [
+        "debt_draft"
+      ],
+      "cost": 2
+    },
+    {
+      "id": "check_handoff",
+      "kind": "verify",
+      "job": "try to break the handoff: anything claimed as shipped, or an approved item changed without a yes",
+      "inputs": [
+        "debt_draft",
+        "choice"
+      ],
+      "outputs": [
+        "design_debt"
+      ],
+      "cost": 1,
+      "context": "fresh"
+    }
+  ]
+}
