@@ -1,6 +1,9 @@
 ---
 name: translate
 description: Translate text content between languages while preserving tone, register, and approximate length. Medium-agnostic principles here; routes to Figma implementation (font-safe write-back, overflow checking) in references/. Use whenever asked to translate or localize copy — independent of whether a layout-direction change (RTL/LTR) is also needed.
+metadata:
+  takes: "the target scope, the target language, the project's glossary"
+  hands_on: "the translated text written back, an overflow report"
 version: 1.0.0
 ---
 
@@ -62,9 +65,13 @@ For any project with more than a handful of screens, keep a running glossary of 
 
 ### Phase 1: Extract
 
+Step: extract · kind: judgment · takes: the target scope · hands on: strings with identifiers
+
 Pull every translatable text node/string from the target scope, with a stable identifier for writing back later.
 
 ### Phase 2: Build the translation
+
+Step: build_translation · kind: judgment · takes: strings with identifiers, the project's glossary, the target language · hands on: translations
 
 For each string:
 1. Translate maintaining tone/register (Core Principle 1)
@@ -74,9 +81,13 @@ For each string:
 
 ### Phase 3: Write back
 
+Step: write_back · kind: judgment · takes: translations · hands on: the translated text written back
+
 Write the translated strings back using the medium's safe write procedure (see the tool-specific reference — this is where font-loading and encoding gotchas live).
 
 ### Phase 4: Overflow check
+
+Step: overflow_check · kind: check-judgment · takes: the translated text written back · hands on: an overflow report
 
 After writing, check every translated node/element against its container's constraints. Flag (don't silently leave) any node where the new text visibly overflows, wraps unexpectedly, or clips.
 

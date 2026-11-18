@@ -1,6 +1,9 @@
 ---
 name: figma-audit
 description: Audit a Figma frame for structural issues and for values not bound to variables — overflow, redundant wrappers, missing auto-layout, hard-pinned positions — then fix authorized findings. Always inspects and gates before touching anything.
+metadata:
+  takes: "the frame to audit, the designer's choices on judgment findings"
+  hands_on: "the fixed frame"
 ---
 
 # figma-audit
@@ -56,6 +59,8 @@ correctness feels uncertain, rather than guessing or re-deriving from scratch.
 
 ### Phase 1 — Inspect
 
+Step: inspect · kind: script · takes: the frame to audit · hands on: an issue list, a screenshot
+
 Run two parallel calls:
 - `inspect.js` (via `use_figma`) on the target node — returns structured issue list and layer tree
 - `get_screenshot` — capture the current visual state
@@ -65,6 +70,8 @@ Do not modify anything yet.
 **Demonstration-extract caution:** a node sitting as a direct child of a section (or, in a raw capture, an empty or ABSOLUTE direct child of the audited frame itself), structurally disconnected from the tracked frames (not nested inside any of them, at a position that doesn't align with known rows/layout), may be a deliberate demonstration extract — an isolated copy the operator pulled out to link to and point at a pattern for this conversation. Do not default to treating it as stray debris to clean up, and do not offer to delete it. Use its content as a reference example unless there's a specific reason to think otherwise (the operator asks "what is this?", or it looks like an accidental partial edit rather than a clean extract).
 
 ### Phase 2 — Classify
+
+Step: classify · kind: judgment · takes: an issue list, a screenshot · hands on: classified findings
 
 **Choose the mode first.** Use dev mode when the task is audit-only, meaning the operator asked for a report, a classification, or to stop before fixes. Use normal mode when fixes are wanted. Then match findings against the issue taxonomy. Assign each finding as **Mechanical**, **Judgment**, or **Component-owned** (see taxonomy and Component Guardrail below).
 
@@ -88,6 +95,8 @@ If either is true, reclassify the finding as **Component-owned** and do not atte
 
 ### Phase 3a — Mechanical fixes (no gate in normal mode)
 
+Step: mechanical_fixes · kind: judgment · takes: classified findings · hands on: a frame with mechanical fixes
+
 Apply in dependency order without asking:
 1. Redundant wrappers (flatten first — establishes clean structure for everything else)
 2. Overflow containers (correct sizes and offsets)
@@ -98,6 +107,8 @@ Each fix is a separate `use_figma` call. Screenshot after each one. When all are
 In dev mode: gate before applying (single batch authorization).
 
 ### Phase 3b — Judgment fixes (select per finding)
+
+Step: judgment_fixes · kind: owner · takes: a frame with mechanical fixes, classified findings, the designer's choices on judgment findings · hands on: the fixed frame
 
 Present each Judgment finding as a select — not an open question. State the assumption, then offer three options. A `stray-node` finding is a question and not a fix: say what it looks like, and offer Delete, Keep, or Mark as intentional. Nothing is deleted without the operator's yes. The standard options are:
 

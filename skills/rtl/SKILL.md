@@ -1,6 +1,9 @@
 ---
 name: rtl
 description: Bidirectional RTL↔LTR layout-mirroring skill for Hebrew/Arabic and English. Use when building a screen for a right-to-left language, converting an existing design's layout direction between RTL and LTR, or reviewing a screen for RTL/LTR compliance. Covers medium-agnostic principles here; routes to Figma, HTML, and React implementation detail in references/. Translation itself is a separate skill — see `translate` — invoked as this skill's second-to-last phase.
+metadata:
+  takes: "the frame to convert"
+  hands_on: "the converted frame, a report of what changed"
 version: 3.0.0
 ---
 
@@ -113,6 +116,8 @@ For building fresh (no existing opposite-direction source), skip straight to app
 
 ### Phase 0: Scope the job, then recon
 
+Step: scope · kind: owner · takes: the frame to convert · hands on: the designer's scope answer, recon notes
+
 **Before anything else, ask explicitly**: does this job need a layout-direction change, a translation, or both? Don't infer or assume silently — even though the answer is "both" in the large majority of real jobs, stating it up front decides which later phases run:
 
 - **Direction change only** → run Phases 1–4, skip Phase 5 entirely
@@ -128,6 +133,8 @@ Then, structural recon:
 
 ### Phase 1: Mechanical flips (no judgment needed — with one exception)
 
+Step: flips · kind: judgment · takes: the frame to convert, the designer's scope answer, recon notes · hands on: a frame with flipped alignment
+
 Apply in one pass:
 1. Flip text alignment to the target direction's reading edge. Skip timestamps, pure numerics, single icon glyphs, and anything intentionally centered.
 2. Flip grouped-content alignment (whatever "cluster toward an edge" mechanism the medium offers) to the target edge.
@@ -138,6 +145,8 @@ Apply in one pass:
 
 ### Phase 2: Element order reversal (mandatory)
 
+Step: reorder · kind: judgment · takes: a frame with flipped alignment · hands on: a frame with reordered rows
+
 **This is the step most commonly skipped, and the resulting bug is the most visually obvious kind of RTL/LTR error** — an icon or avatar sitting on the wrong side reads as broken to anyone, technical or not.
 
 Apply an automated heuristic for the common "small element + large content" row pattern, and flag anything ambiguous (mixed-size groups, a semantically fixed middle element, or a structure the reorder mechanism can't safely touch) for manual review rather than silently skipping it. Tool-specific heuristics and code are in the reference files.
@@ -146,6 +155,8 @@ Every horizontal row must reach an explicit decision — reversed, kept, or flag
 
 ### Phase 3: Directional icons — always executed, never skipped on the assumption Phases 1-2 covered it
 
+Step: icons · kind: judgment · takes: a frame with reordered rows · hands on: a frame with mirrored icons
+
 Find candidates (arrows, chevrons, back/forward/prev/next-named elements, breadcrumb separators, anything inside nav/header rows) and decide per Core Principle 4: mirror if it encodes reading direction, keep if it doesn't.
 
 **This phase must actually run — it is not covered by Phases 1-2 succeeding.** Mechanical alignment fixes and element-order reversal say nothing about whether an icon's own shape still points the wrong way; a clean Phase 1/2 pass creates no signal that Phase 3 is unnecessary. Found via production testing: an entire section's disclosure chevrons were left pointing the source-direction way because Phase 3 was never actually executed for that section, despite Phases 1-2 having run.
@@ -153,6 +164,8 @@ Find candidates (arrows, chevrons, back/forward/prev/next-named elements, breadc
 **Property-based detection (name keywords, rotation) is a rough filter, not sufficient on its own.** A real directional icon can have `rotation === 0` on its wrapper and a fully generic name — its direction baked into which vector artwork is used, not a property any script can read. Screenshotting representative list rows, nav headers, and expand/disclosure affordances is mandatory, not optional, alongside any automated candidate search.
 
 ### Phase 4: Structural verification
+
+Step: verify · kind: check-judgment · takes: a frame with mirrored icons · hands on: a verified frame, a report of what changed
 
 Review the mirrored result **before any translation happens** — text is still in the source language at this point, which is deliberate: a layout bug and a translation bug should never be debugged at the same time. Confirm:
 - Text alignment matches the target direction, correctly
@@ -164,6 +177,8 @@ Review the mirrored result **before any translation happens** — text is still 
 Only once this is clean does the job move on. Report what changed and flag anything still needing manual review before proceeding to Phase 5.
 
 ### Phase 5: Translation (only if scoped in at Phase 0)
+
+Step: translation · kind: judgment · takes: a verified frame, the designer's scope answer · hands on: the converted frame
 
 The layout is now mirrored and verified. If Phase 0 scoped this job as including translation, do it now — last, using the `translate` skill.
 

@@ -1,6 +1,9 @@
 ---
 name: figma-formalize
 description: Formalize a component, or a set of captured frames, into a design system in Figma: reusable components with their tokens bound, built from frames and not moved. Use when a sprint has ended in the Designer's decision to formalize a component, or when the Figma file has gone stale beside the code.
+metadata:
+  takes: "the designer's decision to formalize, source frames, the project's direction, the designer's yes"
+  hands_on: "a first component, an updated DESIGN.md, a design debt row"
 ---
 
 # Formalize a component into the design system
@@ -17,13 +20,21 @@ This is Design Studio's formalize route. It turns frames into reusable component
 ## Steps
 
 1. **Say which side is newer.** Follow `frameworks/which-side-is-newer.md` and tell the Designer the direction. If Figma is the stale side, update it from the code first, and only then formalize. If the component was born in a sprint and is ahead of the code, go on, and give it a design-debt row with its direction at the end.
+   Step: side_newer · kind: judgment · takes: the designer's decision to formalize, the project's direction, source frames · hands on: the newer side
 2. **Audit the source frame.** Run `figma-audit` on it and report its findings. Anything a library component owns is reported and never fixed locally. A fix beyond the mechanical ones waits for the Designer.
+   Step: audit_source · kind: judgment · takes: source frames, the newer side · hands on: audit findings
 3. **Extract tokens, read-only.** From the source frames list every color (fills, text and strokes, counted), type style (family, weight, size, letter spacing), spacing and padding value, corner radius, stroke weight and shadow. Separate what sits on a scale from what is off it, and from capture leftovers: fallback fonts, 0.8px strokes from rem conversion, `:margin` paddings, decimal sizes.
+   Step: extract_tokens · kind: judgment · takes: source frames, the newer side · hands on: token inventory
 4. **Propose, and stop.** Show the Designer the token proposal. For each off-scale value, propose the nearest step and say why. Never snap, drop or keep an off-scale value silently, because the Designer's yes decides it. Use the project's own names. Without them, use `color/<group>/<step>`, `space/<n>`, `radius/<n>`, text styles `<role>/<size>` and effects `shadow/<name>`, with one numeric pattern across spacing and radius.
+   Step: propose · kind: owner · takes: audit findings, token inventory · hands on: an approved token proposal
 5. **Create the foundations.** On the design-system page they sit in a Primitives section above the Components section. After the yes, create the variable collections (primitives, then semantic), text styles and effect styles. Set every variable's scopes explicitly. Build them in a foundations area beside the frames, and leave the raw frames untouched as the baseline.
+   Step: create_foundations · kind: judgment · takes: an approved token proposal · hands on: foundations
 6. **Classify the components.** Sort them into atoms, molecules and organisms by structure and repeat count, matching frames by size, fill and child count. Check what is grouped against a screenshot, since imported layer names are not reliable. Split by platform or role only when the product has several.
+   Step: classify · kind: judgment · takes: source frames, foundations · hands on: a component map
 7. **Build one component first.** Create it from a copy of the frame, as a component, with auto layout, bound tokens, variants for its states, a meaningful name and a description. Look at it, then build the rest of the set. A main component cannot sit inside an instance, so each component gets its own vertical auto-layout frame in its layer's section, styled from kit variables as one card, holding its container above its main component, and the container's preview is left empty and hidden so the variants are shown once. The page is divided into sections by layer (atoms, molecules, organisms), as `standards/studio-presentation.md` requires. Do not keep a second page of components, because two places compete, and a loose pile of components is not finished.
+   Step: build_first · kind: judgment · takes: a component map, foundations · hands on: a first component
 8. **Replace frames with instances only where approved.** Swapping a frame for an instance changes an approved design, so it waits for the Designer. Before a change that touches more than one screen, list exactly what will change. Keep the sprint's frames as labelled history.
+   Step: replace_frames · kind: owner · takes: a first component, a component map, the designer's yes · hands on: frames replaced by instances
 9. **Check the formalized component.** A component passes when all of these hold:
    - every instance points at its main component, with none missing;
    - fills, radii, spacing and text use variables or styles, and nothing is a raw value except a value the Designer approved;
@@ -32,7 +43,9 @@ This is Design Studio's formalize route. It turns frames into reusable component
    - hidden layers are kept and set to hidden;
    - its tokens agree with `DESIGN.md`, and it mirrors the product's code;
    - a screenshot matches the original.
+   Step: check · kind: check-judgment · takes: a first component, frames replaced by instances, foundations · hands on: a check result
 10. **Record it.** Update `DESIGN.md` if the system changed, in the format `impeccable` reads. If the component is ahead of the code, add a `DESIGN-DEBT.md` row that says which direction it runs.
+   Step: record · kind: judgment · takes: a check result · hands on: an updated DESIGN.md, a design debt row
 
 ## Rules that run through every step
 

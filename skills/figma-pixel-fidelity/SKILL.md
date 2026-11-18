@@ -1,6 +1,9 @@
 ---
 name: figma-pixel-fidelity
 description: Check that a Figma component family showing pixel-art or other raster source artwork never has its silhouette softened by its preview structure, such as rounded corners or effects. Use only on a project whose Figma file presents pixel-art or raster assets, such as a pixel-art game's interface. Do not use for ordinary vector interface work.
+metadata:
+  takes: "a figma file with raster source artwork, the designer's yes"
+  hands_on: "a fidelity result, corrected nodes"
 ---
 
 # Pixel fidelity in Figma
@@ -18,10 +21,15 @@ A project that uses it adopts it in its `DESIGN.md`, as with the other standards
 ## Steps
 
 1. **Name the source families.** Find the exact component-set IDs of the raster families to check. If it is unclear which components are source artwork and which are documentation around them, ask the Designer.
+   Step: name_families · kind: judgment · takes: a figma file with raster source artwork · hands on: source families
 2. **Run the audit, read-only.** In one `use_figma` call, declare `ROOT_NODE_IDS` with those IDs and run `scripts/audit-pixel-raster-fidelity.js`. Load `figma-use` first. The script returns the audited roots, every violation with its node, radius and effect count, and a pass flag. It never writes.
+   Step: run_audit · kind: script · takes: source families · hands on: violations
 3. **Report.** Give the Designer the violations, each with its node and what is wrong. Do not fix anything yet.
+   Step: report · kind: judgment · takes: violations · hands on: a report of violations
 4. **Correct only what the audit names.** After the Designer's yes, change only the exact nodes the audit returned, since a change to an approved component is theirs to approve. Do not clean up the neighbours.
+   Step: correct · kind: judgment · takes: violations, a report of violations, the designer's yes · hands on: corrected nodes
 5. **Re-run and look.** Run the audit again, then inspect one representative preview at native size, with no scaling, and confirm the edges are crisp.
+   Step: re_run · kind: check-judgment · takes: corrected nodes, source families · hands on: a fidelity result
 
 ## Origin
 
