@@ -27,6 +27,12 @@ on how design work is done, not on an artifact.
 | `rtl` | mirroring a screen's layout direction (RTL↔LTR) for Hebrew/Arabic, or reviewing RTL compliance |
 | `translate` | translating/localizing copy while holding tone, register, and length (routes to Figma write-back) |
 
+## Content (craft)
+
+| Skill | Reach for it when… |
+|---|---|
+| `content-design` | a designed interface or Figma frame holds **text the agent wrote**: every string gets a type and a source, and text that is the agent's commentary on the process (slop) is replaced or sent to the Designer |
+
 ## Other crafts (craft)
 
 | Skill | Reach for it when… |

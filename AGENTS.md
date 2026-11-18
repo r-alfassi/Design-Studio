@@ -15,6 +15,7 @@ This file says what Design Studio loads and when, for a project that imports it.
 - Formalizing a component into the design system, once the Designer has decided to: follow `skills/figma-formalize/SKILL.md`. Before formalizing, or when Figma and the code disagree, decide which is ahead with `frameworks/which-side-is-newer.md`.
 - Auditing a Figma frame: follow `skills/figma-audit/SKILL.md`.
 - A Figma file with pixel-art or raster assets: follow `skills/figma-pixel-fidelity/SKILL.md`.
+- Text the agent wrote inside a designed interface or a Figma frame, before the frame is called reviewable: follow `skills/content-design/SKILL.md`.
 - Presenting sprints or a design system in Figma: load `standards/studio-presentation.md`.
 - Mobile screens: load `standards/mobile-design.md`.
 - Preparing agreed work for production: load `templates/design-debt.md`, and for a component that differs structurally in production, `templates/figma-implementation-contract.md`.
