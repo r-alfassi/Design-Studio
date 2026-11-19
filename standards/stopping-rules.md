@@ -25,6 +25,7 @@ Where nothing is approved, the agent explores without asking. That is a marked s
 5. **Wait for the decision to formalize.** A proposal to turn a component into part of the design system waits for the Designer's yes before any change to the design system.
 6. **Raise a disagreement between design and production.** When Figma and production disagree on how something looks, either side may be ahead. Say which one is, put the disagreement to the Designer, and never resolve it silently. The record of it says which direction it runs.
 7. **Hand intent back.** A finding that implies a change to the project's direction goes back to whoever owns intent. It is not decided in a Figma file or in code.
+8. **Change a library's own component only after one informed yes.** A change to the component reaches every file that uses it, which a yes about one frame may not have meant. Say that in one line, name the component and its library, and ask once; edit only after the Designer says yes to that. Test: no edit to a library's main component was made before a yes that followed the line naming the component and who else it reaches.
 
 ## Validation
 
