@@ -66,3 +66,27 @@ Each pattern has a name, a definition, a test an agent can apply to one string, 
 *Situation: what the session table says under its columns.*
 *Do:* a help entry on the column "Tool time": "Time that tools ran. Waiting for you is shown apart."
 *Don't:* "Tool time is the time tools ran, and leaves out your answers and the gaps before your next message, which are the waiting. A row opens that session."
+
+### Invented content
+
+**Definition.** Sample text in a frame that the agent made up and the product would not produce: a step name, a job, a count or a name reworded from the real one. The frame then shows a product that does not exist, and the build cannot match it.
+
+**Test.** For each string, name the data field or file the product would read it from. If the product would show other words from that source, or there is no source, the string is invented.
+
+**Allowed instead.** A real value, quoted from the source. Where no real value exists, a placeholder box that names what will fill it and who provides it.
+
+*Situation: a step card in a frame that shows skill steps.*
+*Do:* the step's name as the skill file gives it, "side newer", and the first sentence of its text, quoted.
+*Don't:* "which side is newer" as the name, and "tell the Designer which side is newer" as the job, both written for the frame.
+
+### Two names for one thing
+
+**Definition.** The same thing called by different words in different strings of one interface or one set of frames. The reader takes them for two things.
+
+**Test.** List the nouns that name a count, a state or an action, and check each against the project's glossary. Two words for one thing, or a word the glossary does not hold, is a finding.
+
+**Allowed instead.** The glossary's word, in every string. A new word is added to the glossary first.
+
+*Situation: the number of answers Claude gave in a session.*
+*Do:* "Turns" in the table header, in the figure and in the status line.
+*Don't:* "Turns" in the table header, "Back-and-forths" in the figure and "back-and-forth" in the status line.
