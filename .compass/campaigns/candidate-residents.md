@@ -72,3 +72,20 @@ Admission, 2026-11-04:
 - Client-content scan: clean on the framework and on this quest. Neither names a client, a project, a file key or a node id.
 
 Awaiting: the keep-test from `STRUCTURE.md`, a fresh agent drawing the same kind of diagrams on a board with and without the framework, and the Designer's decision where to route it. The likely junction is a skill that draws on a board, and the spine does not carry it. The evidence is still one session. Until the test is run the framework is a draft and stays unrouted, and it leaves if the test shows no difference or if the official Figma skills come to cover these points.
+
+## Quest Q-70 — content design: the words inside a designed interface are valid
+
+State: Seed.
+
+Origin: the Designer, 2026-11-18, after seeing interface text that is plainly the agent's commentary on the process ("slop") in frames and in a built console. The Designer asked for a skill, and later a full agent, responsible for everything about content in designed interfaces, starting with this one fault.
+
+The resident is `skills/content-design/SKILL.md`, committed 2026-11-19, with three patterns: narrated interface, invented content, and two names for one thing. A first look found eleven narrated strings, several invented sample strings and one word used two ways in frames of five sprints and in the built console, and those were then replaced.
+
+Admission, 2026-11-19:
+
+- Kind: a skill, decided. It runs steps to carry a job to a result (inventory the strings, type each, test against the patterns, offer replacements and stop for the Designer, list again), and it stops at the Designer once. It does not guide a choice, so it is not a framework. Its patterns are a catalogue that could later move into a standard that a project adopts; that waits until a second project has used them.
+- Overlap: `translate` and its UI-microcopy reference set length and tone when copy is translated, which is another job. `checklist-design` reviews a screen against published checklists and comments on what is visible, and it traces no string to a source. `figma-audit` checks layout and variable binding and reads no text. The Figma plugin's skills build frames and do not judge their words. A general UX-writing skill, where a project installs one, gives craft advice on tone and clarity and does not require a type and a source for each string. What this resident does that none of them does is give each string a type and a source, and test for text that has none. If one of those skills comes to do that, this resident points to it.
+- Shape: `skills/content-design/SKILL.md` with a `name`, a `description` and a `metadata` block that declares what the skill takes and hands on, five numbered steps with declared `Step:` lines, four rules with tests, and three patterns each with a definition, a test, what is allowed and a Do and a Don't from one situation. It reads as a valid five-step graph with no warnings. It is indexed in `skills/README.md` and routed from the spine.
+- Client-content scan: clean on the skill and on this quest. No client, engagement, operator path or username appears. The examples come from the Designer's own graph-master console and its sprints, which name a tool and a skill of the Designer's, and no client.
+
+Awaiting: the keep-test from `STRUCTURE.md`, a fresh agent building or reviewing the same frames with and without the skill, and the Designer's decision on whether this stays a skill or becomes the first part of a content agent. The evidence is one body of work, so the skill stays a candidate until the test is run, and it leaves if the test shows no difference.
