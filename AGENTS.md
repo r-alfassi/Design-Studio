@@ -7,7 +7,7 @@ This file says what Design Studio loads and when, for a project that imports it.
 1. Find the project's stated direction, in whatever form it keeps one. If it states none, ask where it is and stop.
 2. Find the Figma file the work happens in. If there is none, offer to start one, from a capture of the running product or from the direction, and do no visual work until the Designer answers. A capture is a baseline and not an approved design. A request to tune visuals directly in the product's code is not Design Studio's work: say so and point to the project's own tools.
 3. Read the project's `DESIGN.md`. If it has none, offer to create one before visual work starts.
-4. Load `standards/stopping-rules.md`. Work freely where nothing is approved, and stop for the Designer before changing anything approved.
+4. Load `standards/stopping-rules.md`.
 
 ## By kind of work
 

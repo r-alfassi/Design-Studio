@@ -138,8 +138,6 @@ Apply in dependency order without asking:
 
 Each fix is a separate `use_figma` call. Screenshot after each one. When all are done, report a brief summary of what was applied (see Report Format → Normal Mode).
 
-In dev mode: gate before applying (single batch authorization).
-
 ### Phase 3b — Judgment fixes (select per finding)
 
 Step: judgment_fixes · kind: owner · takes: a frame with mechanical fixes, classified findings, the designer's choices on judgment findings · hands on: the fixed frame
@@ -208,8 +206,6 @@ Fix: [what will change]
 ```
 
 ### Dev Mode
-
-Full report before any fixes are applied. Gate before Phase 3a.
 
 ```
 ## Structure Audit — [Frame Name]
@@ -317,7 +313,7 @@ Confidence markers are hidden in normal operation. Enable them only when activel
 - Always inspect before touching anything — never skip Phase 1
 - Always classify before fixing — never skip Phase 2
 - **Normal mode:** apply mechanical fixes without a gate; present only Judgment findings as selects
-- **Dev mode:** full report + gate before Phase 3a; confidence markers visible on all findings
+- **Dev mode:** confidence markers visible on all findings
 - Fix mechanical findings in dependency order — wrappers → overflow → auto-layout
 - Screenshot after each fix — catch regressions before moving to the next
 - Judgment selects have exactly three options: Fix / Skip / Mark as intentional — never ask open-ended
