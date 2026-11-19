@@ -21,7 +21,7 @@ This is Design Studio's formalize route. It turns frames into reusable component
 
 1. **Say which side is newer.** Follow `frameworks/which-side-is-newer.md` and tell the Designer the direction. If Figma is the stale side, update it from the code first, and only then formalize. If the component was born in a sprint and is ahead of the code, go on, and give it a design-debt row with its direction at the end.
    Step: side_newer · kind: judgment · takes: the designer's decision to formalize, the project's direction, source frames · hands on: the newer side
-2. **Audit the source frame.** Run `figma-audit` on it and report its findings. Anything a library component owns is reported and never fixed locally. A fix beyond the mechanical ones waits for the Designer.
+2. **Audit the source frame.** Run `figma-audit` on it and report its findings. A fix beyond the mechanical ones waits for the Designer.
    Step: audit_source · kind: judgment · takes: source frames, the newer side · hands on: audit findings
 3. **Extract tokens, read-only.** From the source frames list every color (fills, text and strokes, counted), type style (family, weight, size, letter spacing), spacing and padding value, corner radius, stroke weight and shadow. Separate what sits on a scale from what is off it, and from capture leftovers: fallback fonts, 0.8px strokes from rem conversion, `:margin` paddings, decimal sizes.
    Step: extract_tokens · kind: judgment · takes: source frames, the newer side · hands on: token inventory

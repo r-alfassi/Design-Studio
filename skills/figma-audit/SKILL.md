@@ -263,13 +263,13 @@ Fix: [what will change]
 
 ## Variable-binding check
 
-This is the audit's second job: find the values in a frame that should use a design-system variable and do not. It joins the structure audit as one more set of findings, with the same stop for the Designer's yes before anything is fixed. It never changes a remote library's own components.
+This is the audit's second job: find the values in a frame that should use a design-system variable and do not. It joins the structure audit as one more set of findings, with the same stop for the Designer's yes before anything is fixed.
 
 1. **Read three things at once.** Run in parallel on the target node, or on each top-level child of a section: `get_design_context` for layout, fills, text styles and spacing, `get_variable_defs` for the official token set, and `scripts/figma/audit-bound-variables.js` through `use_figma` with `NODE_ID` set. Do not judge a dimension as unlinked from `get_design_context` alone, because it prints every size as a raw pixel value even when a variable is bound. The script reads `node.boundVariables`, which is the reliable signal.
 2. **Cross-reference.** A value written as a raw number or hex where a token equivalent exists is unlinked. A value with no token equivalent is also unlinked, and is noted separately as off-scale. The same element with different values or link status across breakpoint variants is an auto-layout mismatch. The script skips remote library internals, flags only `FIXED` dimensions, and handles the case where individual corner variables are bound and the `cornerRadius` shorthand reads as a raw number.
 3. **Report in this order, one link per finding.** Group by category, with each finding on one line as the Figma node link, a dash, and what is wrong: unlinked color; unlinked spacing that has a token equivalent; unlinked spacing with none, flagged off-scale; unlinked radius; auto-layout mismatches shown as a pair of links. Use node links of the form `https://www.figma.com/design/[FILE_KEY]/[FILE_NAME]?node-id=[NODE-ID]` with dashes in the node id.
 4. **Stop.** Ask: "These are the remaining issues. Would you like me to fix them?" Fix nothing unless the Designer confirms, and then only the categories they select.
-5. **Scope.** Work only in the current file. Fix in-file loose frames and unbound tokens directly after the yes. For an unbound value or missing token inside a remote library component, report the component, the library and what needs fixing, and do not change it. A local instance of a component under review is acceptable and is noted, not forced.
+5. **Scope.** Work only in the current file. Fix in-file loose frames and unbound tokens directly after the yes. A local instance of a component under review is acceptable and is noted, not forced.
 
 ## Improvement Loop
 
@@ -320,8 +320,6 @@ Confidence markers are hidden in normal operation. Enable them only when activel
 - If a Judgment finding is marked as intentional, note it so future audits don't re-flag it
 - If a fix reveals a new structural issue, stop — re-run `inspect.js` and present as a new Judgment select before continuing
 - Never run Phase 3 fixes directly on an established/production section, page, or frame — clone it first and work on the clone, unless the operator has already isolated a disposable working copy (see Clone-Before-Fix Guardrail); always state which node is the original and which is the clone
-- Never attempt to edit a main component (`COMPONENT`/`COMPONENT_SET`) or an instance backed by a remote/library component — classify as Component-owned and report it instead (see Component Guardrail)
-- If an instance property edit throws an override-restriction error (e.g. `"This property cannot be overridden in an instance"`), do not work around it (detaching the instance, editing a different property to fake the same effect) — reclassify the finding as Component-owned and report it
 - Any node created with `figma.createFrame()` (or `figma.createAutoLayout()`) — e.g. a spacer/wrapper introduced by `no-auto-layout` or restructure fixes — defaults to a solid white fill. Always set `fills = []` on it immediately after creation unless a visible fill is actually wanted; verify with `node.fills` in the same script's return value, not just a screenshot (a white fill over a white/light canvas can pass a visual check unnoticed)
 - Before flagging `hard-pinned-position`, check the node's `constraints` — an ignore-auto-layout child with deliberately set (non-default) constraints is a correctly anchored element, not a defect; only flag it when still on Figma's default `MIN`/`MIN`
 - When a new scenario doesn't cleanly match the taxonomy, or a fix's correctness is uncertain, consult `references/` before guessing — it documents which of this skill's rules are confirmed against Figma's own documentation and which are still open questions
