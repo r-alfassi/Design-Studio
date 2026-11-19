@@ -27,9 +27,13 @@ Carbon, Atlassian and Primer share:
 - **Section header:** a title, one line saying what the section holds, and a
   status (for example provisional, accepted or deprecated) with its date.
 - **Component container:** an eyebrow naming the kind (primitive, atom,
-  assembly), the component name, one line of description, a preview slot for
-  its variants, and a usage line. A Framed switch, on by default, draws its card
-  fill and border, and is turned off when a group already draws the card. It also has two optional slots, one for an
+  assembly), the component name, one line of description, an optional preview
+  slot for its variants, and a usage line. **Show preview slot is off by
+  default**: an empty slot must not add a placeholder box to a documentation
+  card. Turn it on only after the slot holds an intentional, editable preview.
+  Its Framed switch is off by default, so it
+  can sit inside a component group without competing with that group's card;
+  turn it on only when the description needs its own boundary. It also has two optional slots, one for an
   anatomy diagram and one for do and don't pairs, which the Designer chose to
   include.
 - **Callout:** a notice for a standard or an accepted exception that applies to
@@ -48,19 +52,50 @@ type, space, shape and effects, each its own section of token tiles), and
 **Components**, divided into sections by layer, such as atoms, molecules and
 organisms, laid out side by side. Each layer section opens with a section
 header.
-Inside a layer section, each component has its own group, an auto-layout frame
-named for the component. The group is one card: it stacks the component
-container, as the spec card, above the component's own main component or
-component set, and its fill, border and radius come from kit variables, so the
-description and the component read as one piece. Inside the group the spec card
-has its Framed switch turned off, so it draws no fill or border of its own. The
-group's layout direction is a setting. The main component is shown once. The
-container does not repeat its variants, so its preview is left empty and hidden.
+Inside a layer section, each component has its own group: a vertical auto-layout
+frame named for the component. The group is one card, stacking an unframed
+**Component container instance** above the component's own main component or
+component set. The container carries kind, name, description and usage; the
+group's fill, border and radius come from kit variables, so the description and
+source read as one piece. The group defines one specimen-column width: the
+container and the outer bounds of the main component or component set fill that
+same usable width. Variants may keep their natural
+sizes and their own alignment inside the source component; a narrow source is
+not centered merely to occupy empty documentation space. An intrinsic-size
+source, whose outer bounds are part of what its instances consume (for example
+an avatar), keeps its natural bounds and is centered in the specimen column; it
+is the only exception. The main component is shown once.
 A second page that holds the same components is not kept, and neither is a copy
 of a component beside its source, because duplicates compete and drift. A main
 component cannot sit inside a container's slot through the Plugin API, so it
 sits beside the container. The main component is the project's own design and
 not chrome. It passes the check when its name is the name its container shows.
+
+### Variants remain readable
+
+A component set with two or more visible variants uses auto layout inside its
+source. Variants must occupy distinct, non-overlapping positions: lay them out
+horizontally when the library can compare their widths side by side, or
+vertically when their combined width would compromise the page. A component set
+is never left as a `NONE` layout container with variants stacked at `(0, 0)`.
+The documentation group expands or is repositioned to show every intended
+variant; hiding a variant behind another is not a compact presentation.
+
+### Component composition feasibility gate
+
+Before treating a kit container's preview or other slot as a place that can
+compose project components, make a temporary instance and attempt the exact
+kind of child the page will need. Read the result back. A slot that rejects the
+  child, or does not preserve it as an editable child, fails the gate. The slot
+  is optional and hidden until it contains a successful composition; keep the project's main component beside the
+container in the component group. Do not discover this limitation while laying
+out a flow.
+
+For a component intended to assemble screens, name its source and its intended
+states before the source is placed. A component group therefore makes three
+things independently inspectable: the kit documentation, the project's source
+component, and the source's expected use. A source that has no consumer yet is
+allowed, but it is not used as evidence that a flow is component-driven.
 
 The pieces are built on the Components page of the studio's Figma file and the Designer published the library on 2026-10-23. A file imports them by key, and `tools/check-presentation-chrome.js` read the library's variables correctly on a subscribing file. Open: the Template page's sprint-section fill is not yet bound to a kit variable.
 
@@ -89,6 +124,19 @@ Before a page is reviewable, list the nodes that act as chrome and confirm that
 each one is an instance of a kit component or uses kit variables, with no raw
 color, radius or spacing of its own. Re-check after cloning or restructuring a
 page.
+
+When the page presents components, also confirm every component group has one
+unframed Component container and one main component or component set as
+siblings; the displayed source name matches the container name; and any Preview
+slot is visible only after it passes the composition feasibility gate and holds
+an intentional preview. The container
+and source outer bounds must share the group's usable specimen width unless the
+source is an explicitly intrinsic-size source. This is a structure check, not a
+visual approximation.
+
+For a component set, also confirm that every intended variant is visible in its
+source, has a distinct position supplied by auto layout, and can be inspected
+without selecting or moving another variant.
 
 A script produces the list: `tools/check-presentation-chrome.js`. It is read-only.
 For each section on a page it reports every direct child that is not an instance

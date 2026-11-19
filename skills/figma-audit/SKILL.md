@@ -73,6 +73,40 @@ Do not modify anything yet.
 
 Step: classify · kind: judgment · takes: an issue list, a screenshot · hands on: classified findings
 
+### Component provenance check
+
+Run this additional read-only check when a screen is called a component
+assembly, or when reviewing a design-library Components section. It does not
+replace the structural inspection; it proves the claim that the structure is
+actually reusable.
+
+For a component-driven screen, return its dimensions, every instance's name and
+`mainComponent`, the count of linked instances, and the unique font
+family/weight pairs used by text. Compare the results with the declared
+component map. Each named repeated role must resolve to its intended main
+component. Raw frames are allowed only for screen-specific layout or a declared
+intentional overlay; a copied product card, field, shell, or action is a failed
+provenance check. Also compare the font pairs with the project's established
+sources rather than assuming a newly created component inherited them.
+
+An intrinsic-size source whose outer bounds are part of what its instances
+consume is not a narrow-source finding: it keeps its natural bounds and may be
+centered in the specimen column. Confirm that its component description records
+the intrinsic classification before accepting the exception.
+
+For a Components section, return every component group and its direct children.
+Each group passes only when it contains one unframed kit Component container and
+one project main component or component set as siblings, with matching names;
+the container and source share the group's usable specimen width; and a Preview
+slot is used only after the composition feasibility gate passes. A source
+floating beside its documentation container, a narrow source centered beneath a
+wider documentation stage, or an attempted source nested inside a kit instance
+fails this check even if the page looks correct.
+
+Report this separately as **Component provenance**. It is a review gate, not a
+mechanical fix: missing sources, incorrect ownership, or a typography mismatch
+go back to formalization or the screen assembly work.
+
 **Choose the mode first.** Use dev mode when the task is audit-only, meaning the operator asked for a report, a classification, or to stop before fixes. Use normal mode when fixes are wanted. Then match findings against the issue taxonomy. Assign each finding as **Mechanical**, **Judgment**, or **Component-owned** (see taxonomy and Component Guardrail below).
 
 **Normal mode:** Do not produce a full report. Proceed directly to Phase 3a — mechanical fixes run without a gate. Surface only Judgment findings as selects (Phase 3b).

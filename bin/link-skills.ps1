@@ -8,6 +8,7 @@
   Discovery scopes:
     Claude Code  reads  ~/.claude/skills/<name>/SKILL.md
     Codex        reads  ~/.agents/skills/<name>/SKILL.md
+    Claude Code  reads  ~/.claude/agents/design-studio/*.md, from .claude/agents/
 
   A skill package is any immediate subdirectory of skills/ that contains a
   SKILL.md. skill-creator is excluded from the Claude Code scope because the
@@ -98,6 +99,36 @@ foreach ($name in $run) {
         Write-Host "  pruned $($_.Name)"
       }
     }
+  }
+}
+
+# Claude Code also reads agent definitions, and only Claude Code does. A junction
+# needs a directory, so the repo's agents sit in one named folder and the rest of
+# ~/.claude/agents stays free for other sources.
+$agentsRoot = Join-Path $repoRoot '.claude\agents'
+if (($run -contains 'claude-code') -and (Test-Path $agentsRoot)) {
+  $dir  = Join-Path $HOME '.claude\agents'
+  $link = Join-Path $dir 'design-studio'
+  Write-Host "== claude-code agents  ->  $dir"
+
+  if (-not (Test-Path $dir) -and $PSCmdlet.ShouldProcess($dir, 'create directory')) {
+    New-Item -ItemType Directory -Path $dir -Force | Out-Null
+  }
+
+  $cur = Get-Item -LiteralPath $link -ErrorAction SilentlyContinue
+  if (-not $cur) {
+    if ($PSCmdlet.ShouldProcess($link, "create junction -> $agentsRoot")) {
+      New-Item -ItemType Junction -Path $link -Target $agentsRoot | Out-Null
+      Write-Host "  added design-studio"
+    }
+  } elseif ($cur.LinkType -ne 'Junction') {
+    Write-Warning "  skip  design-studio: a real directory/file exists at $link"
+  } elseif ((Get-JunctionTarget $cur) -eq $agentsRoot) {
+    Write-Host "  ok    design-studio"
+  } elseif ($PSCmdlet.ShouldProcess($link, "repoint junction -> $agentsRoot")) {
+    $cur.Delete()
+    New-Item -ItemType Junction -Path $link -Target $agentsRoot | Out-Null
+    Write-Host "  fixed design-studio"
   }
 }
 

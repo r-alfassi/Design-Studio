@@ -97,6 +97,30 @@ alter the shared `space/4` token. If no zero-gap token exists, propose
 `space/0` with `GAP` scope and a scoped implementation syntax; preserve the
 unbound user edit until that proposal is accepted.
 
+### Component-driven flow gate
+
+Apply this gate only when a proposed screen or journey is presented as an
+assembly of formalized components. Before building the first flow card:
+
+1. List each repeated role in the screen — for example shell, navigation,
+   field, row/card, inspector, and action — with its source component and the
+   state or property it needs. A missing source is a named library gap, not
+   permission to substitute a cloned sprint frame.
+2. Build the product screen in a normal project frame from instances. A kit
+   frame-card slot may hold that ordinary frame, but a kit documentation slot
+   may not be assumed to hold a project main component: use the feasibility
+   check in `standards/studio-presentation.md` first.
+3. Before calling the card reviewable, run the component-provenance check in
+   `skills/figma-audit/SKILL.md`. It must show that the named repeated roles
+   resolve to their intended main components. Keep an earlier cloned screen as
+   explicitly labelled reference only, never as a competing current flow.
+4. In the close review, state the product font family and weights found in the
+   assembled screen, and compare them with the established project sources.
+
+This gate does not require a component library for an exploratory proposal. A
+screen that is deliberately raw remains a sprint proposal; it simply must not
+be described as a component assembly.
+
 Do not scan the entire file by default: reconciliation is intentionally scoped
 to avoid noise and to respect unrelated work. Run a deeper system audit before
 production promotion, a component-library handoff, or a material foundations
