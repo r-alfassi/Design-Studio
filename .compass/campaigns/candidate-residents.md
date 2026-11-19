@@ -88,4 +88,16 @@ Admission, 2026-11-19:
 - Shape: `skills/content-design/SKILL.md` with a `name`, a `description` and a `metadata` block that declares what the skill takes and hands on, five numbered steps with declared `Step:` lines, four rules with tests, and three patterns each with a definition, a test, what is allowed and a Do and a Don't from one situation. It reads as a valid five-step graph with no warnings. It is indexed in `skills/README.md` and routed from the spine.
 - Client-content scan: clean on the skill and on this quest. No client, engagement, operator path or username appears. The examples come from the Designer's own graph-master console and its sprints, which name a tool and a skill of the Designer's, and no client.
 
-Awaiting: the keep-test from `STRUCTURE.md`, a fresh agent building or reviewing the same frames with and without the skill, and the Designer's decision on whether this stays a skill or becomes the first part of a content agent. The evidence is one body of work, so the skill stays a candidate until the test is run, and it leaves if the test shows no difference.
+Keep-test, 2026-11-19. Four fresh agents (two with the skill, two without) reviewed the same 24 strings taken from the frames before they were fixed: ten narrated notes, three invented card lines, two uses of a second word for "turn", and nine clean strings and help entries. Each was given the product's fields and glossary and the same task. The scoring key was written before the runs.
+
+| | Without the skill (2 runs) | With the skill (2 runs) |
+|---|---|---|
+| Narrated notes found as narration (of 10) | 0 and 1 | 10 and 9 |
+| Their replacement is a label, value, status or one help entry | no, each keeps a sentence, and one adds a new one | yes, with the source named, and a placeholder where none exists |
+| Invented card lines found (of 3) | 2 and 3 | 3 and 3 |
+| Second word for "turn" found (of 2) | 2 and 2 | 2 and 2 |
+| Clean strings wrongly flagged (of 7) | 0 and 0 | 2 and 0 |
+
+Without the skill, the agents passed most of the narrated notes as correct, and flagged one for a name it did not know or a claim it could not check. With the skill, they flagged nearly all of them as narration and offered a replacement that the data backs. The two later patterns showed no difference here: the agents found the invented lines and the second word without the skill, because the test handed them the product's fields and glossary. Cautions: two of the narrated strings are the skill's own Don't examples, so the skill's score is flattered on them (8 of 8 and 7 of 8 without those two); each arm ran twice; the strings and the key are the same author's. The strings and the four reports are kept in the session scratchpad and not in the repo.
+
+Result: the narrated-interface pattern passes the keep-test. "Invented content" and "Two names for one thing" showed no gain where the agent was given the sources, so they stay as patterns that rest on Rule 3 and Rule 4 and are retested on frames where the fields are not handed over. Awaiting: the Designer's decision on whether the skill is admitted, and whether it stays a skill or becomes the first part of a content agent.
