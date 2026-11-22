@@ -101,3 +101,19 @@ Keep-test, 2026-11-19. Four fresh agents (two with the skill, two without) revie
 Without the skill, the agents passed most of the narrated notes as correct, and flagged one for a name it did not know or a claim it could not check. With the skill, they flagged nearly all of them as narration and offered a replacement that the data backs. The two later patterns showed no difference here: the agents found the invented lines and the second word without the skill, because the test handed them the product's fields and glossary. Cautions: two of the narrated strings are the skill's own Don't examples, so the skill's score is flattered on them (8 of 8 and 7 of 8 without those two); each arm ran twice; the strings and the key are the same author's. The strings and the four reports are kept in the session scratchpad and not in the repo.
 
 Result: the narrated-interface pattern passes the keep-test. "Invented content" and "Two names for one thing" showed no gain where the agent was given the sources, so they stay as patterns that rest on Rule 3 and Rule 4 and are retested on frames where the fields are not handed over. Awaiting: the Designer's decision on whether the skill is admitted, and whether it stays a skill or becomes the first part of a content agent.
+
+## Quest Q-71 — which model reviews a frame
+
+State: Seed.
+
+Origin: found on 2026-11-22, when a usage report listed which models subagents run on; the Designer asked the same day to work on it.
+
+Problem: `frame-reviewer`, the agent that looks at one Figma frame at its real size and returns findings, sets no model, so it runs on the session's own model, Sonnet. Each frame it reviews costs one such session, and the per-frame review graph in `per-frame-review-graph.next.md` would run one for every frame. Nobody has measured whether a cheaper model finds what Sonnet finds. Its work is judging screenshots, so the answer is not obvious. The agent's file sits in `.claude/agents/` and the graph draft sits beside the skills, and neither is committed.
+
+Outcome: `frame-reviewer` names its model, and the choice rests on a comparison.
+
+Done when: the same frames, with defects put back into them, have been reviewed by the agent on each model, and the Designer has decided which model the agent names, on the defects each found and missed.
+
+Relations: the per-frame review graph draft, whose test plan puts defects back into copies of a project's role screens and could serve as the comparison. graph-master's Q-10 uses the same kind of test and asks the same question of a different job, the judging of outputs.
+
+Awaiting: a usage allowance for the comparison, since a full run of reviews reached the five-hour limit on 2026-11-22; the Designer's decision on whether the graph draft is accepted, because the agent's file and the draft are untracked until then.
