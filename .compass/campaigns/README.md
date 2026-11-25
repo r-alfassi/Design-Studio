@@ -10,7 +10,7 @@ This folder is Design Studio's current registry. Read this overview before openi
 ## Next
 
 - `skill-availability.md`: complete workstation-wide in-place skill discovery.
-- `figma-production-loop.md`: complete the first Figma-to-production project pilot.
+- `figma-production-loop.md`: complete the first Figma-to-production project pilot, and bring FigJam diagrams into a design file as live nodes (Q-72, a seed).
 - `legacy-conformance.md`: align legacy meta-skills with the current record model.
 - `image-generation.md`: adopt and reconcile the image-generation workflow.
 - `brand-strategy.md`: exercise the Brand Strategy Foundations framework and decide its first revision.

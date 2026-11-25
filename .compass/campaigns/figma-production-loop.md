@@ -62,3 +62,25 @@ Backlog entries moved here on 2026-10-23, when the sprint skill's `backlog/` fol
 - F-006, alternate the layout axes. Close when a project page with at least two related sprints is arranged as a tinted group section holding stacked sprint sections, and a page-level review confirms the axes and containment. The operating-board part was withdrawn on 2026-10-22.
 - F-007, keep the design apart from the sprint layout. Close when a project page of at least five sprints is arranged this way, with a read-back that every step is a direct child of its sprint section and carries a state label, and the Designer confirms a reader can tell the design from the layout.
 - F-008, list the nodes before any bulk removal. Close when the next bulk change to a project's Figma file shows a listed dry run to the Designer before removing anything, and no node that holds design is removed.
+
+## Quest Q-72 — bring FigJam diagrams into a Figma design file as live nodes
+
+State: Seed.
+
+Initiated: 2026-11-25.
+
+Origin: the Designer, 2026-11-25, while explaining how Compass keeps its record in step. The Designer found that a FigJam section copied and pasted into a Figma design file keeps its shapes and connectors as nodes. The pasted section was checked: the shapes and connectors arrived as separate nodes, with the connector labels. The Designer called it an initiative proposal, not a journal note.
+
+Problem: a diagram drawn from Mermaid lives in FigJam, away from the design file where the sprint's frames are. A design file cannot create connectors or FigJam shapes with the Figma tools, so a diagram cannot be built there directly.
+
+Outcome: a diagram that belongs with a design sits in that design's Figma file as editable nodes and connectors, and the practice for getting it there is written down.
+
+Done when: Open: the Designer says what counts as done. The pasted section is one case.
+
+Relations: touches `skills/figma-sprint/SKILL.md`, where the practice would live, and the Compass console Figma file, which holds the first pasted section.
+
+Tasks:
+
+1. Open: decide whether this is a step in `skills/figma-sprint/SKILL.md`, a skill of its own, or a note in the Figma craft, once the Designer says how often diagrams come up in design work.
+2. Open: find out whether the paste keeps connector attachment, so that moving a shape moves its connectors, and whether the text stays editable. The tools can read the nodes but cannot test dragging.
+3. Write the hand steps, since the agent cannot copy between files: draw in FigJam, select, copy, paste into the design file, then the agent reads the nodes and labels the section.

@@ -68,3 +68,4 @@ Append-only. One line per ID, added when the ID is created; one line appended wh
 - Q-70 · 2026-11-19 · Content design: the words inside a designed interface are valid
 - Q-71 · 2026-11-22 · Which model reviews a frame
 - Q-71 closed 2026-11-22 · dropped on the Designer's word before any work; the commit that adds this line records it
+- Q-72 · 2026-11-25 · Bring FigJam diagrams into a Figma design file as live nodes
