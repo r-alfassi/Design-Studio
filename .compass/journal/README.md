@@ -14,6 +14,7 @@ None.
 
 - [a-diagram-is-checked-by-its-render](a-diagram-is-checked-by-its-render/README.md) — A diagram an agent draws in Figma or FigJam is checked against its render, its size and its neighbours, and not against the tool's reply, so that a placement, layout or connector fault is found before the Designer finds it. · 1 entry · oldest 2026-11-04 · newest 2026-11-04
 - [a-long-sprint-page-stays-readable](a-long-sprint-page-stays-readable/README.md) — A sprint page keeps its direction summary, its rejected branches, its outcome frame and its archive in a layout that holds over many sprints, so that a long page stays readable and nothing rejected is lost. · 1 entry · oldest 2026-10-19 · newest 2026-10-19
+- [seen-in-live-sessions](seen-in-live-sessions/README.md) — What the live mechanism sees and guesses in a session is kept as evidence until the owner confirms it, so that no guess is taken for the owner's intent. · 1 entry · oldest 2026-11-25 · newest 2026-11-25
 - [the-studio-is-tried-before-it-is-trusted](the-studio-is-tried-before-it-is-trusted/README.md) — Design Studio's spine and skills are tried by fresh agents and on a real project, so that what they claim is checked by a run and not by their own text. · 4 entries · oldest 2026-10-22 · newest 2026-11-03
 
 <!-- generated:end -->
